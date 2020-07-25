@@ -1,0 +1,183 @@
+#Home_container{
+    font-family:'Noto Sans TC',Arial,sans-serif;
+    width:100vw;
+    height: 100vh;
+    /* position: relative; */
+    top:0;
+    background-image: linear-gradient(150deg,wheat,white);
+    transition: all 0.5s;
+}
+#Home_book{
+    position: absolute;
+    height: 70vh;
+    width: 57.436vh;
+    opacity: 0;
+    left: calc(50% - 28.718vh);
+    top: calc(40% - 35vh );
+    transition: all 0.5s;
+    animation: opening_anime 2s 2s 1 normal forwards;
+}
+
+#Home_left_hand{
+    position: absolute;
+    height: 25vh;
+    width:31.83vh;
+    opacity: 0;
+    left: calc(33.3% - 9.55vh);
+    top: calc(60% - 12.5vh );
+    transition: all 0.5s;
+    animation: opening_anime 2s 4s 1 normal forwards;
+}
+
+#Home_right_hand{
+    position: absolute;
+    height: 25vh;
+    width: 31.83vh;
+    opacity: 0;
+    right: calc(33.3% - 9.55vh);
+    top: calc(60% - 12.5vh );
+    transition: all 0.5s;
+    animation: opening_anime 2s 0s 1 normal forwards;
+}
+
+#Home_E_pink{
+    position: absolute;
+    height:25vh;
+    width:8.046vh;
+    opacity: 0;
+    left: calc(50% - 4.023vh - 7.5vw);
+    top: calc(35% - 12.5vh);
+    transition: all 0.5s;
+    animation: opening_anime 1s 6s 1 normal forwards;
+
+}
+
+#Home_E_orange{
+    position: absolute;
+    height:25vh;
+    width:8.046vh;
+    opacity: 0;
+    left: calc(50% - 4.023vh - 7.5vw + 8.046vh);
+    top: calc(35% - 12.5vh);
+    transition: all 0.5s;
+    animation: opening_anime 1s 7s 1 normal forwards;
+}
+#Home_S{
+    position: absolute;
+    height:25vh;
+    width:8.046vh;
+    opacity: 0;
+    left: calc(50% - 4.023vh - 7.5vw + (2 * 8.046vh));
+    top: calc(35% - 12.5vh);
+    transition: all 0.5s;
+    animation: opening_anime 1s 8s 1 normal forwards;
+}
+#Home_H{
+    position: absolute;
+    height:25vh;
+    width:8.046vh;
+    opacity: 0;
+    left: calc(50% - 4.023vh - 7.5vw + (3 * 8.046vh));
+    top: calc(35% - 12.5vh);
+    transition: all 0.5s;
+    animation: opening_anime 1s 9s 1 normal forwards;
+}
+#Home_B{
+    position: absolute;
+    height:25vh;
+    width:8.046vh;
+    opacity: 0;
+    left: calc(50% - 4.023vh - 7.5vw + (4 * 8.046vh));
+    top: calc(35% - 12.5vh);
+    transition: all 0.5s;
+    animation: opening_anime 1s 10s 1 normal forwards;
+}
+
+#Home_btns{
+    position: absolute;
+    height:15vh;
+    width: 60vw;
+
+    bottom: calc(15% - 7.5vh);
+    left: calc(50% - 30vw);
+}
+
+#Home_btns button{
+    height:15vh;
+    width: 15vh;
+
+    border-color: transparent;
+    border-radius: 50%;
+    background: white;
+
+    transition: all 0.5s;
+}
+
+#Home_btns button>img {
+    height: 10vh;
+    width: 10vh;
+}
+
+#Home_btns p {
+    margin-top: 1vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    transition: opacity 0.5s;
+    opacity: 0;
+    color: black;
+}
+
+#Home_BuyBook_div{
+    position: absolute;
+    left: 10vw;
+}
+
+#Home_SellBook_div{
+    position: absolute;
+    right: 10vw;
+}
+
+#Home_Rules_div{
+    position: absolute;
+    left: calc(50% - 7.5vh)
+}
+
+.Home_btns_div{
+    transition: all 0.5s;
+}
+.Home_btns_div:hover{
+    transform: scale(1.2);
+}
+.Home_btns_div:hover p{
+    opacity: 1 !important;
+}
+#Home_social_btn{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+}
+
+#Home_social_btn a>button>img{
+    height: 6vh;
+    width: 6vh;
+}
+#Home_social_btn button{
+    height:10vh;
+    width: 10vh;
+
+    border-color: transparent;
+    border-radius: 50%;
+    background: white;
+    margin-right: 1vh;
+    transition: all 0.5s;
+}
+
+@keyframes opening_anime {
+    /* 0%{
+        opacity: 0;
+    } */
+    100%{
+        opacity: 1;
+    }
+}

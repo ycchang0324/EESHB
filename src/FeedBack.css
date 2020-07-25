@@ -1,0 +1,8 @@
+#FeedBack_container{
+    font-family:'Noto Sans TC',Arial,sans-serif;
+    width:calc(100vw - 100px);
+    height: 100vh;
+    /* position: relative; */
+    top:0;
+    background-image: linear-gradient(150deg,wheat,white);
+}

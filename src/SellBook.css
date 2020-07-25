@@ -1,0 +1,135 @@
+li,ul{
+    list-style: none;
+    padding: 0;
+}
+:focus {
+    outline-color: transparent;
+    outline-style: none;
+  }
+#SellBook_container{
+    font-family:'Noto Sans TC',Arial,sans-serif;
+    width: calc(100vw - 100px);
+    height: 100vh;
+    /* background-color: wheat; */
+    background-image: linear-gradient(150deg,wheat,white);
+    
+}
+#SellBook_main_ul{
+    /* height:500px; */
+}
+#SellBook_box{
+    width:50vw;
+    height: 75%;
+    
+    color: whitesmoke;
+    position: absolute;
+    top:calc(50% - 40vh);
+    left:calc(50% - 25vw);
+
+    /* background-image: linear-gradient(30deg,#7BE88A,white); */
+    background-color: #7BE88A;
+    border: 3px #7BE88A solid;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: whitesmoke 3px 2px;
+}
+
+.SellBook_box_input{
+    color: whitesmoke;
+    margin-bottom: -1em;
+    font-size: 18px;
+    /* float: right; */
+    height:2vh;
+    background-color: transparent;
+    border-width:0;
+    /* border-style: dashed; */
+    font-family:'Noto Sans TC',Arial,sans-serif;
+}
+
+.SellBook_box_select{
+    /* float: right; */
+    height:3vh;
+}
+
+#SellBook_box li{
+    font-size: 20px;
+    margin-top: 1vh;
+}
+.separator {
+    height:2px;
+    width: 100%;
+    background: #68B3FF;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all 0.25s linear;
+  }
+
+.SellBook_box_input:focus+.separator{
+    transform: scaleX(1) translateY(-2px);   
+    opacity: 1;
+}
+
+.SellBook_li:focus-within .separator{
+    transform: scaleX(1) translateY(-2px);   
+    opacity: 1;
+}
+
+.SellBook_box_input:hover+.separator{
+    transform: scaleX(1) translateY(-2px);   
+    opacity: 1;
+}
+
+.SellBook_li:hover .separator{
+    transform: scaleX(1) translateY(-2px);   
+    opacity: 1;
+}
+/* .SellBook_box_input:focus + .SellBook_li.separator{
+    transform: scaleX(1) translateY(-2px);   
+    opacity: 1;
+} */
+.SellBook_li > div:first-child{
+    display: inline-block;
+}
+.SellBook_li > div:last-child{
+    float: right;
+    /* display: inline-block; */
+    
+}
+#SellBook_box_others{
+    width:40vw;
+}
+
+#SellBook_submit_btn{
+    /* border-style: none; */
+    font-size: 24px;
+    border:2px black solid;
+    border-radius: 10px;
+    background-color: transparent;
+    color:white;
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    left: calc(50% - 100px);
+    bottom: 2%; 
+    transition: all 0.3s;
+    
+}
+#SellBook_submit_btn:hover{
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+#SellBook_checkbox_li{
+    position: absolute;
+    left:calc(50% - 6.25em);
+    bottom: 10%;
+
+}
+
+#SellBook_checkbox_li input{
+    width:1.5em;
+    height:1.5em;
+}

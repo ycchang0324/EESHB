@@ -1,0 +1,22 @@
+.Select_main_li{
+    list-style: none;
+    /* width:10vw; */
+}
+.Select_main_li ul{
+    width: 780px;
+    color: white;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    position: absolute;
+    left:-999999px;
+    transition: opacity 0.5s;
+    border-radius: 0 5px 10px 10px;
+}
+.Select_main_li:hover ul{
+    opacity: 0.7;
+    left: 0;
+    /* left:1vw; */
+}

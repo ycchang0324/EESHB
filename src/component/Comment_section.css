@@ -1,0 +1,41 @@
+
+
+
+#Comment_section_container{
+    font-family:'Noto Sans TC',Arial,sans-serif;
+    margin-left: calc(50% - 500px);
+    
+}
+#Comment_section_chatroom{
+    width: 1000px;
+    height:650px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#Comment_section_form{
+    margin-top: 10px;
+}
+#Comment_section_textarea{
+    font-family:'Noto Sans TC',Arial,sans-serif;
+    width:900px;
+    height:30px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: transparent;
+    resize: none;
+    font-size: 20px;
+}
+
+#Comment_section_send_icon{
+    height:30px;
+    width:30px;
+    
+}
+
+#Comment_section_submit_btn{
+    margin-left: 50px;
+
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+}

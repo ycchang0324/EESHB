@@ -1,0 +1,51 @@
+
+
+.Comment_comments{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #9CEAFF;
+    max-width: 50%;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 5px;
+
+    
+    float: right;
+    clear: both;
+}
+
+.Comment_comments p{
+    /* margin-left: 5px;
+    margin-right: 5px; */
+    margin: 5px;
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.Comment_replies{
+    
+    background-color: rgb(143,170,220);
+    max-width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: left;
+    margin-right: 5px;
+
+    float: left;
+    clear: both;
+    
+}
+
+.Comment_replies p{
+    margin: 5px;
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Comment_time{
+    background-color: transparent;
+    font-size: 12px;
+}
