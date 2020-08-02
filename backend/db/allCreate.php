@@ -206,12 +206,12 @@ $conn->close();
 $conn = connection();
 
 $sql = "INSERT INTO email (account, password)
-VALUES ('ntueeshb@gmail.com', 'eeshb123rd')";
+VALUES ('XXXXXX', 'XXXXXX')";
 
 $conn->query($sql);
 
 $sql = "INSERT INTO login (account, password)
-VALUES ('eeshb', 'ntuee123rd')";
+VALUES ('XXXXXX', 'XXXXXXX')";
 
 $conn->query($sql);
 

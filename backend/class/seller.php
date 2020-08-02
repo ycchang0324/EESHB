@@ -47,6 +47,7 @@ class Seller {
     function store(){
         //與資料庫連線，$conn為資料庫執行的變數
         $conn = connection();
+        
        
         //判斷賣家是否已出現在Seller資料表中，若從來沒出現在資料表中，先插入一筆定單至bookorder資料表中，再插入一筆賣家資料至seller資料表中
         if( $this->isNew() == 1 ){
