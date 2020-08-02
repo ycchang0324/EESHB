@@ -37,8 +37,7 @@ $price    = trimmedData( $data -> price );
 $fee      = trimmedData( $data -> fee );
 $others   = trimmedData( $data -> others );
 
-//echo json_encode(["success" => 1,"msg"=>"$stdId"]);
-
+$stdId = strtolower($stdId);
 //創造一個$seller的物件
 $seller = new Seller($name, $stdId, $category, $subject,$price, 200 ,$others);
 
