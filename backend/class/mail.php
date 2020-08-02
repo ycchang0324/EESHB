@@ -20,6 +20,7 @@ class Mailer
     private $name;
     private $subject;
     private $price;
+    
 
     
     //建構子，其中包含寄信的一些基本設定。
@@ -117,12 +118,13 @@ class Mailer
 	}
     
     //賣家要寄信前，先呼叫這個函式，將基本資料assign進成員變數中
-    public function sellerSetMail( $_stdId, $_name, $_subject, $_price ){
+    public function sellerSetMail( $_stdId, $_name, $_subject, $_price, $_fee ){
         
         $this -> stdId = $_stdId;
         $this -> name = $_name;
         $this -> subject = $_subject;
         $this -> price = $_price;
+        $this -> fee = $_fee;
     }
     
     //非常重要!!當在迴圈中要寄給很多不同收信人各自的信件時，每次都要先呼叫這個函式去除上一位收件人的信箱，否則第一個人會收到所有人的信件
@@ -150,7 +152,7 @@ class Mailer
         
         
         $body = $this->name .'先生/小姐您好，感謝您賣出' . $this->subject . '的書，為' . $this->price . '元';
-        $body .= "<br>" . "請您於9/10(四)、9/11(五)中午12:30-13:10將書籍和 " . $this->fee . "元手續費代誌博理館B1系K";
+        $body .= "<br>" . "請您於9/10(四)、9/11(五)中午12:30-13:10將書籍和 " . $this->fee . "元手續費至博理館B1系K";
         $this -> addBody( $body );
         
         

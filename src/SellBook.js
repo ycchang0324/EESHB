@@ -129,7 +129,7 @@ class SellBook extends Component {
                     <span className="separator"></span>
                     </div>
                     <div>
-                    <input className="SellBook_box_input" type="text" id="stdId" name="stuid"  maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:b08900000"/>
+                    <input className="SellBook_box_input" type="text" id="stdId" name="stdId"  maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:b08900000"/>
                     <span className="separator"></span>
                     </div>
                 </li>
