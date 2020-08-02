@@ -150,106 +150,135 @@ class Mailer
         
         
         $body = $this->name .'先生/小姐您好，感謝您賣出' . $this->subject . '的書，為' . $this->price . '元';
-        $body .= "<br>" , "請您於9/10(四)、9/11(五)中午12:30-13:10將書籍和 " . $this->fee . "元手續費代誌博理館B1系K" 
+        $body .= "<br>" . "請您於9/10(四)、9/11(五)中午12:30-13:10將書籍和 " . $this->fee . "元手續費代誌博理館B1系K";
         $this -> addBody( $body );
         
         
         $this -> sendMail();
     }
     
-    public function sendMailReceive(){
-        
+
+    
+    public function sendMailReceiveResult(){
         $this->setUser();
         
-        $this->addRecipient($this->stdId . '@ntu.edu.tw', $this->name);
-    
-        $body = $this->name .'先生/小姐您好，已收到' . $this->subject . '的書，為' . $this->price . '元';
-        $this -> addBody( $body );
-        
-        
-        $this -> sendMail();
-    }
-    
-    public function sendMailNotReceive(){
-        $this->setUser();
         
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
         $result = $conn->query($sql);
-        //echo $result->num_rows . "\n";
+        
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
                 $stdId = $row["stdId"];
                 $name = $row["name"];
                 
                 
+            
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒收到書'";
+                $body = $name . "先生/小姐您好，以下是交書結果：" . "<br>";
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
                 $result = $conn->query($sql);
+             
                 
                 if ($result->num_rows > 0) {
-                  // output data of each row
-                    $body = $name . "先生/小姐您好，很抱歉沒有收到以下書籍：" . "<br>";
+                    $body = $body . "已收到您的以下書籍：" . "<br>";
                     
                     while($row = $result->fetch_assoc()) 
                         $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                }
+                
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未收到書'";
+                $result = $conn->query($sql);
+                
+                
+                if ($result->num_rows > 0) {
+                  // output data of each row
+                    $body = $body . "很抱歉沒有收到以下書籍：" . "<br>";
+                    
+                    while($row = $result->fetch_assoc()) 
+                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    
+                    
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
                    
-                    $this -> addBody( $body );
-                    $this -> sendMail();
-                }                
+                   
+                }
+                
+                
+                 
+                 $this -> addBody( $body );
+                 $this -> sendMail();
+                 $this -> removeAllRecipient();
+                
             }   
         }
     }
     
-    public function sendSellingResult(){
+    public function sendMailSellingResult(){
         $this->setUser();
+        
         
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
         $result = $conn->query($sql);
-        //echo $result->num_rows . "\n";
+        
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
                 $stdId = $row["stdId"];
                 $name = $row["name"];
                 
+                
+            
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND (state = '已賣出' or state = '沒賣出')";
+                $body = $name . "先生/小姐您好，以下是您的賣書結果：" . "<br>";
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已賣出'";
                 $result = $conn->query($sql);
+             
+                
+                if ($result->num_rows > 0) {
+                    $body = $body . "已賣書的書籍：" . "<br>";
+                    
+                    while($row = $result->fetch_assoc()) 
+                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                }
+                
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
+                $result = $conn->query($sql);
+                
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
-                    $body = $name . "先生/小姐您好，以下是您的賣書結果：" . "<br>";
+                    $body = $body . "沒賣出的書籍：" . "<br>";
                     
-                    $body .= "已賣出的書：" . "<br>";
-                    $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已賣出' ";
-                    $result = $conn->query($sql);
-                    
-                    while(($row = $result->fetch_assoc()) && $row["state"] == '已賣出') 
+                    while($row = $result->fetch_assoc()) 
                         $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
                     
                     
-                    $body .= "沒賣出的書：" . "<br>";
-                    $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒賣出' ";
-                    $result = $conn->query($sql);
-                    while(($row = $result->fetch_assoc()) && $row["state"] == '沒賣出') 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
-                    
-                    
-                    
-                    $body = $body . "請在XX月XX日至指定地點領錢及退書"; 
-                    
-                    echo $body . "\n";
-                    $this -> addBody( $body );
-                    $this -> sendMail();
-                }                
+                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                   
+                   
+                }
+                
+                
+                 
+                 $this -> addBody( $body );
+                 $this -> sendMail();
+                 $this -> removeAllRecipient();
+                
             }   
         }
     }
-    
+    /*
     public function sendMailGivenBack(){
         $this->setUser();
         
@@ -293,6 +322,69 @@ class Mailer
                     $this -> addBody( $body );
                     $this -> sendMail();
                 }                
+            }   
+        }
+        */
+    
+        
+        public function sendMailGivenBackResult(){
+        $this->setUser();
+        
+        
+        $conn = connection();
+        $sql = "SELECT stdId, name FROM seller";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()) {
+                $stdId = $row["stdId"];
+                $name = $row["name"];
+                
+                
+            
+                $this->addRecipient($stdId . '@ntu.edu.tw', $name);
+                
+                $body = $name . "先生/小姐您好，以下是您的領錢及退書結果：" . "<br>";
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢及退書'";
+                $result = $conn->query($sql);
+             
+                
+                if ($result->num_rows > 0) {
+                    $body = $body . "已領錢及退書的書籍：" . "<br>";
+                    
+                    while($row = $result->fetch_assoc()) 
+                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                }
+                
+                
+                
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND (state = '已賣出' or state = '未賣出)'";
+                $result = $conn->query($sql);
+                
+                
+                if ($result->num_rows > 0) {
+                  // output data of each row
+                    $body = $body . "未領錢及退書的書籍：" . "<br>";
+                    
+                    while($row = $result->fetch_assoc()) 
+                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    
+                    
+                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body . "補領時間請關注電機二手書臉書粉絲專頁"; 
+                
+                   
+                }
+                
+                
+                $body = $body . "感謝您的熱情參與";
+                 
+                 $this -> addBody( $body );
+                 $this -> sendMail();
+                 $this -> removeAllRecipient();
+                
             }   
         }
     }

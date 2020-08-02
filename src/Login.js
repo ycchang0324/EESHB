@@ -34,7 +34,7 @@ const Login = (props) =>{
 	}
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:100/backEnd/login.php",
+        axios.post("http://localhost:100/backend/login.php",
         {
             "account":username,
             "password":password

@@ -23,6 +23,6 @@ $data = json_decode(file_get_contents("php://input"));
 $mailer = new Mailer();
 
 //呼叫函式，以獲取編號相對的訂單
-$mailer->sendMailReceiveResult();
+$mailer->receiveResult();
 
 ?>
