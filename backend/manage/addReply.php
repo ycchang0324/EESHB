@@ -20,8 +20,8 @@ $data = json_decode(file_get_contents("php://input"));
 $id = $data -> id;
 $reply = $data -> reply;
 
-$id = 3;
-$reply = "很棒棒";
+//$id = 3;
+//$reply = "很棒棒";
 //要求所有feedback裡的資料
 $sql = "UPDATE feedback SET reply = '$reply' WHERE id = '$id'";
 
