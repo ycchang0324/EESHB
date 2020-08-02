@@ -39,6 +39,7 @@ class Seller {
             if($row["stdId"] == $this->stdId)
                 return 0;
         }
+        
         return 1;
     }
     
