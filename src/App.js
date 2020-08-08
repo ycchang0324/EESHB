@@ -3,11 +3,11 @@ import './App.css';
 import {Route,Redirect} from 'react-router-dom';
 import NavBar from './component/NavBar';
 // import Home from './Home';
-import Login from './Login';
-import SellBook from './SellBook';
-import BuyBook from './BuyBook';
-import FeedBack from './FeedBack';
-import FillSuccess from './FillSuccess';
+import Login from './#Login';
+import SellBook from './#SellBook';
+import BuyBook from './#BuyBook';
+import FeedBack from './#FeedBack';
+import FillSuccess from './#FillSuccess';
 // import Manage from './Manage';
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
