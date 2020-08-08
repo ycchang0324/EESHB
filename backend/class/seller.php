@@ -22,7 +22,7 @@ class Seller {
         $this->category = $_category;
         $this->subject = $_subject;
         $this->price = $_price;
-        $this->state = '尚未收到書';
+        $this->state = '未收到書';
         $this->fee = $_fee;
         $this->others = $_others;
 
@@ -39,6 +39,7 @@ class Seller {
             if($row["stdId"] == $this->stdId)
                 return 0;
         }
+        
         return 1;
     }
     
@@ -46,6 +47,7 @@ class Seller {
     function store(){
         //與資料庫連線，$conn為資料庫執行的變數
         $conn = connection();
+        
        
         //判斷賣家是否已出現在Seller資料表中，若從來沒出現在資料表中，先插入一筆定單至bookorder資料表中，再插入一筆賣家資料至seller資料表中
         if( $this->isNew() == 1 ){
@@ -69,26 +71,30 @@ class Seller {
             } 
             
             //要求插入seller資料
-            $sql = "INSERT INTO seller(stdId, name, bookNum)
-            VALUES ('$this->stdId',
+            
+            if(!($this->stdId == null)){
+                $sql = "INSERT INTO seller(stdId, name, bookNum)
+                VALUES ('$this->stdId',
                     '$this->name',
                     1
                     )";
             
-            //若插入成功，則寄送信件給賣家
-            if ($conn->query($sql) === TRUE) {
-                
-                
-                
-                $mailer = new Mailer;
-                $mailer -> sellerSetMail( $this->stdId, $this->name, $this->subject, $this->price );
-                $mailer -> sendMailForm();
-                
-                
-            } else {
-              $msg = "Error: " . $sql . "<br>" . $conn->error;
-              echo json_encode(["success" => 0,"msg"=>$msg]);
-            } 
+                //若插入成功，則寄送信件給賣家
+                if ($conn->query($sql) === TRUE) {
+
+
+
+                    $mailer = new Mailer;
+                    $mailer -> sellerSetMail( $this->stdId, $this->name, $this->subject, $this->price , $this->fee);
+                    $mailer -> sendMailForm();
+
+
+                } else {
+                  $msg = "Error: " . $sql . "<br>" . $conn->error;
+                  echo json_encode(["success" => 0,"msg"=>$msg]);
+                } 
+            }
+            
         }
         //若賣家不是第一次賣書，則取出$bookNum之值
         else{

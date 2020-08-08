@@ -3,6 +3,7 @@ require 'db_connection.php';
 $conn = connection();
 
 $sql = "CREATE TABLE seller (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 stdId VARCHAR(9) NOT NULL,
 name VARCHAR(30) NOT NULL,
 bookNum INT(2) NOT NULL,

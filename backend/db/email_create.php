@@ -3,7 +3,7 @@ require 'db_connection.php';
 $conn = connection();
 
 $sql = "CREATE TABLE email (
-
+id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 account VARCHAR(30) NOT NULL,
 password VARCHAR(30) NOT NULL
 )";

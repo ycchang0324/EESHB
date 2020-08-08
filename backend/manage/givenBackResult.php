@@ -11,7 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../db/db_connection.php';
 
 //使用Manage類別
-require '../class/mail.php';
+require '../class/manage.php';
 
 //$data接收POST過來的函式
 $data = json_decode(file_get_contents("php://input"));
@@ -20,9 +20,9 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 //創建$manager物件
-$mailer = new Mailer();
+$manager = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$mailer->sendMailReceiveResult();
+$manager->notGivenBack();
 
 ?>

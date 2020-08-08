@@ -11,17 +11,18 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../db/db_connection.php';
 
 //使用Manage類別
-require '../class/mailer.php';
+require '../class/mail.php';
 
 //$data接收POST過來的函式
 $data = json_decode(file_get_contents("php://input"));
 
+//將POST過來的變數assign進php中的$stdId變數
 
 
-//創建$mailer物件
+//創建$manager物件
 $mailer = new Mailer();
 
-//呼叫函式，以獲取學號下的全部訂單
-$mailer -> sendSellingResult();
+//呼叫函式，以獲取編號相對的訂單
+$mailer->sendMailSellingResult();
 
 ?>
