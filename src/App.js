@@ -38,7 +38,7 @@ const App = () => {
                 <NavBar />
                 <div id="App_container">
                     {/* <Route path="/Home" component={Home}/> */}
-                    <Route path=/SellBook" component={SellBook}/>
+                    <Route path="/SellBook" component={SellBook}/>
                     <Route path="/BuyBook" component={BuyBook} />
                     {/* <Route path="/Login" component={Login}/> */}
                     <Route path="/Login" render={(props) => <Login {...props}></Login>} />
