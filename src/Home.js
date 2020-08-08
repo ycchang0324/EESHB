@@ -26,6 +26,7 @@ const Home = () =>{
         }
     }
     return(
+	    
         <div id="Home_container" onClick={skipAnime}>
             <img src={book} alt="book" id="Home_book" className="Home_anime"></img>
             <img src={left_hand} alt="left-hand" id="Home_left_hand" className="Home_anime"></img>
@@ -70,6 +71,7 @@ const Home = () =>{
             </div>
         
         </div>
+ 
     )
 }
 export default Home;
