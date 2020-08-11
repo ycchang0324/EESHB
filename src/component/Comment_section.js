@@ -44,7 +44,7 @@ const Comment_section = (props) => {
         })
     }
     const renderComments = () => {
-        axios.post('http://localhost:100/backend/showFeedback.php',{})
+        axios.post('https://book.ntuee.org/backend/showFeedback.php',{})
             .then(function (data) {
                 if(data.data.success===1){
                     console.log(data.data)
