@@ -54,13 +54,13 @@ class SellBook extends Component {
         
         event.preventDefault();
         event.persist();
-        Axios.post('http://localhost:100/backEnd/captcha/checkcode.php',
+        Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
         {"captcha":this.state.captcha}).then(
             function(data){
                 console.log(data);
             }
         )
-        Axios.post('http://localhost:100/backEnd/backEndSeller.php', 
+        Axios.post('https://book.ntuee.org/backend/backEndSeller.php', 
             this.state.data
             
         )
@@ -92,7 +92,7 @@ class SellBook extends Component {
     }
 
     refresh_code = (e) => {
-        e.target.src = "http://localhost:100/backEnd/captcha/captcha.php"
+        e.target.src = "https://book.ntuee.org/backend/captcha/captcha.php"
     }
     // componentDidUpdate(){
     //     console.log(
@@ -202,7 +202,7 @@ class SellBook extends Component {
                     <span class="separator"></span>
                     </div>
                     <div>
-                        <img src="http://localhost:100/backEnd/captcha/captcha.php" alt="captcha" onClick={this.refresh_code}/>
+                                    <img src="https://book.ntuee.org/backend/captcha/captcha.php" alt="captcha" onClick={this.refresh_code}/>
                         <span class="separator"></span>
                         <p style={{fontSize:"16px"}}>看不清楚? 點擊圖片換下一張</p>
                     </div> 

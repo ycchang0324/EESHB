@@ -57,7 +57,7 @@ const BuyBook = () =>{
         }
     }
      useEffect(() => {
-         axios.post('http://localhost:100/backEnd/buyBookPage.php',{})
+         axios.post('https://book.ntuee.org/backend/buyBookPage.php',{})
              .then(function (data) {
                  console.log(subject)
                  console.log(data.data)
