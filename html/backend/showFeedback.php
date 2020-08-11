@@ -11,6 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require './db/db_connection.php';
 
 
+
 // $conn為處理資料庫的變數
 $conn = connection();
 mysqli_query($conn,"SET NAMES 'utf8mb4'");

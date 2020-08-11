@@ -3,7 +3,7 @@
 require 'db_connection.php';
 
 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
 $password = "root";
 
@@ -202,7 +202,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
-
+/*
 $conn = connection();
 
 $sql = "INSERT INTO email (account, password)
@@ -214,6 +214,6 @@ $sql = "INSERT INTO login (account, password)
 VALUES ('XXXXXX', 'XXXXXXX')";
 
 $conn->query($sql);
-
+*/
 
 ?>
