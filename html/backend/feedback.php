@@ -28,6 +28,8 @@ function trimmedData($data) {
 //$comment為刪減過的回饋
 $comment = trimmedData( $data -> comment );
 
+$comment = 'hihihi';
+
 //如果$comment非空且有被設定，才能INSERT進資料庫
 if( !empty($comment) && isset($comment ) ){
 
