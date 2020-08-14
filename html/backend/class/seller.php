@@ -113,23 +113,26 @@ class Seller {
                 $conn->query($sql); 
                 
                 
-                
                  $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, others)
-                VALUES ('$this->name',
-                        '$this->stdId', 
-                        '$this->category', 
-                        '$this->subject', 
-                        '$this->price', 
-                        '$this->fee', 
-                        '$this->state',
-                        '$this->others'
-                        )";
+            VALUES ('$this->name',
+                    '$this->stdId', 
+                    '$this->category', 
+                    '$this->subject', 
+                    '$this->price', 
+                    '$this->fee', 
+                    '$this->state',
+                    '$this->others'
+                    )";
+                
 
-                    $mailer = new Mailer;
-                    $mailer -> sellerSetMail( $this->stdId, $this->name, $this->subject, $this->price );
-                    $mailer -> sendMailForm();
+                    
                 
                 if ($conn->query($sql) === TRUE) {
+                    
+                    $mailer = new Mailer;
+                    $mailer -> sellerSetMail( $this->stdId, $this->name, $this->subject, $this->price,$this->fee );
+                    $mailer -> sendMailForm();
+                    
                     echo json_encode(["success" => 1,"msg"=>"success insert order"]);
                 } else {
                     $msg = "Error: " . $sql . "<br>" . $conn->error;
