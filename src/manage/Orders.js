@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './Orders.css';
 import OrderStatusBar from '../component/OrderStatusBar'
 import Scrollbars from "react-custom-scrollbars";
+import Axios from 'axios';
 
 const test_data ={
     
@@ -48,12 +49,26 @@ class Orders extends Component {
 
     handleSearchStdId = (e) => {
         e.preventDefault();
+        Axios.post("http://localhost:100/manage/getBookOrderStdId.php",
+        {
+            stdId:this.state.stdId
+        }).then((data)=>{
+
         //TODO
+
+        }).catch(err => console.log(err))
     }
 
     handleSearchid = (e) => {
         e.preventDefault();
+        Axios.post("http://localhost:100/manage/getBookOrderBookId.php",
+        {
+            stdId:this.state.id
+        }).then((data)=>{
+
         //TODO
+
+        }).catch(err => console.log(err))
     }
 
     renderStatusBar = (data) => {
@@ -64,6 +79,7 @@ class Orders extends Component {
 
     sendMail_received = (e) => {
         //TODO
+        Axios.post("http://localhost:100/mail/sendMailReceiveResult.php")
     }
 
     sendMail_result = (e) => {
@@ -86,6 +102,7 @@ class Orders extends Component {
         //TODO
     }
 
+    
     render() {
         let test_list = []
         for (let i=0 ; i<100 ; i++){
@@ -110,26 +127,26 @@ class Orders extends Component {
                     <div className="form-group row text-center">
                     <label for="stdId"  className="col-3">Student ID</label>
                     <input type="text" class="form-control col-6" name="stdId" onChange={this.handleInputChange}/>
-                    <button className="btn btn-primary ml-3">Search</button>
+                    <button className="btn btn-primary ml-3" onClick={this.handleSearchStdId}>Search</button>
                     </div>
                     <div className="w-100"></div>
                     <div className="form-group row text-center">
                     <label for="id" className="col-3">Order's ID</label>
                     <input type="text" class="form-control col-6" name="id" onChange={this.handleInputChange}/>
-                    <button className="btn btn-primary ml-3">Search</button>
+                    <button className="btn btn-primary ml-3" onClick={this.handleSearchid}>Search</button>
                     </div>
                 </form>
                 <Scrollbars renderThumbVertical={renderThumb} style={{height:"50vh"}} className="mt-5 ">
                 <table id="Orders_table" className="table container table-responsive-sm col-xl-10 col-md-11 table-hover">
                     <thead className="thead-light">
                         <tr>
-                            <td>id</td>
-                            <td>name</td>
-                            <td>stdId</td>
-                            <td>category</td>
-                            <td>subject</td>
-                            <td>price</td>
-                            <td>status</td>
+                            <td>ID</td>
+                            <td>姓名</td>
+                            <td>學號</td>
+                            <td>年級必選修</td>
+                            <td>科目</td>
+                            <td>價錢</td>
+                            <td>狀態</td>
                         </tr>
                     </thead>
                     

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios'
 
 const Reply_Card = (props) => {
     const [reply, setReply] = useState("");
@@ -11,6 +12,14 @@ const Reply_Card = (props) => {
 
     const handleSubmit = (e) => {
         //TODO
+        axios.post("http://localhost:100/backend/manage/addReply.php",
+        {reply:reply,
+         id: props.id
+        }).then((data)=>{
+            console.log(data)
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
     return(
         <div className="card col-md-4 col-lg-4 col-xl-3 rounded-lg " id={"Reply_Card_"+props.index}>

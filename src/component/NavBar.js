@@ -1,12 +1,13 @@
-import React from 'react';
-import './NavBar.css';
-import {Link} from 'react-router-dom'
-import BuyBook_icon from '../image/BuyBook_icon.png';
-import SellBook_icon from '../image/SellBook_icon.png';
-import feedback_icon from '../image/feedback_icon.png';
-import Login_icon from '../image/Login_icon.png';
-import logo from '../image/logo.png';
-const NavBar = () =>{
+import React from "react"
+import "./NavBar.css"
+import {Link} from "react-router-dom"
+import BuyBook_icon from "../image/BuyBook_icon.png"
+import SellBook_icon from "../image/SellBook_icon.png"
+import feedback_icon from "../image/feedback_icon.png"
+import Login_icon from "../image/Login_icon.png"
+import logo from "../image/logo.png"
+const NavBar = () =>
+{
     return(
         <div id="NavBar_container">
             <ul className="NavBar_ul">
@@ -45,4 +46,4 @@ const NavBar = () =>{
     )
 }
 
-export default NavBar;
+export default NavBar

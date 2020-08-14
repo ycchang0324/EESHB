@@ -1,110 +1,155 @@
+@import url(./component/style/global_var.css);
+:root{
+    --anime-width: 100vw;
+    --anime-height: 100vh;
+    --size-adjust: 1;
+}
+
 #Home_container{
-    font-family:'Noto Sans TC',Arial,sans-serif;
+    
     width:100vw;
     height: 100vh;
-    /* position: relative; */
-    top:0;
-    background-image: linear-gradient(150deg,wheat,white);
+
+    background-image: var(--bg-image);
+
+    font-family:var(--primary-font);
+
     transition: all 0.5s;
 }
+
+#Home_anime_container{
+    position: relative;
+
+    width: calc(var(--anime-width) * var(--size-adjust)) ;
+    height: calc(var(--anime-height) * var(--size-adjust));
+}
+
 #Home_book{
     position: absolute;
-    height: 70vh;
-    width: 57.436vh;
-    opacity: 0;
-    left: calc(50% - 28.718vh);
-    top: calc(40% - 35vh );
+    top: calc(50% - var(--size-adjust) * 234px /2);
+    left: calc(50% - var(--size-adjust) * 192px / 2);
+
+    height: calc(var(--size-adjust) * 234px);
+    width: calc(var(--size-adjust) * 192px);
+
     transition: all 0.5s;
     animation: opening_anime 2s 2s 1 normal forwards;
+
+    opacity: 0;
 }
 
 #Home_left_hand{
     position: absolute;
-    height: 25vh;
-    width:31.83vh;
-    opacity: 0;
-    left: calc(33.3% - 9.55vh);
-    top: calc(60% - 12.5vh );
+
+    height: calc(var(--size-adjust) * 84px);
+    width:calc(var(--size-adjust) * 107px);
+
+    left: calc(10px * var(--size-adjust));
+    top: calc(180px * var(--size-adjust));
+    
     transition: all 0.5s;
+
     animation: opening_anime 2s 4s 1 normal forwards;
+
+    opacity: 0;
 }
 
 #Home_right_hand{
     position: absolute;
-    height: 25vh;
-    width: 31.83vh;
-    opacity: 0;
-    right: calc(33.3% - 9.55vh);
-    top: calc(60% - 12.5vh );
+
+    height: calc(var(--size-adjust) * 84px);
+    width:calc(var(--size-adjust) * 107px);
+    
+    right: calc(10px * var(--size-adjust));
+    top: calc(180px * var(--size-adjust));
     transition: all 0.5s;
     animation: opening_anime 2s 0s 1 normal forwards;
+
+    opacity: 0;
 }
 
 #Home_E_pink{
     position: absolute;
-    height:25vh;
-    width:8.046vh;
-    opacity: 0;
-    left: calc(50% - 4.023vh - 7.5vw);
-    top: calc(35% - 12.5vh);
+
+    height:calc(var(--size-adjust) * 88px);
+    width:calc(var(--size-adjust) * 29px);
+    
+    left: calc(var(--left-interval) * var(--size-adjust));
+    top: calc(100px * var(--size-adjust));
+
     transition: all 0.5s;
+
     animation: opening_anime 1s 6s 1 normal forwards;
+
+    opacity: 0;
 
 }
 
 #Home_E_orange{
     position: absolute;
-    height:25vh;
-    width:8.046vh;
-    opacity: 0;
-    left: calc(50% - 4.023vh - 7.5vw + 8.046vh);
-    top: calc(35% - 12.5vh);
+
+    height:calc(var(--size-adjust) * 88px);
+    width:calc(var(--size-adjust) * 29px);
+
+    left: calc(((var(--left-interval) + 29px + var(--alpha-interval)) * var(--size-adjust)));
+    top: calc(100px * var(--size-adjust));
+
     transition: all 0.5s;
+
     animation: opening_anime 1s 7s 1 normal forwards;
+
+    opacity: 0;
 }
 #Home_S{
     position: absolute;
-    height:25vh;
-    width:8.046vh;
-    opacity: 0;
-    left: calc(50% - 4.023vh - 7.5vw + (2 * 8.046vh));
-    top: calc(35% - 12.5vh);
+
+    height:calc(var(--size-adjust) * 88px);
+    width:calc(var(--size-adjust) * 29px);
+    
+    left: calc(((var(--left-interval) + 2 * 29px + 2 * var(--alpha-interval)) * var(--size-adjust)));
+    top: calc(100px * var(--size-adjust));
+
     transition: all 0.5s;
+
     animation: opening_anime 1s 8s 1 normal forwards;
+
+    opacity: 0;
 }
 #Home_H{
     position: absolute;
-    height:25vh;
-    width:8.046vh;
-    opacity: 0;
-    left: calc(50% - 4.023vh - 7.5vw + (3 * 8.046vh));
-    top: calc(35% - 12.5vh);
+
+    height:calc(var(--size-adjust) * 88px);
+    width:calc(var(--size-adjust) * 29px);
+    
+    left: calc(((var(--left-interval) + 3 * 29px + 3 * var(--alpha-interval)) * var(--size-adjust)));
+    top: calc(100px * var(--size-adjust));
+    
     transition: all 0.5s;
+
     animation: opening_anime 1s 9s 1 normal forwards;
+
+    opacity: 0;
 }
 #Home_B{
     position: absolute;
-    height:25vh;
-    width:8.046vh;
-    opacity: 0;
-    left: calc(50% - 4.023vh - 7.5vw + (4 * 8.046vh));
-    top: calc(35% - 12.5vh);
+
+    height:calc(var(--size-adjust) * 88px);
+    width:calc(var(--size-adjust) * 29px);
+
+    left: calc(((var(--left-interval) + 4 * 29px + 4 * var(--alpha-interval)) * var(--size-adjust)));
+    top: calc(100px * var(--size-adjust));
+
     transition: all 0.5s;
+
     animation: opening_anime 1s 10s 1 normal forwards;
+
+    opacity: 0;
 }
 
-#Home_btns{
-    position: absolute;
-    height:15vh;
-    width: 60vw;
-
-    bottom: calc(15% - 7.5vh);
-    left: calc(50% - 30vw);
-}
 
 #Home_btns button{
-    height:15vh;
-    width: 15vh;
+    height:calc((var(--size-adjust) - 0.8) * 5rem);
+    width: calc((var(--size-adjust) - 0.8) * 5rem);
 
     border-color: transparent;
     border-radius: 50%;
@@ -114,49 +159,30 @@
 }
 
 #Home_btns button>img {
-    height: 10vh;
-    width: 10vh;
+    height: calc((var(--size-adjust) - 0.8) * 3rem);
+    width: calc((var(--size-adjust) - 0.8) * 3rem);
 }
 
 #Home_btns p {
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    /* font-size: 20px; */
     transition: opacity 0.5s;
     opacity: 0;
     color: black;
-}
-
-#Home_BuyBook_div{
-    position: absolute;
-    left: 10vw;
-}
-
-#Home_SellBook_div{
-    position: absolute;
-    right: 10vw;
-}
-
-#Home_Rules_div{
-    position: absolute;
-    left: calc(50% - 7.5vh)
 }
 
 .Home_btns_div{
     transition: all 0.5s;
 }
 .Home_btns_div:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .Home_btns_div:hover p{
     opacity: 1 !important;
 }
-#Home_social_btn{
-    position: absolute;
-    bottom: 5%;
-    right: 10%;
-}
+
 
 #Home_social_btn a>button>img{
     height: 6vh;
@@ -174,10 +200,121 @@
 }
 
 @keyframes opening_anime {
-    /* 0%{
-        opacity: 0;
-    } */
     100%{
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 300px){
+    :root{
+        --anime-width: 320px;
+        --anime-height: 320px;
+        --size-adjust: 1;
+        --alpha-interval: 1px;
+        --left-interval:85px;
+    }
+
+    #Home_btns button{
+        height:calc((var(--size-adjust) - 0.4) * 5rem);
+        width: calc((var(--size-adjust) - 0.4) * 5rem);
+    
+    }
+    #Home_btns button>img {
+        height: calc((var(--size-adjust) - 0.4) * 3rem);
+        width: calc((var(--size-adjust) - 0.4) * 3rem);
+    }
+
+    #Home_btns p{
+        margin-top: 0.2rem;
+
+        font-size: 0.7rem;
+    }
+
+    #Home_social_btn a>button>img{
+        height: calc((var(--size-adjust) - 0.5) * 3rem);
+        width: calc((var(--size-adjust) - 0.5) * 3rem);
+    }
+
+    #Home_social_btn button{
+        height:calc((var(--size-adjust) - 0.5) * 5rem);
+        width: calc((var(--size-adjust) - 0.5) * 5rem);
+    
+    }
+
+    #Home_social_btn{
+        position: absolute;
+        bottom: 5%;
+        right: 10%;
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+        --size-adjust: 1.09;
+    }
+}
+    
+@media screen and (min-width: 400px){
+    :root{
+        --size-adjust: 1.25;
+    }
+}
+@media screen and (min-width: 600px){
+    :root{
+        --size-adjust: 1.5;
+    }
+    #Home_btns button{
+        height:calc((var(--size-adjust) - 0.7) * 5rem);
+        width: calc((var(--size-adjust) - 0.7) * 5rem);
+    
+    }
+
+    #Home_btns button>img {
+        height: calc((var(--size-adjust) - 0.7) * 3rem);
+        width: calc((var(--size-adjust) - 0.7) * 3rem);
+    }
+
+    #Home_social_btn a>button>img{
+        height: calc((var(--size-adjust) - 0.8) * 3rem);
+        width: calc((var(--size-adjust) - 0.8) * 3rem);
+    }
+
+    #Home_social_btn button{
+        height:calc((var(--size-adjust) - 0.8) * 5rem);
+        width: calc((var(--size-adjust) - 0.8) * 5rem);
+    
+    }
+}
+@media screen and (min-width: 767px){
+    :root{
+        --size-adjust: 1.75;
+    }
+
+    #Home_btns p{
+        margin-top: 0.5rem;
+
+        font-size: 1rem;
+    }
+
+    #Home_social_btn{
+        position: absolute;
+        bottom: 1%;
+        right: 5%;
+    }
+}
+@media screen and (min-width: 1023px){
+    :root{
+        --size-adjust: 2;
+    }
+
+    #Home_btns p{
+        margin-top: 0.7rem;
+
+        font-size: 1.2rem;
+    }
+    
+}
+@media screen and (min-width: 1500px){
+    :root{
+        --size-adjust: 2.25;
     }
 }

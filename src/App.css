@@ -1,5 +1,7 @@
+@import url(./component/style/global_var.css);
+
 #App_container{
   position: relative;
   top: 0;
-  margin-left: 100px;
+  margin-left: var(--navbar-width);
 }

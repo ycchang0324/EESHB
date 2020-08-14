@@ -26,34 +26,45 @@ const Home = () =>{
         }
     }
     return(
-        <div id="Home_container" onClick={skipAnime}>
-            <img src={book} alt="book" id="Home_book" className="Home_anime"></img>
-            <img src={left_hand} alt="left-hand" id="Home_left_hand" className="Home_anime"></img>
-            <img src={right_hand} alt="right-hand" id="Home_right_hand" className="Home_anime"></img>
-            <img src={E_pink} alt="E-pink" id="Home_E_pink" className="Home_anime"></img>
-            <img src={E_orange} alt="E-orange" id="Home_E_orange" className="Home_anime"></img>
-            <img src={S} alt="S" id="Home_S" className="Home_anime"></img>
-            <img src={H} alt="H" id="Home_H" className="Home_anime"></img>
-            <img src={B} alt="B" id="Home_B" className="Home_anime"></img>
-
-            <div id="Home_btns">
+        <div id="Home_container">
+            <div id="Home_anime_container" className="mx-auto" onClick={skipAnime} >
+                <img src={book} alt="book" id="Home_book" className="Home_anime"></img>
+                <img src={left_hand} alt="left-hand" id="Home_left_hand" className="Home_anime"></img>
+                <img src={right_hand} alt="right-hand" id="Home_right_hand" className="Home_anime"></img>
+                <img src={E_pink} alt="E-pink" id="Home_E_pink" className="Home_anime"></img>
+                <img src={E_orange} alt="E-orange" id="Home_E_orange" className="Home_anime"></img>
+                <img src={S} alt="S" id="Home_S" className="Home_anime"></img>
+                <img src={H} alt="H" id="Home_H" className="Home_anime"></img>
+                <img src={B} alt="B" id="Home_B" className="Home_anime"></img>
+            </div>
+            <div id="Home_btns" className="d-flex mx-auto justify-content-between mt-n4 mt-md-n5 col-11 col-sm-10 col-md-8 col-lg-7 col-xl-6">
                 <Link to="/BuyBook">
-                <div id="Home_BuyBook_div" className="Home_btns_div">
-                    <button className="Home_btn_anime" id="Home_BuyBook_btn"><img src={buybook} alt="buybook"></img></button>
-                    <p>BuyBook</p>
-                </div>
+                    <div className="Home_btns_div col">
+                        <div id="Home_BuyBook_div " className="d-flex justify-content-center">
+                            <button className="Home_btn_anime" id="Home_BuyBook_btn">
+                                <img clasName="" src={buybook} alt="buybook"/>
+                            </button>
+                        </div>
+                        <p>BuyBook</p>
+                    </div>
                 </Link>
                 <Link to="/Rules">
-                <div id="Home_Rules_div" className="Home_btns_div">
-                    <button className="Home_btn_anime" id="Home_Rules_btn"><img src={rules} alt="rules"></img></button>
-                    <p>Rules</p>
-                </div>
+                    <div className="Home_btns_div col">
+                        <div id="Home_Rules_div" className="d-flex justify-content-center">
+                            <button className="Home_btn_anime" id="Home_Rules_btn"><img src={rules} alt="rules"></img></button>
+                        </div>
+                        <p>Rules</p>
+                    </div>
+                    
                 </Link>
                 <Link to="/SellBook">
-                <div id="Home_SellBook_div" className="Home_btns_div">
-                    <button className="Home_btn_anime" id="Home_SellBook_btn"><img src={sellbook} alt="sellbook"></img></button>
-                    <p>SellBook</p>
-                </div>
+                    <div className="Home_btns_div col">
+                        <div id="Home_SellBook_div" className="d-flex justify-content-center">
+                            <button className="Home_btn_anime" id="Home_SellBook_btn"><img src={sellbook} alt="sellbook"></img></button>
+                            
+                        </div>
+                        <p>SellBook</p>
+                    </div>
                 </Link>
             </div>
             <div id="Home_social_btn">

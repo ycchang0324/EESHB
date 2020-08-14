@@ -1,9 +1,10 @@
 .Select_main_li{
+    position: relative;
     list-style: none;
     /* width:10vw; */
 }
 .Select_main_li ul{
-    width: 780px;
+    /* width: 780px; */
     color: white;
     background-color: black;
     margin: 0;
@@ -14,9 +15,34 @@
     left:-999999px;
     transition: opacity 0.5s;
     border-radius: 0 5px 10px 10px;
+
+    z-index: 99;
 }
 .Select_main_li:hover ul{
     opacity: 0.7;
     left: 0;
     /* left:1vw; */
+}
+
+@media screen and (min-width: 300px){
+    
+}
+@media screen and (min-width: 350px){
+    
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    
+}
+
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    
+}
+@media screen and (min-width: 1500px){
+    
 }

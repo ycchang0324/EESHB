@@ -9,7 +9,7 @@ const Reply_Card_Deck = (props) => {
             let new_cards = []
             let count = 0
             props.cards.forEach(card => {
-                new_cards.push(<Reply_Card comment = {props.cards[count]} index={props.index+"_"+(count+1)}/>)
+                new_cards.push(<Reply_Card comment = {props.cards[count].comment} index={props.index+"_"+(count+1)} id={props.cards[count].id}/>)
                 new_cards.push(<div className="w-100 d-block d-md-none"/>)
                 count = count + 1
             })

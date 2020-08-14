@@ -1,55 +1,35 @@
+@import url(./component/style/global_var.css);
+
 #BuyBook_container{
-    font-family:'Noto Sans TC',Arial,sans-serif;
-    width:calc(100vw - 100px);
+
+    width:calc(100vw - var(--navbar-width));
     height: 100vh;
-    /* position: relative; */
-    top:0;
-    /* margin-top:-3vh; */
-    /* display: inline; */
-    background-image: linear-gradient(150deg,wheat,white);
+
+    background-image: var(--bg-image);
+
+    font-family:'Noto Sans TC',Arial,sans-serif;
+
 }
 .BuyBook_search_bar{
-    font-size: 20px;
+    /* font-size: 20px; */
     background-color: white;
     border-radius: 10px;
-    height:40px;
-    width:800px;
+    /* height:40px;
+    width:800px; */
     
 }
-#BuyBook_search_bar_category{
-    position: absolute;
-    top:calc(40% - 190px);
-    left:calc(50% - 400px);
 
-    z-index: 3;
-}
-#BuyBook_search_bar_subject{
-    position: absolute;
-    top:calc(40% - 130px);
-    left:calc(50% - 400px);
-
-    z-index: 2;
-}
 #BuyBook_search_bar:hover ul{
     left: 1vw;
 }
 #BuyBook_box{
-    height:300px;
-    width:600px;
-    position: absolute;
-    top:calc(50% - 150px);
-    left:calc(50% - 300px);
-
     
     border-radius: 10px;
     color: #003F67;
 }
 
 .BuyBook_price{
-    font-size: 24px;
-    float: left;
-    height: 150px;
-    width:300px;
+    
     box-sizing: border-box;
     border-color: gray;
     border-style: solid;
@@ -61,47 +41,161 @@
     z-index: 2;
     transform: scale(1.05);
 }
-#BuyBook_200{
-    border-width: 0 1px 1px 0;
+
+#Rolling_Number_container{
+
+    border-radius: 10px;
+
+    background-color: #003F67;
+    
+    overflow: hidden;
+
 }
-#BuyBook_300{
-    border-width: 0 0 1px 1px;
-}
-#BuyBook_500{
-    border-width: 1px 1px 0 0;
-}
-#BuyBook_700{
-    border-width: 1px 0 0 1px;
-}
-.Rolling_Number_text{
+.Rolling_Number_num{
+    color: white;
+    transition: all 0.5s;
     position: relative;
-    left: 25%;
-    bottom: 20px;
 }
-/*#BuyBook_select{
-    list-style: none;
-    width:10vw;
+
+@media screen and (min-width: 300px){
+    .BuyBook_price{
+        font-size: 1.5rem;
+    }
+
+    .Rolling_Number_num{
+        top: -0.5rem;
+    }
+
+    #Rolling_Number_container{
+        
+        height:4rem;
+        width: 4rem;
+        
+        font-size: 50px;
+
+    }
+
+    #BuyBook_200{
+        border-width: 1px;
+    }
+    #BuyBook_300{
+        border-width: 1px;
+    }
+    #BuyBook_500{
+        border-width: 1px;
+    }
+    #BuyBook_700{
+        border-width: 1px;
+    }
+
+    #BuyBook_search_bar_category{
+        /* width: 12rem; */
+        height: 1.5rem;
+        z-index: 99;
+    }
+    #BuyBook_search_bar_subject{
+        /* width: 12rem; */
+        height: 1.5rem;
+        z-index: 98;
+    }
+
+    #BuyBook_subjects_select{
+        font-size: 1rem;
+        padding: 0;
+    }
+    #BuyBook_categories_select{
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    #BuyBook_subjects_options_pc{
+        font-size: 1rem;
+    }
+
+    #BuyBook_categories_options_pc{
+        font-size: 1rem;
+    }
+    #BuyBook_subjects_options_mobile{
+        font-size: 1rem;
+    }
+
+    #BuyBook_categories_options_mobile{
+        font-size: 1rem;
+    }
 }
-#BuyBook_select ul{
-    width: 10vw;
-    background-color: black;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    opacity: 0;
-    position: absolute;
-    left:-999999px;
-    transition: opacity 0.5s;
+@media screen and (min-width: 350px){
+    #BuyBook_search_bar_category{
+        /* width: 14rem; */
+        height: 1.5rem;
+        z-index: 99;
+    }
+    #BuyBook_search_bar_subject{
+        /* width: 14rem; */
+        height: 1.5rem;
+        z-index: 98;
+    }
+    
 }
-#BuyBook_select:hover ul{
-    opacity: 1;
-    left:0;
-}*/
-#form1{
-    /* display: inline; */
-    margin-left: 1vw;
+@media screen and (min-width: 400px){
+    #BuyBook_search_bar_category{
+        /* width: 17rem; */
+        height: 1.5rem;
+        
+    }
+    #BuyBook_search_bar_subject{
+        /* width: 17rem; */
+        height: 1.5rem;
 }
-#h1{
-    /* display: inline; */
-    margin: 0;
+}
+@media screen and (min-width: 600px){
+    #Rolling_Number_container{
+        
+        height:5rem;
+        width: 5rem;
+        
+        font-size: 60px;
+        
+    }
+
+    #BuyBook_search_bar_category{
+        /* width: 20rem; */
+        height: 2rem;
+    }
+    #BuyBook_search_bar_subject{
+        /* width: 20rem; */
+        height: 2rem;
+    }
+
+    #BuyBook_subjects_select{
+        font-size: 1.5rem;
+        
+    }
+    #BuyBook_categories_select{
+        font-size: 1.5rem;
+        
+    }
+    #BuyBook_subjects_options_pc{
+        font-size: 1.5rem;
+    }
+
+    #BuyBook_categories_options_pc{
+        font-size: 1.5rem;
+    }
+    #BuyBook_subjects_options_mobile{
+        font-size: 1.5rem;
+    }
+
+    #BuyBook_categories_options_mobile{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    
+}
+@media screen and (min-width: 1500px){
+    
 }
