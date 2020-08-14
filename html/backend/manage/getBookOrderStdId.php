@@ -23,6 +23,6 @@ $id = $data -> id;
 $manager = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manager->getBookOrderBookId($id);
+$manager->getBookOrderStdId($id);
 
 ?>
