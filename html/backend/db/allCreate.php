@@ -15,7 +15,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "CREATE DATABASE second_hand_book DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;";
+$sql = "CREATE DATABASE second_hand_book DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
 if($conn->query($sql) === TRUE){
     echo json_encode([
         "success"=>1,
