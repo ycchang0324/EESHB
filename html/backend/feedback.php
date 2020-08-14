@@ -13,7 +13,7 @@ require './db/db_connection.php';
 
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
-mysql_query("SET NAMES UTF8");
+//mysql_query("set names utf8");
 //data接收前端post過來的變數
 $data = json_decode(file_get_contents("php://input"));
 
