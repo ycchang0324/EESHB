@@ -7,6 +7,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+
 //需要連線資料庫
 require './db/db_connection.php';
 
@@ -27,6 +28,8 @@ function trimmedData($data) {
 
 //$comment為刪減過的回饋
 $comment = trimmedData( $data -> comment );
+
+
 
 //如果$comment非空且有被設定，才能INSERT進資料庫
 if( !empty($comment) && isset($comment ) ){

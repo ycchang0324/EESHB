@@ -23,6 +23,6 @@ $stdId = $data -> stdId;
 $manager = new Manage();
 
 //呼叫函式，以獲取學號下的全部訂單
-$manager->getBookOrderStdId($stdId);
+$manager->getBookOrderBookId($stdId);
 
 ?>

@@ -57,16 +57,16 @@ const BuyBook = () => {
             setSubject(option)
         }
     }
-    useEffect(() => {
-        axios.post('http://localhost:100/backEnd/buyBookPage.php', {})
-            .then(function (data) {
-                console.log(subject)
-                console.log(data.data)
-                console.log(data.data[subject])
-                setDataFromBackEnd(data.data);
-
-            }).catch(function (error) {
-                console.log(error);
+     useEffect(() => {
+         axios.post('https://book.ntuee.org/backend/buyBookPage.php',{})
+             .then(function (data) {
+                 console.log(subject)
+                 console.log(data.data)
+                 console.log(data.data[subject])
+                 setDataFromBackEnd(data.data);
+                 
+         }).catch(function (error) {
+                 console.log(error);
             });
     }, [])
     return (

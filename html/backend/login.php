@@ -34,7 +34,7 @@ $isMember = 0;
 $conn = connection();
 
 //檢查管理者輸入的帳密是否與login資料表中儲存的帳密相符，若相符，$isMember變數為1，否則為0
-$sql = "SELECT account,password FROM Login ";
+$sql = "SELECT account,password FROM login ";
 $result = $conn->query($sql);
 while($row = $result->fetch_assoc()) {
     if(($row["account"] == $account) && ($row["password"] == $password))

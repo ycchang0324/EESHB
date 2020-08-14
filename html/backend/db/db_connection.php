@@ -1,7 +1,7 @@
 <?php
 
 function connection(){
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "root";
     $dbname = "second_hand_book";
