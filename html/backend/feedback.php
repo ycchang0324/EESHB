@@ -28,6 +28,7 @@ function trimmedData($data) {
 
 //$comment為刪減過的回饋
 $comment = trimmedData( $data -> comment );
+$comment = '你好';
 
 
 
