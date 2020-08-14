@@ -48,7 +48,7 @@ fee INT(5) NOT NULL,
 state VARCHAR(20) NOT NULL,
 others VARCHAR(200),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 if ($conn->query($sql) === TRUE) {
   echo json_encode([
@@ -75,7 +75,7 @@ stdId VARCHAR(9) NOT NULL,
 name VARCHAR(30) NOT NULL,
 bookNum INT(2) NOT NULL,
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 if ($conn->query($sql) === TRUE) {
   echo json_encode([
@@ -101,7 +101,7 @@ id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 account VARCHAR(30) NOT NULL,
 password VARCHAR(30) NOT NULL,
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 if ($conn->query($sql) === TRUE) {
   echo json_encode([
@@ -127,7 +127,7 @@ id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 comment VARCHAR(500) NOT NULL,
 reply VARCHAR(500) ,
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 
 
@@ -157,7 +157,7 @@ category VARCHAR(30) NOT NULL,
 price INT(5) NOT NULL,
 picture INT(5) NOT NULL,
 isSold INT(2) NOT NULL
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -183,7 +183,7 @@ $sql = "CREATE TABLE email (
 id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 account VARCHAR(30) NOT NULL,
 password VARCHAR(30) NOT NULL
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 
 if ($conn->query($sql) === TRUE) {
