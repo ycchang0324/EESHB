@@ -32,7 +32,7 @@ class Mailer
 		//$this -> m_mail->SMTPDebug = 3; // 開啟偵錯模式
 
         //我們用的是SMTP寄信，且寄信內文符合HTML格式
-		$this -> m_mail->isSMTP(); // Set mailer to use SMTP
+		//$this -> m_mail->isSMTP(); // Set mailer to use SMTP
         $this -> m_mail ->isHTML(true);   
         
         
