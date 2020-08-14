@@ -68,8 +68,7 @@ class Mailer
 	{
 		$this -> m_mail->Username = $userName;
 		$this -> m_mail->Password = $passWord;
-        $this -> m_mail->Username = "ycchang0324@gmail.com";
-		$this -> m_mail->Password = "Edfred5112";
+        
 	}
     
     //在資料庫中email資料表找尋寄信的帳密
