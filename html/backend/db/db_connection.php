@@ -7,7 +7,7 @@ function connection(){
     $dbname = "second_hand_book";
 
     $conn = new mysqli($servername,$username,$password,$dbname);
-  
+    mysql_query("SET NAMES 'utf8'");
     return $conn;
 }
 ?>
