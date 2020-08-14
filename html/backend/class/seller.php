@@ -33,7 +33,7 @@ class Seller {
     //判斷賣家是不是第一次填賣書表單。若是，回傳1，若之前有填過，回傳0
     function isNew(){
         $conn = connection();
-        $sql = "SELECT stdId FROM Seller ";
+        $sql = "SELECT stdId FROM seller ";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
             if($row["stdId"] == $this->stdId)
