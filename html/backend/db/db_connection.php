@@ -2,7 +2,7 @@
 
 function connection(){
     $servername = "db";
-    mysql_query("SET NAMES 'utf8'");
+    mysql_query("SET NAMES UTF8");
     $username = "root";
     $password = "root";
     $dbname = "second_hand_book";
