@@ -6,31 +6,6 @@ require 'db_connection.php';
 // Create connection
 $conn = connection();
 
-$sql = "
-CREATE TABLE `oldbook` (
-  `id` int(5) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `category` varchar(30) NOT NULL,
-  `price` int(5) NOT NULL,
-  `picture` int(5) NOT NULL,
-  `isSold` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-";
-
-if ($conn->query($sql) === TRUE) {
-  echo json_encode([
-        "success"=>1,
-        "msg"=>"Table bookorder created successfully"
-        ],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT
-        );
-} else {
-    $errorMessage = "Error creating table bookorder: " . $conn->error;
-    echo json_encode([
-        "success"=>0,
-        "msg"=>"$errorMessage"
-        ],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT
-    );
-}
 
 
 $sql = "
@@ -532,7 +507,6 @@ INSERT INTO `oldbook` (`id`, `name`, `category`, `price`, `picture`, `isSold`) V
 (779, '微電子電路學精解7.1版9-17章下冊', '電子學', 50, 779, 0),
 (780, '微電子電路學精解7.1版9-17章下冊', '電子學', 50, 780, 0),
 (781, '微電子電路學精解7.1版9-17章下冊', '電子學', 50, 781, 0);
-COMMIT;
 ";
 if ($conn->query($sql) === TRUE) {
   echo json_encode([
