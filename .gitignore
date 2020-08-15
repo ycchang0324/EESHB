@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 
+/html/old_book_picture/
+
 /.pnp
 .pnp.js
 
