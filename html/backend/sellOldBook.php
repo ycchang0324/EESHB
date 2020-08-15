@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
 $id = $data -> id;
-$id = 3;
+//$id = 3;
 
 $conn = connection();
 $sql = "UPDATE oldbook SET isSold = 1 WHERE id = '$id'";
