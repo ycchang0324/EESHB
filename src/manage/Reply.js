@@ -25,7 +25,7 @@ class Reply extends Component {
     }
     getComments = () => {
         // parser like test_comment
-        Axios.post("http://localhost:100/backend/showFeedback.php", {}
+        Axios.post("https://book.ntuee.org/backend/showFeedback.php", {}
         ).then((data) => {
             if (data.data.success === 1) {
                 console.log(data.data)

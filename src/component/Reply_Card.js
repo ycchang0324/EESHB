@@ -12,7 +12,7 @@ const Reply_Card = (props) => {
 
     const handleSubmit = (e) => {
         //TODO
-        axios.post("http://localhost:100/backend/manage/addReply.php",
+        axios.post("https://book.ntuee.org/backend/manage/addReply.php",
         {reply:reply,
          id: props.id
         }).then((data)=>{

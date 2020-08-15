@@ -1,41 +1,134 @@
+@import url(./style/global_var.css);
 
-
-
+:root{
+    --commentchatroom-height: 5rem;
+    --commentarea-height: 5rem;
+    --commentarea-fontsize: 1rem;
+    --commentbtn-size: 30px;
+}
 #Comment_section_container{
-    font-family:'Noto Sans TC',Arial,sans-serif;
-    margin-left: calc(50% - 500px);
+
+    padding-top: calc(50vh - ( var(--commentchatroom-height) + var(--commentarea-height) ) / 2 - var(--feedbacktitle-fontsize));
+    font-family:var(--primary-font);
+    
     
 }
-#Comment_section_chatroom{
-    width: 1000px;
-    height:650px;
+#Comment_section_chatroom_pc{
+
+    height:var(--commentchatroom-height);
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+#Comment_section_chatroom_mobile{
+    
+    position: fixed;
+    bottom: calc(2rem + var(--commentarea-height));
+
+    height:var(--commentchatroom-height);
+
     border: 2px solid black;
     border-radius: 10px;
 }
-#Comment_section_form{
-    margin-top: 10px;
+
+#Comment_section_form_mobile{
+    position: fixed !important;
+    bottom: 1rem;
 }
+
 #Comment_section_textarea{
-    font-family:'Noto Sans TC',Arial,sans-serif;
-    width:900px;
-    height:30px;
+    
+    height:var(--commentarea-height);
+
     border-radius: 10px;
     border: 2px solid black;
+
     background-color: transparent;
+
+    font-size: var(--commentarea-fontsize);
+    font-family:var(--primary-font);
+    
     resize: none;
-    font-size: 20px;
 }
 
 #Comment_section_send_icon{
-    height:30px;
-    width:30px;
+    
+    width: var(--commentbtn-size);
+    height: var(--commentbtn-size);
     
 }
 
 #Comment_section_submit_btn{
-    margin-left: 50px;
 
-    height:50px;
-    width:50px;
+    height:calc( var(--commentbtn-size) * 1.2);
+    width:calc( var(--commentbtn-size) * 1.2);
+
     border-radius: 50%;
+}
+
+@media screen and (min-width: 300px){
+    :root{
+
+        /* --commentchatroom-height: 25rem; */
+        --commentarea-height: 3rem;
+        --commentbtn-size: 35px;
+        --commentarea-fontsize: 1rem;
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+
+        /* --commentchatroom-height: 25rem; */
+        --commentarea-height: 3rem;
+        --commentbtn-size: 35px;
+    }
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    
+}
+
+@media screen and (min-width: 767px){
+    :root{
+        /* --commentarea-height:1.5rem; */
+        --commentarea-fontsize: 1.5rem;
+    }
+}
+@media screen and (min-width: 1023px){
+    
+}
+@media screen and (min-width: 1500px){
+    
+}
+
+@media screen and (min-height: 400px){
+    :root{
+        --commentchatroom-height: calc(400px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
+}
+@media screen and (min-height: 500px){
+    :root{
+        --commentchatroom-height: calc(500px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
+}
+@media screen and (min-height: 600px){
+    :root{
+        --commentchatroom-height: calc(600px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
+}
+
+@media screen and (min-height: 700px){
+    :root{
+        --commentchatroom-height: calc(700px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
+}
+
+@media screen and (min-height: 800px){
+    :root{
+        --commentchatroom-height: calc(800px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
 }

@@ -33,9 +33,13 @@ const Comment_section = (props) => {
             reply: ""
         }).then(function(data){
             console.log(data)
+            
             if(data.data.success === 1){
                 // alert("訊息已送達")
                 renderComments()
+                document.getElementById("Comment_section_textarea").value = ""
+                setText("")
+
             }else{
                 alert("Something's wrong")
             }
@@ -69,8 +73,6 @@ const Comment_section = (props) => {
     const handleEnterSubmit = (e) => {
         if (e.keyCode === 13){
             handleSubmit(e)
-            e.target.value = ""
-            setText("");
         }
         
     }
@@ -82,20 +84,40 @@ const Comment_section = (props) => {
         return <div style={{ ...style, ...thumbStyle }} {...props} />;
     }
     return(
-        
-                <div id="Comment_section_container">
-                    <div id="Comment_section_chatroom">
+            
+                <div id="Comment_section_container" className="container col-12 col-sm-11 col-md-10 col-lg-9">
+                    {/* ============For PC (screen width >= md)============= */}
+                    <div id="Comment_section_chatroom_pc" className="mx-auto d-none d-md-block col-md-12 px-1 px-md-2">
                         <Scrollbars renderThumbVertical={renderThumb}>
                         {comments}
                         </Scrollbars>
                     </div>
-                    <form onSubmit={handleSubmit} id="Comment_section_form">
-                        <textarea id="Comment_section_textarea" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
-                        {/* <input type="submit" value="submit"></input> */}
-                        <button id="Comment_section_submit_btn">
-                            <img src={send} alt="send" id="Comment_section_send_icon"/>
-                        </button>
+                    {/* ============For Mobile (screen width < md)============= */}
+                    <div id="Comment_section_chatroom_mobile" className="mx-auto d-md-none d-block col-8 col-sm-9 px-1 px-md-2">
+                        <Scrollbars renderThumbVertical={renderThumb}>
+                        {comments}
+                        </Scrollbars>
+                    </div>
+                    {/* ============For PC (screen width >= md)============= */}
+                    <form onSubmit={handleSubmit} id="Comment_section_form_pc" className="d-none d-md-block mt-1 col-12 p-0 ">
+                        <textarea id="Comment_section_textarea" className="col-9 col-sm-10 col-md-11" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
+                        <div className="col-3 col-sm-2 col-md-1 float-right">
+                            <button id="Comment_section_submit_btn" className="p-0" onClick={handleSubmit}>
+                                <img src={send} alt="send" id="Comment_section_send_icon"/>
+                            </button>
+                        </div>
                     </form>
+
+                    {/* ============For Mobile (screen width < md)========== */}
+                    <form onSubmit={handleSubmit} id="Comment_section_form_mobile" className="d-md-none mt-1 col-8 col-sm-10 p-0 ">
+                        <textarea id="Comment_section_textarea" className="col-9" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
+                        <div className="col-3  float-right">
+                            <button id="Comment_section_submit_btn" className="p-0" onClick={handleSubmit}>
+                                <img src={send} alt="send" id="Comment_section_send_icon"/>
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
     )
     }

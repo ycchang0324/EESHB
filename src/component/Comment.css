@@ -1,51 +1,97 @@
+@import url(../component/style/global_var.css);
+
 
 
 .Comment_comments{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #9CEAFF;
-    max-width: 50%;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-left: 5px;
 
-    
     float: right;
     clear: both;
+
+    max-width: 50%;
+
+    border-radius: 10px;
+
+    background-color: #9CEAFF;
+
+    font-size: var(--comment-fontsize);
+
 }
 
 .Comment_comments p{
-    /* margin-left: 5px;
-    margin-right: 5px; */
-    margin: 5px;
+
     max-width: 100%;
+
     word-wrap: break-word;
     word-break: break-all;
+
 }
 .Comment_replies{
     
-    background-color: rgb(143,170,220);
-    max-width: 50%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: left;
-    margin-right: 5px;
-
     float: left;
     clear: both;
+
+    max-width: 50%;
+
+    border-radius: 10px;
+
+    background-color: rgb(143,170,220);
     
+    font-size: var(--comment-fontsize);
+    text-align: left;
+
 }
 
 .Comment_replies p{
-    margin: 5px;
+    
     max-width: 100%;
+
     word-wrap: break-word;
     word-break: break-all;
+
 }
 
 .Comment_time{
+
     background-color: transparent;
-    font-size: 12px;
+
+    font-size: var(--commenttime-fontsize);
+
+}
+
+@media screen and (min-width: 300px){
+    :root{
+        --comment-fontsize: 0.8rem;
+        --commenttime-fontsize: 0.5rem;
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+        --comment-fontsize: 0.9rem;
+        --commenttime-fontsize: 0.5rem;
+    }
+}
+@media screen and (min-width: 400px){
+    :root{
+        --comment-fontsize: 1rem;
+        --commenttime-fontsize: 0.5rem;
+    }
+}
+@media screen and (min-width: 600px){
+    :root{
+        --comment-fontsize: 1.1rem;
+        --commenttime-fontsize: 0.6rem;
+    }
+}
+
+@media screen and (min-width: 767px){
+    :root{
+        --comment-fontsize: 1.1rem;
+        --commenttime-fontsize: 0.6rem;
+    }
+}
+@media screen and (min-width: 1023px){
+
+}
+@media screen and (min-width: 1500px){
+    
 }
