@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
 $category = $data -> category;
-$category = "微積分";
+//$category = "微積分";
 
 
 $conn = connection();
