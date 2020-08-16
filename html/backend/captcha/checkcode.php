@@ -24,7 +24,7 @@ if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個�
          
           header('content-Type: text/html; charset=utf-8');
 
-          echo json_encode(['success'=>1],JSON_FORCE_OBJECT);
+          echo json_encode(['success'=>1,'successs insert order'],JSON_FORCE_OBJECT);
         //   echo '<p> </p><p> </p><a href="./chptcha_index.php">OK輸入正確，將於一秒後跳轉(按此也可返回)</a>';
         //  echo '<meta http-equiv="refresh" content="1; url=./captcha_index.php">';
          
@@ -32,7 +32,7 @@ if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個�
      }else{
         //  echo '<p> </p><p> </p><a href="./chptcha_index.php">Error輸入錯誤，將於一秒後跳轉(按此也可返回)</a>';
         //  echo '<meta http-equiv="refresh" content="1; url=./captcha_index.php">';
-        echo json_encode(['success'=>0],JSON_FORCE_OBJECT);
+        echo json_encode(['success'=>0,'msg'=>'wrong captcha'],JSON_FORCE_OBJECT);
      };
 
 }
