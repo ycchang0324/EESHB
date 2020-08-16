@@ -128,7 +128,7 @@ class SellBook extends Component {
         }, console.log(this.state))
     }
     render() {
-        if(this.is_fillsuccess){
+        if(this.state.is_fillsuccess){
             return (<Redirect to="FillSuccess"/>)
         }
         else{
