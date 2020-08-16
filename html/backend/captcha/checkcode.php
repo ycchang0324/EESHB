@@ -16,8 +16,9 @@ if(!isset($_SESSION)){
 //if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個變數是否為空
     // echo $_SESSION['check_word'];
     $answer = $_SESSION['check_word'];
-    echo "captcha: " . $captcha . <br>;
-    echo "answer: " . $answer;
+    $msg = "captcha: " . $captcha . " answer: " . $answer;
+    //echo "captcha: " . $captcha . <br>;
+    //echo "answer: " . $answer;
      if($answer == $captcha){
          
           $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
@@ -32,7 +33,7 @@ if(!isset($_SESSION)){
      }else{
         //  echo '<p> </p><p> </p><a href="./chptcha_index.php">Error輸入錯誤，將於一秒後跳轉(按此也可返回)</a>';
         //  echo '<meta http-equiv="refresh" content="1; url=./captcha_index.php">';
-        echo json_encode(['success'=>0,'msg'=>'wrong captcha'],JSON_FORCE_OBJECT);
+        echo json_encode(['success'=>0,'msg'=> $msg ],JSON_FORCE_OBJECT);
      };
 
 //}
