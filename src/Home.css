@@ -1,13 +1,15 @@
 @import url(./component/style/global_var.css);
 :root{
-    --anime-width: 100vw;
-    --anime-height: 100vh;
-    --size-adjust: 1;
+    --anime-width: 320px;
+    --anime-height: 320px;
+    --alpha-interval: 1px;
+    --left-interval:85px;
+    
 }
 
 #Home_container{
     
-    width:100vw;
+    /* width:100vw; */
     height: 100vh;
 
     background-image: var(--bg-image);
@@ -204,16 +206,10 @@
         opacity: 1;
     }
 }
-
-@media screen and (min-width: 300px){
+@media screen and (min-height: 320px){
     :root{
-        --anime-width: 320px;
-        --anime-height: 320px;
-        --size-adjust: 1;
-        --alpha-interval: 1px;
-        --left-interval:85px;
+        --size-adjust: 0.9;
     }
-
     #Home_btns button{
         height:calc((var(--size-adjust) - 0.4) * 5rem);
         width: calc((var(--size-adjust) - 0.4) * 5rem);
@@ -243,22 +239,30 @@
 
     #Home_social_btn{
         position: absolute;
-        bottom: 5%;
-        right: 10%;
+        bottom: 1%;
+        right: 1%;
     }
 }
-@media screen and (min-width: 350px){
+
+@media screen and (min-width: 300px) and (min-height: 500px){
+    :root{
+        --size-adjust: 1;
+    }
+
+    
+}
+@media screen and (min-width: 350px) and (min-height: 550px){
     :root{
         --size-adjust: 1.09;
     }
 }
     
-@media screen and (min-width: 400px){
+@media screen and (min-width: 400px) and (min-height: 600px){
     :root{
         --size-adjust: 1.25;
     }
 }
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) and (min-height: 650px){
     :root{
         --size-adjust: 1.5;
     }
@@ -284,7 +288,7 @@
     
     }
 }
-@media screen and (min-width: 767px){
+@media screen and (min-width: 767px) and (min-height: 800px){
     :root{
         --size-adjust: 1.75;
     }
@@ -301,7 +305,7 @@
         right: 5%;
     }
 }
-@media screen and (min-width: 1023px){
+@media screen and (min-width: 1023px) and (min-height: 850px){
     :root{
         --size-adjust: 2;
     }
@@ -315,6 +319,6 @@
 }
 @media screen and (min-width: 1500px){
     :root{
-        --size-adjust: 2.25;
+        --size-adjust: 2.2;
     }
 }

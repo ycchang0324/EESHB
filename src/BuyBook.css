@@ -7,7 +7,7 @@
 
     background-image: var(--bg-image);
 
-    font-family:'Noto Sans TC',Arial,sans-serif;
+    font-family:var(--primary-font);
 
 }
 .BuyBook_search_bar{
@@ -57,13 +57,26 @@
     position: relative;
 }
 
+#Rolling_Number_num_200{
+    position: relative;
+    top: -0.5rem;
+}
+#Rolling_Number_num_300{
+    position: relative;
+    top: -0.5rem;
+}
+#Rolling_Number_num_500{
+    position: relative;
+    top: -0.5rem;
+}
+#Rolling_Number_num_700{
+    position: relative;
+    top: -0.5rem;
+}
+
 @media screen and (min-width: 300px){
     .BuyBook_price{
         font-size: 1.5rem;
-    }
-
-    .Rolling_Number_num{
-        top: -0.5rem;
     }
 
     #Rolling_Number_container{

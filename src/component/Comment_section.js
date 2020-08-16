@@ -37,7 +37,8 @@ const Comment_section = (props) => {
             if(data.data.success === 1){
                 // alert("訊息已送達")
                 renderComments()
-                document.getElementById("Comment_section_textarea").value = ""
+                document.getElementById("Comment_section_textarea_pc").value = ""
+                document.getElementById("Comment_section_textarea_mobile").value = ""
                 setText("")
 
             }else{
@@ -73,6 +74,7 @@ const Comment_section = (props) => {
     const handleEnterSubmit = (e) => {
         if (e.keyCode === 13){
             handleSubmit(e)
+            e.target.value = ""
         }
         
     }
@@ -100,7 +102,7 @@ const Comment_section = (props) => {
                     </div>
                     {/* ============For PC (screen width >= md)============= */}
                     <form onSubmit={handleSubmit} id="Comment_section_form_pc" className="d-none d-md-block mt-1 col-12 p-0 ">
-                        <textarea id="Comment_section_textarea" className="col-9 col-sm-10 col-md-11" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
+                        <textarea id="Comment_section_textarea_pc" className="col-9 col-sm-10 col-md-11" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
                         <div className="col-3 col-sm-2 col-md-1 float-right">
                             <button id="Comment_section_submit_btn" className="p-0" onClick={handleSubmit}>
                                 <img src={send} alt="send" id="Comment_section_send_icon"/>
@@ -110,7 +112,7 @@ const Comment_section = (props) => {
 
                     {/* ============For Mobile (screen width < md)========== */}
                     <form onSubmit={handleSubmit} id="Comment_section_form_mobile" className="d-md-none mt-1 col-8 col-sm-10 p-0 ">
-                        <textarea id="Comment_section_textarea" className="col-9" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
+                        <textarea id="Comment_section_textarea_mobile" className="col-9" onChange={handleInputChange} onKeyUp={handleEnterSubmit}></textarea>
                         <div className="col-3  float-right">
                             <button id="Comment_section_submit_btn" className="p-0" onClick={handleSubmit}>
                                 <img src={send} alt="send" id="Comment_section_send_icon"/>
