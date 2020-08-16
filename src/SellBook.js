@@ -93,6 +93,8 @@ class SellBook extends Component {
         console.log(this.state.captcha);
         let toBackendData = this.state.data
 
+        this.checkCode()
+        
         if (is_success) {
             alert("success")
             Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
