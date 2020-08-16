@@ -72,6 +72,7 @@ class SellBook extends Component {
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 (data) => {
+                    console.log(data.data.success)
                     if (data.data.success === 1) {
                         console.log(data)
                         is_success = true
