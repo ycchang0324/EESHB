@@ -68,7 +68,7 @@ class SellBook extends Component {
             .then(function ({ data }) {
                 
 
-                if (data.data.success === 1) {
+                if (data.success == 1) {
                     //this.context.addNewUser(data.id, this.username.value, this.useremail.value);
                     //event.target.reset();
                     
@@ -80,7 +80,7 @@ class SellBook extends Component {
                 }
                 else {
                     console.log(data)
-                    alert(data.msg);
+                    //alert(data.msg);
                     
                     
                 }
