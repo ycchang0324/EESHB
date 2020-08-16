@@ -94,6 +94,7 @@ class SellBook extends Component {
 
 
         if (this.checkCode()) {
+            alert("success")
             Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
                 toBackendData
 
@@ -124,6 +125,7 @@ class SellBook extends Component {
                     return
                 });
         }else{
+            alert("fail")
             return <Redirect to="/SellBook"/>
         }
     }
