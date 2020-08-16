@@ -30,6 +30,7 @@ const price_to_fee = {
     "700": "20"
 }
 
+let is_success = false
 class SellBook extends Component {
     constructor(props) {
         super(props)
@@ -68,7 +69,6 @@ class SellBook extends Component {
 
     }
     checkCode = () => {
-        let is_success;
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 (data) => {
@@ -82,7 +82,6 @@ class SellBook extends Component {
                     }
                 }
             )
-        return is_success
         }
 
     insertUser = (event) => {
@@ -92,7 +91,6 @@ class SellBook extends Component {
         event.persist();
         console.log(this.state.captcha);
         let toBackendData = this.state.data
-        let is_success = this.checkCode()
 
         if (is_success) {
             alert("success")
