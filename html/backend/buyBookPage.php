@@ -20,7 +20,7 @@ $dataFromFrontEnd = json_decode(file_get_contents("php://input"));
 
 //$data為一個二維陣列，第一維為課程，第二維為200、300、500、700元的書籍數量，預設為0本
 $data = [
-    "Default"=>array(0,0,0,0),
+    ""=>array(0,0,0,0),
     //"微積分甲上下"=>array(0,0,0,0),
     "交換電路與邏輯設計"=>array(0,0,0,0),
     "生物科學通論"=>array(0,0,0,0),
