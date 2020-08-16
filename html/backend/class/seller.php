@@ -91,7 +91,7 @@ class Seller {
 
                 } else {
                   $msg = "Error: " . $sql . "<br>" . $conn->error;
-                  echo json_encode(["success" => 0,"msg"=>$msg]);
+                  //echo json_encode(["success" => 0,"msg"=>$msg]);
                 } 
             }
             
@@ -138,7 +138,10 @@ class Seller {
                     $msg = "Error: " . $sql . "<br>" . $conn->error;
                     echo json_encode(["success" => 0,"msg"=>$msg]);
                 }     
-            }        
+            }
+            else {
+                echo json_encode(["success" => 0,"msg"=>"too much orders"]);
+            }
         }
         //斷開連線
         $conn->close();

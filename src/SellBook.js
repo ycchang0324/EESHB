@@ -56,6 +56,8 @@ class SellBook extends Component {
 
         event.preventDefault();
         event.persist();
+        console.log(this.state.captcha);
+
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 function (data) {
@@ -76,15 +78,25 @@ class SellBook extends Component {
 
                     console.log(data)
                     alert(data.msg)
+                    
 
                     return <Redirect to="/FillSuccess" />
 
                 }
                 else {
                     console.log(data)
+<<<<<<< HEAD
                     alert(data.msg);
 
 
+=======
+                    alert(data.msg)
+
+                    return <Redirect to="/FillSuccess" />
+                    
+                    
+                    
+>>>>>>> 6d5ccc941dfc8070cab44e53530e448684d938d7
                 }
             })
             .catch(function (error) {
