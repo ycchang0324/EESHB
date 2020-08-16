@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$input_captcha = json_encode(file_get_contents("php://input"));
+$input_captcha = json_decode(file_get_contents("php://input"));
 //echo $input_captcha;
 $captcha = $input_captcha -> captcha;
 //echo $captcha;
