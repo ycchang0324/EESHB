@@ -74,13 +74,14 @@ class SellBook extends Component {
                     
                     console.log(data)
                     alert(data.msg)
+                    alert("success")
 
                     return <Redirect to="/FillSuccess"/>
                     
                 }
                 else {
                     console.log(data)
-                    //alert(data.msg);
+                    alert(data.msg);
                     
                     
                 }
