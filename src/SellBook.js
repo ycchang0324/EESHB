@@ -73,6 +73,7 @@ class SellBook extends Component {
             { "captcha": this.state.captcha }).then(
                 function (data) {
                     if (data.data.success === 1) {
+                        console.log(data)
                         return true
                     }
                     else {
