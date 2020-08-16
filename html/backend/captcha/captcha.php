@@ -23,7 +23,9 @@
         for ($i = 0; $i < $nums; $i++) {
             $code .= $str[mt_rand(0, strlen($str)-1)];
         }
-
+        if( isset($_SESSION['security_code'])){
+		return $_SESSION['security_code'];
+	}
         $_SESSION['check_word'] = $code;
 
         //建立圖示，設置寬度及高度與顏色等等條件
@@ -45,7 +47,8 @@
        
         $strx = rand(3, 8);
         $scaleX = rand(2, 5);
-        $scaleY = rand(5, 9);
+	$scaleY = rand(5, 9);
+	
         for ($i = 0; $i < $nums; $i++) {
             $strpos = rand(1, 6);
              //imagestring($image, 30, $strx, $strpos, substr($code, $i, 1), $black);
