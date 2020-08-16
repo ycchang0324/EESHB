@@ -42,7 +42,8 @@ class SellBook extends Component {
                 amount: '',
                 others: ''
             },
-            captcha: ''
+            captcha: '',
+            is_captcha_right: false
 
         }
     }
@@ -69,16 +70,21 @@ class SellBook extends Component {
 
     }
     checkCode = () => {
+
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 function (data) {
                     if (data.data.success === 1) {
                         console.log(data)
-                        return true
+                        this.setState({
+                            is_captcha_right:true
+                        })
                     }
                     else {
                         console.log(data);
-                        return false
+                        this.setState({
+                            is_captcha_right:false
+                        })
                     }
                 }
             )
@@ -91,10 +97,8 @@ class SellBook extends Component {
         event.persist();
         console.log(this.state.captcha);
         let toBackendData = this.state.data
-        let is_success = this.checkCode()
 
-
-        if (is_success) {
+        if (this.state.is_captcha_right) {
             alert("success")
             Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
                 toBackendData
