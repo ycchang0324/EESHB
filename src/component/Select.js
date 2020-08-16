@@ -21,8 +21,8 @@ class Select extends Component {
     renderOptions() {
         let ul_mobile = document.getElementById(this.state.id + "_options_mobile")
         let ul_pc = document.getElementById(this.state.id + "_options_pc")
-        console.log(ul_mobile)
-        console.log(ul_pc)
+        // console.log(ul_mobile)
+        // console.log(ul_pc)
         let count = 1
         this.props.options.forEach(
             option => {

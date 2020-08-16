@@ -55,9 +55,9 @@ const BuyBook = () => {
     useEffect(() => {
         axios.post('https://book.ntuee.org/backend/buyBookPage.php', {})
             .then(function (data) {
-                console.log(subject)
-                console.log(data.data)
-                console.log(data.data[subject])
+                // console.log(subject)
+                // console.log(data.data)
+                // console.log(data.data[subject])
                 setDataFromBackEnd(data.data);
 
             }).catch(function (error) {

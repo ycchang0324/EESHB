@@ -24,7 +24,7 @@ const Comment_section = (props) => {
     const handleInputChange = (e) => {
         let value = e.target.value
         setText(value)
-        console.log(text)
+        // console.log(text)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -52,7 +52,7 @@ const Comment_section = (props) => {
         axios.post('https://book.ntuee.org/backend/showFeedback.php',{})
             .then(function (data) {
                 if(data.data.success===1){
-                    console.log(data.data)
+                    // console.log(data.data)
                     
                     let comments_list = []
                     let all_comments = data.data.allComment;
