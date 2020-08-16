@@ -4,6 +4,11 @@
     --bg-image : linear-gradient(150deg,wheat,white);
     --primary-font: 'Noto Sans TC',Arial,sans-serif;
 }
+@font-face{
+    font-family: 'Noto Sans TC';
+    src: url('../../fonts/NotoSansTC/NotoSansTC-Regular.otf');
+
+}
 
 @media screen and (min-width: 300px){
     :root{
