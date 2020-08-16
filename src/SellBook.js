@@ -54,6 +54,8 @@ class SellBook extends Component {
         
         event.preventDefault();
         event.persist();
+        console.log(this.state.captcha);
+
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
         {"captcha":this.state.captcha}).then(
             function(data){
