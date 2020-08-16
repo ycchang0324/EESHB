@@ -40,5 +40,6 @@ if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個�
 
 }else{
   echo json_encode(['success'=>0,'msg' => "not empty"],JSON_FORCE_OBJECT);
+  $_SESSION['check_word'] = '';
 }
 ?>

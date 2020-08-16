@@ -43,6 +43,7 @@ class SellBook extends Component {
                 others: ''
             },
             captcha: '',
+            is_fillsuccess: false
         }
     }
 
@@ -69,7 +70,7 @@ class SellBook extends Component {
     }
     insertUser = (event) => {
         event.preventDefault();
-        console.log(this.state.captcha);
+        // console.log(this.state.captcha);
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 (data) => {
@@ -87,44 +88,34 @@ class SellBook extends Component {
                                 if (data.success === 1) {
 
                                     console.log(data)
-                                    alert(data.msg)
-
-                                    return <Redirect to="/FillSuccess" />
+                                    this.setState({
+                                        is_fillsuccess : true
+                                    })
+                                    // alert(data.msg)
 
                                 }
                                 else {
                                     console.log(data)
-                                    alert(data.msg);
-
-                                    return
-
-
+                                    this.setState({
+                                        is_fillsuccess : false
+                                    })
+                                    // alert(data.msg);
                                 }
                             })
                             .catch(function (error) {
                                 console.log(error);
-                                return
+                                alert("Something's wrong\n"+error)
                             });
 
                     }
                     else {
-                        alert("fail")
+                        alert("Something's wrong\nCaptcha isn't correct")
                         console.log(data);
 
                     }
                 }
             )
     }
-
-    // insertUser = (event) => {
-
-
-    //     event.preventDefault();
-    //     event.persist();
-    //     console.log(this.state.captcha);
-    //     let toBackendData = this.state.data
-
-    // }
 
     refresh_code = (e) => {
         e.target.src = "https://book.ntuee.org/backend/captcha/captcha.php"
@@ -137,6 +128,10 @@ class SellBook extends Component {
         }, console.log(this.state))
     }
     render() {
+        if(this.is_fillsuccess){
+            return (<Redirect to="FillSuccess"/>)
+        }
+        else{
         return (
             <div id="SellBook_container">
                 <p id="FeedBack_title">填寫賣書表單</p>
@@ -258,6 +253,7 @@ class SellBook extends Component {
 
             </div>
         )
+        }
     }
 }
 
