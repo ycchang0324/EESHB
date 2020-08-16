@@ -30,7 +30,6 @@ const price_to_fee = {
     "700": "20"
 }
 
-let is_success = false
 class SellBook extends Component {
     constructor(props) {
         super(props)
@@ -68,70 +67,64 @@ class SellBook extends Component {
         // console.log(this.state.data);
 
     }
-    checkCode = () => {
+    insertUser = (event) => {
+        event.preventDefault();
+        console.log(this.state.captcha);
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 (data) => {
                     console.log(data.data.success)
                     if (data.data.success === 1) {
                         console.log(data)
-                        is_success = true
+                        Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
+                            this.state.data
+
+                        )
+
+                            .then((data) => {
+                                alert("success")
+                                console.log(data)
+                                if (data.success === 1) {
+
+                                    console.log(data)
+                                    alert(data.msg)
+
+                                    return <Redirect to="/FillSuccess" />
+
+                                }
+                                else {
+                                    console.log(data)
+                                    alert(data.msg);
+
+                                    return
+
+
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                                return
+                            });
+
                     }
                     else {
+                        alert("fail")
                         console.log(data);
-                        is_success = false
+
                     }
                 }
             )
-        }
-
-    insertUser = (event) => {
-
-
-        event.preventDefault();
-        event.persist();
-        console.log(this.state.captcha);
-        let toBackendData = this.state.data
-
-        this.checkCode()
-        
-        if (is_success) {
-            alert("success")
-            Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
-                toBackendData
-
-            )
-
-                .then((data) => {
-
-                    console.log(data)
-                    if (data.success === 1) {
-
-                        console.log(data)
-                        alert(data.msg)
-
-                        return <Redirect to="/FillSuccess" />
-
-                    }
-                    else {
-                        console.log(data)
-                        alert(data.msg);
-                        
-                        return
-
-
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    return
-                });
-        }else{
-            alert("fail")
-            console.log("is_success:"+is_success)
-            return <Redirect to="/SellBook"/>
-        }
     }
+
+    // insertUser = (event) => {
+
+
+    //     event.preventDefault();
+    //     event.persist();
+    //     console.log(this.state.captcha);
+    //     let toBackendData = this.state.data
+
+    // }
 
     refresh_code = (e) => {
         e.target.src = "https://book.ntuee.org/backend/captcha/captcha.php"
