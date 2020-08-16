@@ -83,7 +83,7 @@ class Mailer
         
             
             
-        $password = $orderList[0][password];
+        $password = $orderList[0]['password'];
         
         $this->setUsernameAndPassword($account, $password);
         
