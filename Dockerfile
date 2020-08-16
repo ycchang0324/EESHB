@@ -1,6 +1,6 @@
 FROM php:7.2.14-apache
 
-RUN apt-get update
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-RUN fc-cache -vf
-RUN fc-list
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
+
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
+    install-php-extensions mysqli gd
