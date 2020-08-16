@@ -68,6 +68,20 @@ class SellBook extends Component {
         // console.log(this.state.data);
 
     }
+    checkCode = () => {
+        Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
+            { "captcha": this.state.captcha }).then(
+                function (data) {
+                    if (data.data.success === 1) {
+                        return true
+                    }
+                    else {
+                        console.log(data);
+                        return false
+                    }
+                }
+            )
+    }
 
     insertUser = (event) => {
 
@@ -75,45 +89,42 @@ class SellBook extends Component {
         event.preventDefault();
         event.persist();
         console.log(this.state.captcha);
-
-        Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
-            { "captcha": this.state.captcha }).then(
-                function (data) {
-                    if (data.data.success === 1) {
-                        Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
-                            this.state.data
-
-                        )
-
-                            .then(function ({ data }) {
+        let toBackendData = this.state.data
 
 
-                                if (data.success === 1) {
+        if (this.checkCode()) {
+            Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
+                toBackendData
 
-                                    console.log(data)
-                                    alert(data.msg)
-
-                                    return <Redirect to="/FillSuccess" />
-
-                                }
-                                else {
-                                    console.log(data)
-                                    alert(data.msg);
-
-
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
-                    }
-                    else{
-                        console.log(data);
-                    }
-                }
             )
 
+                .then(function ({ data }) {
 
+
+                    if (data.success === 1) {
+
+                        console.log(data)
+                        alert(data.msg)
+
+                        return <Redirect to="/FillSuccess" />
+
+                    }
+                    else {
+                        console.log(data)
+                        alert(data.msg);
+                        
+                        return
+
+
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    return
+                });
+        }else{
+            return <Redirect to="/SellBook"/>
+        }
     }
 
     refresh_code = (e) => {
