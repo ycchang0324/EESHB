@@ -38,7 +38,22 @@
     bottom: 1rem;
 }
 
-#Comment_section_textarea{
+#Comment_section_textarea_pc{
+    
+    height:var(--commentarea-height);
+
+    border-radius: 10px;
+    border: 2px solid black;
+
+    background-color: transparent;
+
+    font-size: var(--commentarea-fontsize);
+    font-family:var(--primary-font);
+    
+    resize: none;
+}
+
+#Comment_section_textarea_mobile{
     
     height:var(--commentarea-height);
 
@@ -103,6 +118,17 @@
 }
 @media screen and (min-width: 1500px){
     
+}
+@media screen and (min-height: 300px){
+    :root{
+        --commentchatroom-height: calc(300px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
+}
+
+@media screen and (min-height: 350px){
+    :root{
+        --commentchatroom-height: calc(350px - var(--commentarea-height) - 2rem - var(--feedbacktitle-fontsize));
+    }
 }
 
 @media screen and (min-height: 400px){

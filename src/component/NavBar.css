@@ -55,13 +55,12 @@ a{
     background-image: linear-gradient(165deg,#2E5C6E 30%,#043359);
     
 }
-
-@media screen and (min-width: 300px){
+@media screen and (min-height: 300px){
     .NavBar_li img{
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
 
-        margin-top: 0.7rem;
+        margin-top: 0.5rem;
     }
 
     .NavBar_li p{
@@ -74,20 +73,46 @@ a{
 
     #NavBar_logo{
 
-        width:4rem;
-        height: 4rem;
+        width:3.5rem;
+        height: 3.5rem;
 
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
         
     }
 }
-@media screen and (min-width: 350px){
+
+@media screen and (min-width: 300px) and (min-height:500px){
+    .NavBar_li img{
+        width: 2rem;
+        height: 2rem;
+
+        margin-top: 0.5rem;
+    }
+
+    .NavBar_li p{
+
+        margin-top: -0.3rem;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_logo{
+
+        width:3rem;
+        height: 3rem;
+
+        margin-top: 0.25rem;
+        
+    }
+}
+@media screen and (min-width: 350px) and (min-height: 600px){
     .NavBar_li img{
 
-        width: 4rem;
-        height: 4rem;
+        width: 2.5rem;
+        height: 2.5rem;
 
-        margin-top: 1rem;
+        margin-top: 0.5rem;
     }
 
     .NavBar_li p{
@@ -95,14 +120,14 @@ a{
         margin-top: -0.3rem;
         margin-left: 0.1rem ;
 
-        font-size: 1rem;
+        font-size: 0.7rem;
         
     }
 
     #NavBar_logo{
-        /* margin-top: 0.5rem; */
-        width:5.5rem;
-        height: 5.5rem;
+       
+        width:3.5rem;
+        height: 3.5rem;
     }
 }
 @media screen and (min-width: 400px){
@@ -115,7 +140,28 @@ a{
     
 }
 @media screen and (min-width: 1023px){
-    
+    .NavBar_li img{
+
+        width: 3rem;
+        height: 3rem;
+
+        margin-top: 1rem;
+    }
+
+    .NavBar_li p{
+
+        margin-top: -0.3rem;
+        margin-left: 0.1rem ;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_logo{
+       
+        width:4rem;
+        height: 4rem;
+    }
 }
 @media screen and (min-width: 1500px){
     

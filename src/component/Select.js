@@ -93,7 +93,7 @@ class Select extends Component {
     render() {
         return (
             <div>
-                <li id={this.state.id + "_select"} className={"Select_main_li d-none d-lg-block" + (this.props.className ? this.props.className : "")}>
+                <li id={this.state.id + "_select"} className={"Select_main_li d-none d-lg-block " + (this.props.className ? this.props.className : "")}>
                     {this.state.currentOption ? this.state.currentOption : this.props.defaultOption}
                     <ul id={this.state.id + "_options_pc"} className="Select_ul col-12">
                     </ul>
