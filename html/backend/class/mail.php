@@ -29,7 +29,7 @@ class Mailer
 		$this -> m_mail = new PHPMailer;
         
         //若開啟Debug模式，當寄信時會噴出很多寄信的細節，出錯時很好找，但是平常可以comment掉
-		$this -> m_mail->SMTPDebug = 2; // 開啟偵錯模式
+		//$this -> m_mail->SMTPDebug = 2; // 開啟偵錯模式
 
         //我們用的是SMTP寄信，且寄信內文符合HTML格式
 		$this -> m_mail->isSMTP(); // Set mailer to use SMTP
@@ -110,11 +110,11 @@ class Mailer
 	{
 		if(!$this -> m_mail->send()) {
             $msgError = "Message could not be sent. Mailer Error: " . $this->m_mail->ErrorInfo;
-			echo json_encode(["success"=>"0","msg"=>"$msgError"]);
+			//echo json_encode(["success"=>"0","msg"=>"$msgError"]);
 			
 		}
 		else{
-            echo json_encode(["success"=>"1","msg"=>"Message has been sent"]);	
+            //echo json_encode(["success"=>"1","msg"=>"Message has been sent"]);	
 		}
 	}
     
