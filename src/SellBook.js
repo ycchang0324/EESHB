@@ -7,9 +7,9 @@ import { Redirect } from 'react-router';
 const categories_subjects = {
     "大一必修": ["交換電路與邏輯設計", "生物科學通論", "普通物理學甲"],
     "大二必修": ["電子學(一)", "電磁學(一)", "工程數學-線性代數", "工程數學-微分方程"],
-    "複選必修": [ "演算法"],
-    "選修": ["無"],
-    "其他選修": ["無"]
+    "大三必修": [ "演算法"],
+    //"選修": ["無"],
+    //"其他選修": ["無"]
 }
 
 class SellBook extends Component {
@@ -85,18 +85,18 @@ class SellBook extends Component {
                 }
                 else {
                     console.log(data)
-<<<<<<< HEAD
+
                     alert(data.msg);
 
 
-=======
+
                     alert(data.msg)
 
                     return <Redirect to="/FillSuccess" />
                     
                     
                     
->>>>>>> 6d5ccc941dfc8070cab44e53530e448684d938d7
+
                 }
             })
             .catch(function (error) {
