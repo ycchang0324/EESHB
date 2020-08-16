@@ -101,7 +101,7 @@ class SellBook extends Component {
 
                 .then(function ({ data }) {
 
-
+                    console.log(data)
                     if (data.success === 1) {
 
                         console.log(data)
