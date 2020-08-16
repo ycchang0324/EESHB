@@ -82,6 +82,8 @@ class SellBook extends Component {
                 else {
                     console.log(data)
                     alert(data.msg)
+
+                    return <Redirect to="https://book.nutee.org/FillSuccess" />
                     
                     
                     
