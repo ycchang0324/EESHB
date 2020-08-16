@@ -15,7 +15,7 @@ li,ul{
 }
 
 .SellBook_box_input{
-    color: whitesmoke;
+    color: black;
     
     height: calc( var(--sellbookbox-fontsize) + 0.5rem);
 
@@ -133,6 +133,10 @@ li,ul{
 
 #Sellbook_subject_select{
     font-size: var(--sellbookbox-fontsize);
+}
+
+#SellBook_box_fee{
+
 }
 
 @media screen and (min-width: 300px){

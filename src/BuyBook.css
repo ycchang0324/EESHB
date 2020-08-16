@@ -3,7 +3,7 @@
 #BuyBook_container{
 
     width:calc(100vw - var(--navbar-width));
-    height: 100vh;
+    min-height: 100vh;
 
     background-image: var(--bg-image);
 

@@ -7,9 +7,27 @@ import { Redirect } from 'react-router';
 const categories_subjects = {
     "大一必修": ["交換電路與邏輯設計", "生物科學通論", "普通物理學甲"],
     "大二必修": ["電子學(一)", "電磁學(一)", "工程數學-線性代數", "工程數學-微分方程"],
-    "複選必修": [ "演算法"],
-    "選修": ["無"],
-    "其他選修": ["無"]
+    "大三必修": [ "演算法"],
+}
+
+const img_source = "https://book.ntuee.org/textbook_image/"
+
+const subjects_img_name = {
+    "普通物理學甲":"physics.jpg",
+    "生物科學通論":"biology.jpg",
+    "交換電路與邏輯設計":"logic_design.jpg",
+    "工程數學-線性代數":"linear_algebra.jpg",
+    "工程數學-微分方程":"differential_equations.jpg",
+    "電子學(一)":"electronics.jpg",
+    "電磁學(一)":"electromagnetism.jpg",
+    "演算法":"algorithm.jpg"
+}
+
+const price_to_fee = {
+    "200":"5",
+    "300":"10",
+    "500":"15",
+    "700":"20"
 }
 
 class SellBook extends Component {
@@ -85,18 +103,9 @@ class SellBook extends Component {
                 }
                 else {
                     console.log(data)
-<<<<<<< HEAD
                     alert(data.msg);
 
 
-=======
-                    alert(data.msg)
-
-                    return <Redirect to="/FillSuccess" />
-                    
-                    
-                    
->>>>>>> 6d5ccc941dfc8070cab44e53530e448684d938d7
                 }
             })
             .catch(function (error) {
@@ -154,8 +163,10 @@ class SellBook extends Component {
                             </li>
                             <li>
                                 <label>預覽圖</label>
-                                <div className="d-flex justify-content-center">
-                                    <img  className="img-fluid"/>
+                                <div className="d-flex justify-content-center my-3">
+                                    <img src={this.state.data.subject?(img_source+subjects_img_name[this.state.data.subject]):null} 
+                                         alt={this.state.data.subject?(subjects_img_name[this.state.data.subject]):""} 
+                                         className="img-fluid"/>
                                 </div>
                             </li>
 
@@ -183,7 +194,16 @@ class SellBook extends Component {
                                     </div>
                                 </div>
                             </li>
-                            <li style={{ height: "5vh" }} className="SellBook_li form-group">
+                            <li className="SellBook_li form-group">
+                                <div className="col-4 p-0">
+                                    <label>手續費:</label>
+                                </div>
+                                <div className="col-5 col-sm-3 col-md-2 p-0"> 
+                                    <input className="SellBook_box_input form-control p-0"id="SellBook_box_fee" type="text" name="fee" readOnly
+                                        value={this.state.data.price?price_to_fee[this.state.data.price]+"元":"請選擇書價"} /> 
+                                </div>
+                            </li>
+                            <li className="SellBook_li form-group">
                                 <div>
                                     <label>其他事項：</label>
                                     <span class="separator"></span>
