@@ -68,21 +68,21 @@ class SellBook extends Component {
             .then(function ({ data }) {
                 
 
-                if (data.success == 1) {
+                if (data.success === 1) {
                     //this.context.addNewUser(data.id, this.username.value, this.useremail.value);
                     //event.target.reset();
                     
                     console.log(data)
                     alert(data.msg)
-                    alert("success")
+                    
 
-                    return <Redirect to="/FillSuccess"/>
+                    return <Redirect to="https://book.nutee.org/FillSuccess"/>
                     
                 }
                 else {
                     console.log(data)
                     alert(data.msg)
-                    return <Redirect to="/FillSuccess" />
+                    
                     
                     
                 }
