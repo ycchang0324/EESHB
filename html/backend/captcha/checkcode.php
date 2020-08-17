@@ -13,7 +13,7 @@ if(!isset($_SESSION)){
     session_start();
     }  //判斷session是否已啟動
 
-if( && (!empty($captcha))){  //判斷此兩個變數是否為空
+if( (!empty($captcha))){  //判斷此兩個變數是否為空
     // echo $_SESSION['check_word'];
     $answer = $_SESSION['check_word'];
     
@@ -39,6 +39,6 @@ if( && (!empty($captcha))){  //判斷此兩個變數是否為空
      };
 
 }else{
-  echo json_encode(['success'=>0,'msg' => "not empty"],JSON_FORCE_OBJECT);
+  echo json_encode(['success'=>0,'msg' => "empty captcha"],JSON_FORCE_OBJECT);
 }
 ?>
