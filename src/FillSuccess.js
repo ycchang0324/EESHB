@@ -10,15 +10,21 @@ const FillSuccess = (props) => {
     // setTime(time1)
     return (
         <div id="FillSuccess_container">
-            <p>
-                恭喜你成功填寫賣書表單<br />
-                請至您的ntu mail信箱確認有收到驗證信<br />
-                並在{time}將書拿至{place}<br />
-                同時準備{props.location.state.fee}元手續費<br />
-            </p>
-            <Link to="/SellBook">
-                <button>Back Home</button>
-            </Link>
+            <div id="FillSuccess_box" className="container col-10 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+                <p id="FillSuccess_text" className="m-3 pt-3">
+                    恭喜你成功填寫賣書表單<br />
+                    請至您的ntu mail信箱<br />
+                    確認有收到<em>驗證信</em><br />
+                    並在<em>{time}</em>將書拿至<em>{place}</em><br />
+                    同時準備{props.location.state.fee}元手續費<br />
+                    {/* 同時準備<em>?元手續費</em><br /> */}
+                </p>
+                <div className="m-1 " >
+                    <Link to="/SellBook">
+                        <button id="FillSuccess_btn" className="btn btn-primary">Back To SellBook</button>
+                    </Link>
+                </div>
+            </div>
         </div>
     )
 }

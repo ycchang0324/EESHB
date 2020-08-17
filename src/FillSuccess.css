@@ -1,0 +1,121 @@
+@import url(./component/style/global_var.css);
+
+
+#FillSuccess_container{
+
+    height: 100vh;
+
+    padding-top: calc(50vh - (var(--fillsuccessbox-height) + 3.5rem) / 2);
+
+    background-image: var(--bg-image);
+    
+    font-family: var(--primary-font);
+
+}
+
+#FillSuccess_box{
+
+    height: var(--fillsuccessbox-height);
+
+    border-radius: 10px;
+
+    background-color: #BF755A;
+
+    font-size: var(--fillsuccess-fontsize);
+    text-align: center;
+}
+
+#FillSuccess_text{
+
+    color: white;
+
+}
+
+#FillSuccess_btn{
+    font-size: var(--fillsuccess-fontsize) !important;
+}
+/*========== Mobile Straight =========*/
+@media screen and (min-width:320px) and (min-height:560px){
+    :root{
+        --fillsuccessbox-height: 11rem;
+        --fillsuccess-fontsize: 0.8rem;
+    }
+}
+
+@media screen and (min-width:350px) and (min-height:600px){
+    :root{
+        --fillsuccessbox-height: 12rem;
+        --fillsuccess-fontsize: 0.9rem;
+    }
+}
+
+@media screen and (min-width:400px) and (min-height:700px){
+    :root{
+        --fillsuccessbox-height: 12.5rem;
+        --fillsuccess-fontsize: 1rem;
+    }
+}
+
+/*========== Mobile Straight =========*/
+
+/*========= Mobile Horizontal ========*/
+@media screen and (min-width:560px) and (min-height:320px){
+    :root{
+        --fillsuccessbox-height: 11rem;
+        --fillsuccess-fontsize: 0.8rem;
+    }
+}
+
+@media screen and (min-width:600px) and (min-height:350px){
+    :root{
+        --fillsuccessbox-height: 12rem;
+        --fillsuccess-fontsize: 0.9rem;
+    }
+}
+
+@media screen and (min-width:700px) and (min-height:400px){
+    :root{
+        --fillsuccessbox-height: 12.5rem;
+        --fillsuccess-fontsize: 1rem;
+    }
+}
+
+/*========= Mobile Horizontal ========*/
+
+
+/*============== Tablet ==============*/
+
+@media screen and (min-width:700px) and (min-height: 1000px){
+    :root{
+        --fillsuccess-fontsize: 1.4rem;
+        --fillsuccessbox-height: 16rem;
+    }
+}
+
+@media screen and (min-width:1000px) and (min-height: 1300px){
+    :root{
+        /* --fillsuccessbox-height: */
+        --fillsuccess-fontsize: 1.5rem;
+        --fillsuccessbox-height: 17rem;
+    }
+}
+
+/*============== Tablet ==============*/
+
+/* =========NoteBook or PC ===========*/
+
+/* @media screen and (min-height: 600px){
+    @media screen and (min-width: 1300px){
+        
+        :root{
+            --fillsuccessbox-height: 12rem;
+            --fillsuccess-fontsize: 0.9rem;
+        }
+
+
+    }
+} */
+
+/* =========NoteBook or PC ===========*/
+
+
