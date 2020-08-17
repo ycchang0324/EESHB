@@ -71,6 +71,10 @@ class SellBook extends Component {
     insertUser = (event) => {
         event.preventDefault();
         // console.log(this.state.captcha);
+        if (this.state.data.category === "" || this.state.data.subject === ""){
+            alert("Please fill the category/subject!")
+            return 
+        }
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
                 (data) => {
@@ -109,7 +113,7 @@ class SellBook extends Component {
 
                     }
                     else {
-                        alert("Something's wrong\nCaptcha isn't correct")
+                        alert("Something's wrong\nCaptcha isn't correct\n"+data.data.msg)
                         console.log(data);
 
                     }
