@@ -13,7 +13,7 @@ if(!isset($_SESSION)){
     session_start();
     }  //判斷session是否已啟動
 
-if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個變數是否為空
+if( && (!empty($captcha))){  //判斷此兩個變數是否為空
     // echo $_SESSION['check_word'];
     $answer = $_SESSION['check_word'];
     

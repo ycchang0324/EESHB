@@ -39,7 +39,7 @@ class SellBook extends Component {
                 stuid: '',
                 category: '',
                 subject: '',
-                amount: '',
+                price: '',
                 others: ''
             },
             captcha: '',
@@ -133,7 +133,13 @@ class SellBook extends Component {
     }
     render() {
         if(this.state.is_fillsuccess){
-            return (<Redirect to="FillSuccess"/>)
+            return (<Redirect 
+                    to={{
+                        pathname: "/FillSuccess",
+                        state:{
+                            fee: price_to_fee[this.state.data.price]
+                        }
+                    }}/>)
         }
         else{
         return (
