@@ -84,6 +84,7 @@ class Orders extends Component {
                     })
                 }
                 else{
+                    console.log(data)
                     alert("Something's Wrong\nCan not fetch id Info")
                 }
 
