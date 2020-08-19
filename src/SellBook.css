@@ -188,7 +188,7 @@ li,ul{
 }
 @media screen and (min-height: 600px){
     :root{
-        --sellbookbox-height: calc(600px - var(--feedbacktitle-fontsize));
+        --sellbookbox-height: calc(550px - var(--feedbacktitle-fontsize));
     }
 }
 
@@ -200,6 +200,6 @@ li,ul{
 
 @media screen and (min-height: 800px){
     :root{
-        --sellbookbox-height: calc(800px - var(--feedbacktitle-fontsize));
+        --sellbookbox-height: calc(750px - var(--feedbacktitle-fontsize));
     }
 }

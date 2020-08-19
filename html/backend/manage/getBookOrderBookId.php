@@ -17,12 +17,12 @@ require '../class/manage.php';
 $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
-$stdId = $data -> stdId;
+$id = $data -> id;
 
 //創建$manager物件
 $manager = new Manage();
 
 //呼叫函式，以獲取學號下的全部訂單
-$manager->getBookOrderBookId($stdId);
+$manager->getBookOrderBookId($id);
 
 ?>
