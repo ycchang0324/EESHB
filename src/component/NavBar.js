@@ -6,6 +6,7 @@ import SellBook_icon from "../image/SellBook_icon.png"
 import feedback_icon from "../image/feedback_icon.png"
 import Login_icon from "../image/Login_icon.png"
 import logo from "../image/logo.png"
+import special_offer from "../image/special_offer.png"
 const NavBar = () =>
 {
     return(
@@ -39,6 +40,12 @@ const NavBar = () =>
                     <Link to="/Login">
                         <img src={Login_icon} alt="Login_icon"/>
                         <p style={{color:"#9CEAFF"}}>Login</p>
+                    </Link>
+                </li>
+                <li className="NavBar_li">
+                    <Link to="/OldBooks">
+                        <img src={special_offer} alt="Login_icon"/>
+                        <p style={{color:"#C87FF0"}}>Special</p>
                     </Link>
                 </li>
             </ul>
