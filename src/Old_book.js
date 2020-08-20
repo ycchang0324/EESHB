@@ -46,15 +46,15 @@ const Old_book = (props) => {
 
     const handleCategoryChange = (newCategory) => {
         setCurrentCategory(newCategory)
-        getOldBookListfromBackend()
+        getOldBookListfromBackend(newCategory)
     }
 
-    const getOldBookListfromBackend = () => {
+    const getOldBookListfromBackend = (newCategory) => {
         //TODO
         // axios => if success then call categorizeOldBooks => store in categoryTable
         axios.post("https://book.ntuee.org/backend/showOldBook.php",
             {
-                category: currentCategory
+                category: newCategory
             })
             .then(
                 data => {
