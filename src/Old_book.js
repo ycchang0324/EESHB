@@ -104,12 +104,12 @@ const Old_book = (props) => {
     return (
         <div id="Old_book_container" className="card text-center">
             <div id="Old_book_nav" className="card-header">
-                {/* <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} /> */}
+                <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} />
             </div>
             <p>{currentCategory}</p>
-            {/* <Scrollbars renderThumbVertical={renderThumb} >
+            <Scrollbars renderThumbVertical={renderThumb} >
                 <div id="Old_book_cards" className="d-flex justify-content-center">
-                    {/* {renderChosenCategory(currentCategory)} 
+                    {/* {renderChosenCategory(currentCategory)}  */}
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
@@ -130,7 +130,7 @@ const Old_book = (props) => {
                     <Old_book_card data={test_bookdata} />
 
                 </div>
-            </Scrollbars> */}
+            </Scrollbars>
         </div>
     )
 }
