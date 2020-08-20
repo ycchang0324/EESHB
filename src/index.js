@@ -5,6 +5,7 @@ import App from './App';
 import Home from './Home';
 import Manage from './manage/Manage';
 import {Route,Redirect} from 'react-router-dom';
+
 //import * as serviceWorker from './serviceWorker';
 import {BrowserRouter,Switch} from 'react-router-dom'
 
@@ -24,6 +25,7 @@ ReactDOM.render(
     <Switch>
     <Route exact path="/" component={Home}/>
     <PrivateRoute path="/manage" component={Manage}/>
+    
       <App/>
     </Switch>
   </BrowserRouter>
