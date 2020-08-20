@@ -53,21 +53,21 @@ const Old_book = (props) => {
         //TODO
         // axios => if success then call categorizeOldBooks => store in categoryTable
         axios.post("https://book.ntuee.org/backend/showOldBook.php",
-        {
-            category:currentCategory
-        })
-        .then(
-            data => {
-                if(data.data.success === 1){
-                    console.log(data)
-                    //setCategoryTable(data.data.oldBookList)
+            {
+                category: currentCategory
+            })
+            .then(
+                data => {
+                    if (data.data.success === 1) {
+                        console.log(data)
+                        //setCategoryTable(data.data.oldBookList)
+                    }
+                    else {
+                        console.log(data)
+                        alert("Something's Wrong\nCan not fetch old book list from db")
+                    }
                 }
-                else{
-                    console.log(data)
-                    alert("Something's Wrong\nCan not fetch old book list from db")
-                }
-            }
-        )
+            )
     }
 
     const categorizeOldBooks = (oldbooks) => {
@@ -97,9 +97,9 @@ const Old_book = (props) => {
 
     }
 
-    useEffect(() => {
-        getOldBookListfromBackend()
-    }, [])
+    // useEffect(() => {
+    //     getOldBookListfromBackend()
+    // }, [])
 
     return (
         // <div>
@@ -160,13 +160,14 @@ const Old_book_nav = (props) => {
             if (props.data[category]) {
                 let dropdown_items = []
                 for (let subject of props.data[category]) {
-                    dropdown_items.push(<button className="dropdown-item"
-                        onClick={(e) => {
-                            e.preventDefault()
-                            props.datafunc(subject)
-                        }}>
-                        {subject}
-                    </button>)
+                    dropdown_items.push(
+                        <button className="dropdown-item"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                props.datafunc(subject)
+                            }}>
+                            {subject}
+                        </button>)
                 }
 
                 navtabs_list.push(
