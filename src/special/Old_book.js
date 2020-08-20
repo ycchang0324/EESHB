@@ -97,9 +97,9 @@ const Old_book = (props) => {
 
     }
 
-    // useEffect(() => {
-    //     getOldBookListfromBackend()
-    // }, [])
+    useEffect(() => {
+        getOldBookListfromBackend()
+    }, [])
 
     return (
         // <div>
