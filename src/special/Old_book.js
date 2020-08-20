@@ -107,7 +107,7 @@ const Old_book = (props) => {
         // </div>
         <div id="Old_book_container" className="card text-center">
             <div id="Old_book_nav" className="card-header">
-                <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} />
+                {/* <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} /> */}
             </div>
             <p>{currentCategory}</p>
             <Scrollbars renderThumbVertical={renderThumb} >
