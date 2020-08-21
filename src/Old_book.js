@@ -37,11 +37,10 @@ const Old_book = (props) => {
         "課外書": null,
     }
 
-    //global image path
-    const image_path = "https://book.ntuee.org/old_book_picture/image_"
+    
 
     const [currentCategory, setCurrentCategory] = useState("")
-    const [categoryTable, setCategoryTable] = useState({})
+    const [categoryCardList, setCategoryCardList] = useState([])
 
 
     const handleCategoryChange = (newCategory) => {
@@ -60,7 +59,10 @@ const Old_book = (props) => {
                 data => {
                     if (data.data.success === 1) {
                         console.log(data)
-                        //setCategoryTable(data.data.oldBookList)
+                        // categorizeOldBooks(data.data.oldBookList)
+                        // setCategoryTable(data.data.oldBookList)
+                        let old_book_cards = renderChosenCategory(data.data.oldBookList)
+                        setCategoryCardList(old_book_cards)
                     }
                     else {
                         console.log(data)
@@ -70,7 +72,7 @@ const Old_book = (props) => {
             )
     }
 
-    const categorizeOldBooks = (oldbooks) => {
+    /* const categorizeOldBooks = (oldbooks) => {
         //TODO
         // organize data from backend
         //format:
@@ -86,14 +88,25 @@ const Old_book = (props) => {
                 }
             }
         } 
-         */
-    }
+         
+        for (let oldbook of oldbooks){
 
-    const renderChosenCategory = (currentCategory) => {
+        }
+    } */
+
+    const renderChosenCategory = (currentCategoryBookList) => {
         //TODO
         // use currentCategory to choose from categoryTable and render into page
         // return list of Old_book_card
 
+        // set a blank list to store Old_book_card
+        let oldbook_list = []
+
+        for (let oldbook of currentCategoryBookList){
+            oldbook_list.push(<Old_book_card data={oldbook}/>)
+        }
+
+        return oldbook_list
 
     }
 
@@ -109,7 +122,8 @@ const Old_book = (props) => {
             <p>{currentCategory}</p>
             <Scrollbars renderThumbVertical={renderThumb} >
                 <div id="Old_book_cards" className="d-flex justify-content-center">
-                    {/* {renderChosenCategory(currentCategory)}  */}
+                    {categoryCardList}
+                    {/* <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
@@ -126,8 +140,7 @@ const Old_book = (props) => {
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
                     <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
+                    <Old_book_card data={test_bookdata} /> */}
 
                 </div>
             </Scrollbars>
@@ -208,23 +221,29 @@ const Old_book_nav = (props) => {
 {
     data:
         {
-            img_path:
-            bookname:
+            id:
+            name:
+            category:
             price:
+            picture:
+            isSold:
         }
 }
  */
 
 const Old_book_card = (props) => {
 
+    //global image path
+    const image_path = "https://book.ntuee.org/old_book_picture/image_"
+
     return (
-        <div className="card mx-1 my-3 mx-md-2 m-lg-3">
+        <div className="card mx-1 my-3 mx-md-2 m-lg-3 Old_book_card">
             <div className="mx-1 my-3 mx-md-2 m-lg-3">
-                <img src={props.data.img_path} className="card-img-top img-fluid Old_book_card_img" alt={props.data.img_path} />
+                <img src={image_path+props.data.picture+".jpg"} className="card-img-top img-fluid Old_book_card_img" alt={props.data.img_path} />
             </div>
-            <div className="card-body px-2 py-1">
-                <p className="card-text Old_book_card_text">{props.data.bookname}</p>
-                <p className="card-title Old_book_card_price"><span style={{ color: "red", fontWeight: "bold" }}>{props.data.price}</span>元</p>
+            <div className="card-body px-2 py-1 d-flex flex-column">
+                <p className="card-text Old_book_card_text">{props.data.name}</p>
+                <p className="card-title Old_book_card_price mt-auto"><span style={{ color: "red", fontWeight: "bold" }}>{props.data.price}</span>元</p>
             </div>
         </div>
     )
