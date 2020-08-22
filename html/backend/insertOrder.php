@@ -163,7 +163,7 @@ $conn->query($sql);
 //連線結束    
 $conn->close();
 
-
+$conn = connection();
 
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
             buyerId, others)
@@ -237,7 +237,7 @@ $conn->query($sql);
 
 //連線結束    
 $conn->close();
-
+$conn = connection();
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
             buyerId, others)
             VALUES ('徐有齊',
@@ -310,7 +310,7 @@ $conn->query($sql);
 
 //連線結束    
 $conn->close();
-
+$conn = connection();
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
             buyerId, others)
             VALUES ('陳奕瑒',
@@ -383,7 +383,7 @@ $conn->query($sql);
 
 //連線結束    
 $conn->close();
-
+$conn = connection();
 
 
 
@@ -461,7 +461,7 @@ $conn->query($sql);
 //連線結束    
 $conn->close();
 
-
+$conn = connection();
 
 
 
@@ -537,7 +537,7 @@ $conn->query($sql);
 
 //連線結束    
 $conn->close();
-
+$conn = connection();
 
 
 
@@ -616,7 +616,7 @@ $conn->query($sql);
 $conn->close();
 
 
-
+$conn = connection();
 
 
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
@@ -691,7 +691,7 @@ $conn->query($sql);
 
 //連線結束    
 $conn->close();
-
+$conn = connection();
 
 
 
@@ -768,7 +768,7 @@ $conn->query($sql);
 //連線結束    
 $conn->close();
 
-
+$conn = connection();
 
 
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
@@ -829,7 +829,7 @@ $conn->query($sql);
 
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
             buyerId, others)
-            VALUES ('張楊學翰',
+            VALUES ('張楊學翰ㄕ',
                     'b08901054', 
                     '大一必修', 
                     '生物科學通論', 
