@@ -352,12 +352,12 @@ class Mailer
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
                 $body = $name . "先生/小姐您好，以下是您的領錢及退書結果：" . "<br>";
-                
+                /*
                 
                 $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢或退書'";
                 $result = $conn->query($sql);
              
-                /*
+                
                 if ($result->num_rows > 0) {
                     $body = $body . "已領錢及退書的書籍：" . "<br>";
                     
@@ -384,10 +384,10 @@ class Mailer
                 
                    
                 }
-                */
+                
                 
                 $body = $body . "感謝您的熱情參與";
-                 
+                 */
                  //$this -> addBody( $body );
                  //$this -> sendMail();
                  //$this -> removeAllRecipient();
