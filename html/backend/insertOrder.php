@@ -17,9 +17,75 @@ require_once './db/db_connection.php';
 $conn = connection();
 
 //檢查管理者輸入的帳密是否與login資料表中儲存的帳密相符，若相符，$isMember變數為1，否則為0
-//$sql = "SELECT account,password FROM login ";
-//$conn->query($sql);
+$sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
+            VALUES ('張原嘉',
+                    'b08901049', 
+                    '大一必修', 
+                    '生物科學通論', 
+                    '300', 
+                    '5', 
+                    '已收到書',
+                    '',
+                    ''
+                    )";
+$conn->query($sql);
 
+$sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
+            VALUES ('張原嘉',
+                    'b08901049', 
+                    '大一必修', 
+                    '生物科學通論', 
+                    '300', 
+                    '5', 
+                    '沒有拿書過來',
+                    '',
+                    ''
+                    )";
+$conn->query($sql);
+
+$sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
+            VALUES ('張原嘉',
+                    'b08901049', 
+                    '大一必修', 
+                    '生物科學通論', 
+                    '300', 
+                    '5', 
+                    '已賣出',
+                    '',
+                    ''
+                    )";
+$conn->query($sql);
+
+$sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
+            VALUES ('張原嘉',
+                    'b08901049', 
+                    '大一必修', 
+                    '生物科學通論', 
+                    '300', 
+                    '5', 
+                    '沒賣出',
+                    '',
+                    ''
+                    )";
+$conn->query($sql);
+
+$sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
+            VALUES ('張原嘉',
+                    'b08901049', 
+                    '大一必修', 
+                    '生物科學通論', 
+                    '300', 
+                    '5', 
+                    '已領錢或退書',
+                    '',
+                    ''
+                    )";
+$conn->query($sql);
 
 //連線結束    
 $conn->close();

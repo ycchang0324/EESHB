@@ -20,6 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 $id = $data -> id;
 $state = $data -> state;
 $buyerId = $data -> buyerId;
+
 //創建$manager物件
 $manage = new Manage();
 

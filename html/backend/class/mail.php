@@ -354,7 +354,7 @@ class Mailer
                 $body = $name . "先生/小姐您好，以下是您的領錢及退書結果：" . "<br>";
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢及退書'";
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢或退書'";
                 $result = $conn->query($sql);
              
                 
