@@ -347,7 +347,7 @@ class Mailer
                 $stdId = $row["stdId"];
                 $name = $row["name"];
                 
-                
+                $connInside = connection();
                 
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
@@ -355,22 +355,22 @@ class Mailer
                 
                 
                 $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢或退書'";
-                $result = $conn->query($sqlInside );
+                $resultInside = $connInside -> query($sqlInside );
              
                 
-                if ($result->num_rows > 0) {
+                if ($resultInside ->num_rows > 0) {
                     $body = $body . "已領錢及退書的書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside = $resultInside->fetch_assoc()) 
+                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
+                $connInside->close();
                 
-                
-                
+                /*
                 $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢或退書'";
                 $result = $conn->query($sql);
                 
-                /*
+                
                 if ($result->num_rows > 0) {
                   // output data of each row
                     $body = $body . "未領錢及退書的書籍：" . "<br>";
