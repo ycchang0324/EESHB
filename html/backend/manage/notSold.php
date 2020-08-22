@@ -20,9 +20,9 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 //創建$manager物件
-$manager = new Manage();
+$manage = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manager->notSold();
+$manage -> notSold();
 
 ?>
