@@ -29,6 +29,9 @@ const Login = (props) => {
             localStorage.setItem('auth', true);
             // window.location = 'manage';
         }
+        else{
+            localStorage.setItem('auth', false);
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault();

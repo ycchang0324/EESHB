@@ -35,11 +35,11 @@ const Old_book = (props) => {
         "系上選修": ["離散數學", "計算機概論", "系上其他選修"],
         "系外選修": null,
         "課外書": null,
-        "光碟":null,
-        "計算機":null
+        "光碟": null,
+        "計算機": null
     }
 
-    
+
 
     const [currentCategory, setCurrentCategory] = useState("")
     const [categoryCardList, setCategoryCardList] = useState([])
@@ -104,8 +104,8 @@ const Old_book = (props) => {
         // set a blank list to store Old_book_card
         let oldbook_list = []
 
-        for (let oldbook of currentCategoryBookList){
-            oldbook_list.push(<Old_book_card data={oldbook}/>)
+        for (let oldbook of currentCategoryBookList) {
+            oldbook_list.push(<Old_book_card data={oldbook} />)
         }
 
         return oldbook_list
@@ -118,32 +118,19 @@ const Old_book = (props) => {
 
     return (
         <div id="Old_book_container" className="card text-center">
-            <div id="Old_book_nav" className="card-header">
-                <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} />
-            </div>
-            <p>{currentCategory}</p>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#Old_book_nav" aria-controls="Old_book_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div id="Old_book_nav" className="card-header collapse navbar-collapse bg-light" style={{borderBottom:"0px"}}>
+                    
+                    <Old_book_nav data={nav_categories} datafunc={handleCategoryChange} />
+                    
+                </div>
+            </nav>
             <Scrollbars renderThumbVertical={renderThumb} >
                 <div id="Old_book_cards" className="d-flex justify-content-center">
                     {categoryCardList}
-                    {/* <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} />
-                    <Old_book_card data={test_bookdata} /> */}
-
                 </div>
             </Scrollbars>
         </div>
@@ -183,7 +170,7 @@ const Old_book_nav = (props) => {
                 }
 
                 navtabs_list.push(
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown col-12 col-sm-6 col-md-4 col-lg-3 col-xl p-xl-0">
                         <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             {category}
                         </a>
@@ -195,8 +182,8 @@ const Old_book_nav = (props) => {
             }
             else {
                 navtabs_list.push(
-                    <li className="nav-item">
-                        <button className="nav-link" href="#"
+                    <li className="nav-item col-12 col-sm-6 col-md-4 col-lg-3 col-xl p-xl-0 d-flex justify-content-center">
+                        <button className="nav-link bg-light"
                             onClick={
                                 (e) => {
                                     e.preventDefault()
@@ -213,7 +200,7 @@ const Old_book_nav = (props) => {
     }
 
     return (
-        <ul className="nav nav-tabs card-header-tabs">
+        <ul className="nav nav-tabs card-header-tabs col-12">
             {renderNavCategories()}
         </ul>
     )
@@ -241,7 +228,7 @@ const Old_book_card = (props) => {
     return (
         <div className="card mx-1 my-3 mx-md-2 m-lg-3 Old_book_card">
             <div className="mx-1 my-3 mx-md-2 m-lg-3">
-                <img src={image_path+props.data.picture+".jpg"} className="card-img-top img-fluid Old_book_card_img" alt={props.data.img_path} />
+                <img src={image_path + props.data.picture + ".jpg"} className="card-img-top img-fluid Old_book_card_img" alt={props.data.img_path} />
             </div>
             <div className="card-body px-2 py-1 d-flex flex-column">
                 <p className="card-text Old_book_card_text">{props.data.name}</p>
