@@ -4,32 +4,30 @@ import './index.css';
 import App from './App';
 import Home from './Home';
 import Manage from './manage/Manage';
-import {Route,Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
-//import * as serviceWorker from './serviceWorker';
-import {BrowserRouter,Switch} from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    // localStorage.getItem('auth')
-    true
+    localStorage.getItem('auth')
       ? <Component {...props} />
       : <Redirect to={{
-          pathname: '/Login',
-          state: { from: props.location }
-        }} />
+        pathname: '/Login',
+        state: { from: props.location }
+      }} />
   )} />
 )
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-    <Route exact path="/" component={Home}/>
-    <PrivateRoute path="/manage" component={Manage}/>
-    
-      <App/>
+      <Route exact path="/" component={Home} />
+      <PrivateRoute path="/manage" component={Manage} />
+
+      <App />
     </Switch>
   </BrowserRouter>
-   
+
   ,
   document.getElementById('root')
 );

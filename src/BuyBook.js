@@ -7,7 +7,7 @@ import './BuyBook.css'
 const categories_subjects = {
     "大一必修": ["交換電路與邏輯設計", "生物科學通論", "普通物理學甲"],
     "大二必修": ["電子學(一)", "電磁學(一)", "工程數學-線性代數", "工程數學-微分方程"],
-    "大三必修": [ "演算法"],
+    "大三必修": ["演算法"],
     //"選修": ["無"],
     //"其他選修": ["無"]
 }
@@ -44,7 +44,7 @@ const BuyBook = () => {
         "工程數學-微分方程": [0, 0, 0, 0],
         "演算法": [0, 0, 0, 0],
     })
-    
+
     const handleSelectChange = (dataname, option) => {
         if (dataname === "category") {
             setCategory(option)
@@ -76,10 +76,10 @@ const BuyBook = () => {
                     <Select id="BuyBook_subjects" defaultOption="Choose Your Grade First" options={categories_subjects[category] ? categories_subjects[category] : []} conn={handleSelectChange} dataname="subject" />
                 </div>
             </form>
-            <div className="justify-content-center my-3" style={{display:subject?"flex":"none"}}>
+            <div className="justify-content-center my-3" style={{ display: subject ? "flex" : "none" }}>
                 <img src={subject ? (img_source + subjects_img_name[subject]) : null}
-                     alt={subject ? (subjects_img_name[subject]) : ""}
-                     className="img-fluid" />
+                    alt={subject ? (subjects_img_name[subject]) : ""}
+                    className="img-fluid" />
             </div>
             <div id="BuyBook_box" className="d-md-flex d-block col-md-10 col-lg-9 col-xl-7 justify-content-center mx-auto mt-2">
                 <div className="col-md-6 p-0 col-10 mx-auto">
@@ -88,16 +88,16 @@ const BuyBook = () => {
                         <Rolling_Number price="200" num={dataFromBackEnd[subject][0] ? dataFromBackEnd[subject][0] : 0} />
                         <span className="Rolling_Number_text">本</span>
                     </div>
-                    <div id="BuyBook_500" className="BuyBook_price col-12">
-                        $500
-                        <Rolling_Number price="500" num={dataFromBackEnd[subject][2] ? dataFromBackEnd[subject][2] : 0} />
+                    <div id="BuyBook_300" className="BuyBook_price col-12">
+                        $300
+                        <Rolling_Number price="300" num={dataFromBackEnd[subject][1] ? dataFromBackEnd[subject][1] : 0} />
                         <span className="Rolling_Number_text">本</span>
                     </div>
                 </div>
                 <div className="col-md-6 p-0 col-10 mx-auto">
-                    <div id="BuyBook_300" className="BuyBook_price col-12">
-                        $300
-                        <Rolling_Number price="300" num={dataFromBackEnd[subject][1] ? dataFromBackEnd[subject][1] : 0} />
+                    <div id="BuyBook_500" className="BuyBook_price col-12">
+                        $500
+                        <Rolling_Number price="500" num={dataFromBackEnd[subject][2] ? dataFromBackEnd[subject][2] : 0} />
                         <span className="Rolling_Number_text">本</span>
                     </div>
                     <div id="BuyBook_700" className="BuyBook_price col-12">

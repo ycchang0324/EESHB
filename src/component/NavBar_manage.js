@@ -1,7 +1,6 @@
 import React from 'react';
 import './NavBar_manage.css';
 import {Link} from 'react-router-dom'
-import check from '../image/manage/check.png'
 import orders from '../image/manage/orders.png'
 import messege from '../image/manage/messege.png'
 import logout from '../image/manage/logout.png'
@@ -16,17 +15,17 @@ const NavBar_manage = () => {
     return(
         <div id="NavBar_manage_container">
             <ul className="NavBar_manage_ul">
-                <li className="NavBar_manage_li">
+                {/* <li className="NavBar_manage_li">
                     <Link to="/manage/SellerCheck">
                         <img src={check} alt="check"/>
                         <p style={{color:"#FFB8BA"}}>SellerCheck</p>
                     </Link>
                     
-                </li>
+                </li> */}
                 <li className="NavBar_manage_li">
                     <Link to="/manage/Orders">
                         <img src={orders} alt="orders" style={{height:"55px",width:"55px",marginLeft:"5px"}}/>
-                        <p style={{color:"#E8B77B"}}>Orders</p>
+                        <p style={{color:"#FFB8BA"}}>Orders</p>
                     </Link>
                 </li>
                 <li className="NavBar_manage_li">

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 import NavBar from './component/NavBar';
-// import Home from './Home';
 import Login from './Login';
 import SellBook from './SellBook';
 import BuyBook from './BuyBook';
@@ -24,13 +23,15 @@ import Old_book from './Old_book';
 //   )} />
 // )
 
-const App = () => {
+const App = (props) => {
     // const [isLogin, setIslogin] = useState(false);
     // const handleisLoginChange = (isLogin) =>{
     //   console.log("call handleisLoginChange")
     //   console.log(isLogin)
     //   setIslogin(isLogin)
-    // localStorage.setItem('auth',true);
+    useEffect (()=>{
+        localStorage.setItem('auth',false)
+    },[])
     // if(isLogin) window.location = "/manage";
     //   console.log('App isLogin = ',this.state.isLogin)
     // }
@@ -38,12 +39,9 @@ const App = () => {
         <div>
             <NavBar />
             <div id="App_container">
-                {/* <Route path="/Home" component={Home}/> */}
                 <Route path="/SellBook" component={SellBook} />
                 <Route path="/BuyBook" component={BuyBook} />
-                {/* <Route path="/Login" component={Login}/> */}
                 <Route path="/Login" render={(props) => <Login {...props}></Login>} />
-                {/* <PrivateRoute path="/manage" component={Manage} loginstatus={isLogin}/> */}
                 <Route path="/FeedBack" component={FeedBack} />
                 <Route path="/FillSuccess" component={FillSuccess} />
                 <Route path="/OldBooks" component={Old_book}/>
