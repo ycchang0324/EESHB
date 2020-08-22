@@ -126,7 +126,7 @@ class Orders extends Component {
     }
 
     componentDidUpdate(){
-        
+        Axios.post("https://book.ntuee.org/backend/manage/changeState.php")
     }
 
     render() {
