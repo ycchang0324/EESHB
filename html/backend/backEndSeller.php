@@ -40,6 +40,8 @@ $others   = trimmedData( $data -> others );
 $stdId = strtolower($stdId);
 //創造一個$seller的物件
 
+//到時候要刪掉
+$fee = 200;
 
 //$name = "張原嘉";
 //$stdId = "b08901049";
