@@ -100,24 +100,29 @@ class Orders extends Component {
         Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php")
     }
 
-    sendMail_result = (e) => {
+    sendMail_sellingResult = (e) => {
         //TODO
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php")
     }
 
-    sendMail_return = (e) => {
+    sendMail_givenBackResult = (e) => {
         //TODO
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php")
     }
 
-    changeStatusToNonReceived = (e) => {
+    changeStatusToNotReceive = (e) => {
         //TODO
+        Axios.post("https://book.ntuee.org/backend/manage/notReceive.php")
     }
 
     changeStatusToNotSold = (e) => {
         //TODO
+        Axios.post("https://book.ntuee.org/backend/manage/notSold.php")
     }
 
-    changeStatusToNotReturn = (e) => {
+    changeStatusToNotGivenBack = (e) => {
         //TODO
+        Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php")
     }
 
     componentDidUpdate(){
