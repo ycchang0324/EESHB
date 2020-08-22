@@ -10,7 +10,8 @@ const NavBar_manage = () => {
 
     const handlelogout = (e) => {
         e.preventDefault();
-        //TODO
+        localStorage.setItem('auth',false)
+        window.location = "/Login"
     }
     return(
         <div id="NavBar_manage_container">
@@ -35,7 +36,7 @@ const NavBar_manage = () => {
                     </Link>
                 </li>
                 <li className="NavBar_manage_li">
-                    <button style={{backgroundColor:"transparent",border:"0"}}>
+                    <button style={{backgroundColor:"transparent",border:"0"}} onClick={handlelogout}>
                         <img src={logout} alt="logout" style={{marginLeft:"10px"}}/>
                         <p style={{color:"#7BE88A"}}>Logout</p>
                     </button>

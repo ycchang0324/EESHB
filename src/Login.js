@@ -27,7 +27,7 @@ const Login = (props) => {
         
         if (isLogin) {
             localStorage.setItem('auth', true);
-            window.location = 'manage';
+            // window.location = 'manage';
         }
     }
     const handleSubmit = (e) => {
@@ -58,7 +58,7 @@ const Login = (props) => {
             })
     }
     if (loginstate) {
-        return <Redirect to="/manage" />
+        return <Redirect to="/manage/Orders" />
     } else {
         return (
             <div id="Login_container">

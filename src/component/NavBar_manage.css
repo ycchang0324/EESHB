@@ -1,19 +1,26 @@
-button:focus{
-    outline: 0;
-}
+@import url(../component/style/global_var.css);
 
-.NavBar_manage_ul{
+p{
     margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.NavBar_manage_ul{
+
+    margin: 0;
+
     list-style: none;
-    padding: 12.5px 10px 0 10px;
 
 }
 .NavBar_manage_li p{
-    margin-top: -5px;
-    font-size: 14px;
+
     font-weight: 600;
-    opacity: 0;
+    
     transition: opacity 0.35s ease-in-out;
+
+    opacity: 0;
+
 }
 .NavBar_manage_li:hover p{
     opacity: 1;
@@ -22,11 +29,13 @@ button:focus{
     transform: scale(1.1);
 }
 .NavBar_manage_li{
-    margin-top: 12.5px;
-    width:75px;
-    text-align: center;
+
     background-color: transparent;
+
+    text-align: center;
+    
     transition: transform 0.35s ease-in-out;
+
 }
 .NavBar_manage_li:first-child{
     margin-top: 0;
@@ -35,16 +44,125 @@ button:focus{
     color:black;
 }
 
-.NavBar_manage_li img{
-    height: 50px;
-    width: 50px;
-}
-
 #NavBar_manage_container{
-    width:100px;
-    height: 100vh;
-    background-image: linear-gradient(165deg,#2E5C6E 30%,#043359);
-    /* background-color: #2E5C6E; */
+
     position: fixed;
     top:0;
+
+    width:var(--navbar-width);
+    height: 100vh;
+    
+    background-image: linear-gradient(165deg,#2E5C6E 30%,#043359);
+    
+}
+@media screen and (min-height: 300px){
+    .NavBar_manage_li img{
+        width: 2.5rem;
+        height: 2.5rem;
+
+        margin-top: 0.5rem;
+    }
+
+    .NavBar_manage_li p{
+
+        margin-top: -0.3rem;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_manage_logo{
+
+        width:3.5rem;
+        height: 3.5rem;
+
+        margin-top: 0.25rem;
+        
+    }
+}
+
+@media screen and (min-width: 300px) and (min-height:500px){
+    .NavBar_manage_li img{
+        width: 2rem;
+        height: 2rem;
+
+        margin-top: 0.5rem;
+    }
+
+    .NavBar_manage_li p{
+
+        margin-top: -0.3rem;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_manage_logo{
+
+        width:3rem;
+        height: 3rem;
+
+        margin-top: 0.25rem;
+        
+    }
+}
+@media screen and (min-width: 350px) and (min-height: 600px){
+    .NavBar_manage_li img{
+
+        width: 2.5rem;
+        height: 2.5rem;
+
+        margin-top: 0.5rem;
+    }
+
+    .NavBar_manage_li p{
+
+        margin-top: -0.3rem;
+        margin-left: 0.1rem ;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_manage_logo{
+       
+        width:3.5rem;
+        height: 3.5rem;
+    }
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    .NavBar_manage_li img{
+
+        width: 3rem;
+        height: 3rem;
+
+        margin-top: 1rem;
+    }
+
+    .NavBar_manage_li p{
+
+        margin-top: -0.3rem;
+        margin-left: 0.1rem ;
+
+        font-size: 0.7rem;
+        
+    }
+
+    #NavBar_manage_logo{
+       
+        width:4rem;
+        height: 4rem;
+    }
+}
+@media screen and (min-width: 1500px){
+    
 }

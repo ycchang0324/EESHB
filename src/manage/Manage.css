@@ -1,0 +1,5 @@
+@import url(../component/style/global_var.css);
+
+#Manage_container{
+    margin-left: var(--navbar-width);
+}

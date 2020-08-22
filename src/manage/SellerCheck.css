@@ -27,7 +27,7 @@
     font-size: 20px;
 }
 
- .sellerStateBar_class:hover ul {
+ /* .sellerStateBar_class:hover ul {
     opacity: 1;
     left: 50% ;
 }
@@ -44,4 +44,4 @@
     left: -999999px;
     transition: opacity 0.5s;
     border-radius: 0 5px 10px 10px;
-} 
+}  */

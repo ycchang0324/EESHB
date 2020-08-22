@@ -1,0 +1,82 @@
+@import url(./component/style/global_var.css);
+
+.Old_book_card{
+    width: var(--oldbookcard-width);
+}
+
+.Old_book_card_img{
+    /* min-width: 100px; */
+    max-width: 150px;
+}
+
+.Old_book_card_text{
+    font-size: var(--oldbookcardtext-fontsize);
+}
+
+.Old_book_card_price{
+    font-size: var(--oldbookcardprice-fontsize);
+}
+
+#Old_book_container{
+
+
+    height: 100vh;
+
+    background-image: var(--bg-image);
+
+    font-family: var(--primary-font);
+    
+}
+
+#Old_book_nav{
+
+    background-color: whitesmoke;
+}
+
+#Old_book_cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 300px){
+    :root{
+        --oldbookcard-width:200px;
+        --oldbookcardtext-fontsize: 0.8rem;
+        --oldbookcardprice-fontsize: 1rem;
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+        --oldbookcard-width:225px;
+        --oldbookcardtext-fontsize: 1rem;
+        --oldbookcardprice-fontsize: 1.2rem;
+    }
+    
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 500px){
+    :root{
+        --oldbookcardtext-fontsize: 1.1rem;
+        --oldbookcardprice-fontsize: 1.3rem;
+    }
+}
+@media screen and (min-width: 600px){
+    :root{
+        --oldbookcard-width:225px;
+        --oldbookcardtext-fontsize: 1rem;
+        --oldbookcardprice-fontsize: 1.3rem;
+    }
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    :root{
+        --oldbookcard-width:250px;
+    }
+}
+@media screen and (min-width: 1500px){
+    
+}

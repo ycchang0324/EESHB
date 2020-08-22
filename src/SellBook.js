@@ -39,11 +39,11 @@ class SellBook extends Component {
                 stuid: '',
                 category: '',
                 subject: '',
-                amount: '',
+                price: '',
                 others: ''
             },
-            captcha: ''
-
+            captcha: '',
+            is_fillsuccess: false
         }
     }
 
@@ -68,52 +68,57 @@ class SellBook extends Component {
         // console.log(this.state.data);
 
     }
-
     insertUser = (event) => {
-
-
         event.preventDefault();
-        event.persist();
-        console.log(this.state.captcha);
-
+        // console.log(this.state.captcha);
+        if (this.state.data.category === "" || this.state.data.subject === ""){
+            alert("Please fill the category/subject!")
+            return 
+        }
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
-                function (data) {
+                (data) => {
+                    console.log(data.data.success)
                     if (data.data.success === 1) {
+                        console.log(data)
                         Axios.post('https://book.ntuee.org/backend/backEndSeller.php',
                             this.state.data
 
                         )
 
-                            .then(function ({ data }) {
-
-
-                                if (data.success === 1) {
+                            .then((data) => {
+                                alert("success")
+                                console.log(data)
+                                if (data.data.success === 1) {
 
                                     console.log(data)
-                                    alert(data.msg)
-
-                                    return <Redirect to="/FillSuccess" />
+                                    this.setState({
+                                        is_fillsuccess : true
+                                    })
+                                    // alert(data.msg)
 
                                 }
                                 else {
                                     console.log(data)
-                                    alert(data.msg);
-
-
+                                    this.setState({
+                                        is_fillsuccess : false
+                                    })
+                                    // alert(data.msg);
                                 }
                             })
                             .catch(function (error) {
                                 console.log(error);
+                                alert("Something's wrong\n"+error)
                             });
+
                     }
-                    else{
+                    else {
+                        alert("Something's wrong\nCaptcha isn't correct\n"+data.data.msg)
                         console.log(data);
+
                     }
                 }
             )
-
-
     }
 
     refresh_code = (e) => {
@@ -127,11 +132,21 @@ class SellBook extends Component {
         }, console.log(this.state))
     }
     render() {
+        if(this.state.is_fillsuccess){
+            return (<Redirect 
+                    to={{
+                        pathname: "/FillSuccess",
+                        state:{
+                            fee: price_to_fee[this.state.data.price]
+                        }
+                    }}/>)
+        }
+        else{
         return (
             <div id="SellBook_container">
                 <p id="FeedBack_title">填寫賣書表單</p>
 
-                <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 my-auto">
+                <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 ">
                     <form onSubmit={this.insertUser}>
                         <ul id="SellBook_main_ul">
                             <li className="SellBook_li form-group" >
@@ -248,6 +263,7 @@ class SellBook extends Component {
 
             </div>
         )
+        }
     }
 }
 

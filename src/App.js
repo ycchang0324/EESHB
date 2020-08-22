@@ -8,6 +8,8 @@ import SellBook from './SellBook';
 import BuyBook from './BuyBook';
 import FeedBack from './FeedBack';
 import FillSuccess from './FillSuccess';
+import Old_book from './Old_book';
+
 // import Manage from './Manage';
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -44,6 +46,7 @@ const App = () => {
                 {/* <PrivateRoute path="/manage" component={Manage} loginstatus={isLogin}/> */}
                 <Route path="/FeedBack" component={FeedBack} />
                 <Route path="/FillSuccess" component={FillSuccess} />
+                <Route path="/OldBooks" component={Old_book}/>
             </div>
         </div>
     )

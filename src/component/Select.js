@@ -104,7 +104,7 @@ class Select extends Component {
                         {this.state.currentOption ? this.state.currentOption : this.props.defaultOption}
                     </a>
 
-                    <ul id={this.state.id + "_options_mobile"} className="dropdown-menu col-12" aria-labelledby={this.state.id + "_select"}>
+                    <ul id={this.state.id + "_options_mobile"} className="dropdown-menu col-12" aria-labelledby={this.state.id + "_select"} style={{transform:"none"}}>
                     
                     </ul>
                 </div>
