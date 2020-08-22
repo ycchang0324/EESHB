@@ -184,7 +184,7 @@ class Mailer
                 $connInside = connection();
                 
                 $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
-                $resultInside = $connInside->query($sql);
+                $resultInside = $connInside->query($sqlInside);
              
                 
                 if ($resultInside->num_rows > 0) {
@@ -196,10 +196,12 @@ class Mailer
                 
                 $connInside -> close();
                 
+                
+               
                 $connInside2 = connection();
                 
                 $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒有拿書過來'";
-                $resultInside2 = $connInside2->query($sql);
+                $resultInside2 = $connInside2->query($sqlInside2);
                 
                 
                 if ($resultInside2->num_rows > 0) {
@@ -220,7 +222,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 sleep(3);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -249,11 +251,11 @@ class Mailer
                 $connInside = connection();
                 
                 $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已賣出'";
-                $resultInside = $connInside->query($sql);
+                $resultInside = $connInside->query($sqlInside);
              
                 
                 if ($resultInside->num_rows > 0) {
-                    $body = $body . "已賣書的書籍：" . "<br>";
+                    $body = $body . "已賣出的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
                         $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
@@ -285,7 +287,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 sleep(3);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -401,8 +403,8 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
-                echo $name . "\n";
+                 sleep(3);
+                //echo $name . "\n";
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
