@@ -17,7 +17,7 @@ require '../class/manage.php';
 $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
-$stdId = $data -> stdId;
+$stdId = $data -> idstdId;
 
 //創建$manager物件
 $manager = new Manage();
