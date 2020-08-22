@@ -37,4 +37,5 @@ if((!empty($_SESSION['check_word'])) && (!empty($captcha))){  //判斷此兩個�
      };
 
 }
+
 ?>
