@@ -41,4 +41,5 @@ if( (!empty($captcha))){  //判斷此兩個變數是否為空
 }else{
   echo json_encode(['success'=>0,'msg' => "empty captcha"],JSON_FORCE_OBJECT);
 }
+
 ?>

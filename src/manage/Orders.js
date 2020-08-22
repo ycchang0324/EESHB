@@ -50,7 +50,7 @@ class Orders extends Component {
 
     handleSearchStdId = (e) => {
         e.preventDefault();
-        Axios.post("https://book.ntuee.org/manage/getBookOrderStdId.php",
+        Axios.post("https://book.ntuee.org/backend/manage/getBookOrderStdId.php",
             {
                 idstdId: this.state.stdId
 
@@ -71,7 +71,7 @@ class Orders extends Component {
 
     handleSearchid = (e) => {
         e.preventDefault();
-        Axios.post("https://book.ntuee.org/manage/getBookOrderBookId.php",
+        Axios.post("https://book.ntuee.org/backend/manage/getBookOrderBookId.php",
             {
                 id: this.state.id
 
@@ -97,7 +97,7 @@ class Orders extends Component {
 
     sendMail_received = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/mail/sendMailReceiveResult.php")
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php")
     }
 
     sendMail_result = (e) => {
