@@ -92,13 +92,13 @@ class Manage {
     }
     
     //呼叫這個函式後，會把所有尚未收到書的訂單全部改成未收到書
-    function changeState( $id, $state ){
+    function changeState( $id, $state, $buyerId ){
         $conn = connection();
-        $sql = "UPDATE bookorder SET state = '$state' WHERE id = '$id'";
+        $sql = "UPDATE bookorder SET ( state = '$state' AND buyerId = '$buyerId ') WHERE id = '$id'";
         $conn->query($sql);
         
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(["success"=>1,"msg"=>"成功更改狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+            echo json_encode(["success"=>1,"msg"=>"成功更改狀態及買家"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
                 
             }else {
                 $msg = "更改狀態失敗 " . $conn->error;
