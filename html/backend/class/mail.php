@@ -195,7 +195,7 @@ class Mailer
                 
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未收到書'";
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒有拿書過來'";
                 $result = $conn->query($sql);
                 
                 
@@ -217,6 +217,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
+                 sleep(10);
                 
             }   
         }
@@ -255,7 +256,7 @@ class Mailer
                 
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒賣出'";
                 $result = $conn->query($sql);
                 
                 
@@ -277,6 +278,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
+                 sleep(10);
                 
             }   
         }
@@ -363,7 +365,7 @@ class Mailer
                 
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND (state = '已賣出' or state = '未賣出)'";
+                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢或退書'";
                 $result = $conn->query($sql);
                 
                 
@@ -387,6 +389,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
+                 sleep(10);
                 
             }   
         }
