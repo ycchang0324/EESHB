@@ -104,5 +104,6 @@ class Manage {
                 $msg = "更改狀態失敗 " . $conn->error;
                 echo json_encode(["success"=>0,"msg"=>"$msg"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
             }
+    }
 }
 ?>
