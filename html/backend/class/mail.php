@@ -348,7 +348,7 @@ class Mailer
                 $name = $row["name"];
                 
                 
-            
+                /*
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
                 $body = $name . "先生/小姐您好，以下是您的領錢及退書結果：" . "<br>";
@@ -387,7 +387,7 @@ class Mailer
                 
                 
                 $body = $body . "感謝您的熱情參與";
-                 
+                 */
                  //$this -> addBody( $body );
                  //$this -> sendMail();
                  //$this -> removeAllRecipient();
