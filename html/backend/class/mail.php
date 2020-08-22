@@ -391,7 +391,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 //sleep(10);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
