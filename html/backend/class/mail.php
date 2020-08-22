@@ -222,7 +222,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(3);
+                 sleep(1);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -287,7 +287,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(3);
+                 sleep(1);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -403,7 +403,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(3);
+                 sleep(1);
                 //echo $name . "\n";
                 
             }
