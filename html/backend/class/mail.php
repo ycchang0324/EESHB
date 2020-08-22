@@ -391,7 +391,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 //sleep(10);
+                 sleep(10);
                 echo $name . "\n";
                 
             }
