@@ -388,10 +388,11 @@ class Mailer
                 
                 $body = $body . "感謝您的熱情參與";
                  
-                 $this -> addBody( $body );
-                 $this -> sendMail();
-                 $this -> removeAllRecipient();
+                 //$this -> addBody( $body );
+                 //$this -> sendMail();
+                 //$this -> removeAllRecipient();
                  //sleep(10);
+                echo $name . "\n";
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
