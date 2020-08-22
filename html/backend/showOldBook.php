@@ -18,10 +18,15 @@ $data = json_decode(file_get_contents("php://input"));
 //將POST過來的變數assign進php中的$stdId變數
 $category = $data -> category;
 //$category = "微積分";
-
-
 $conn = connection();
-$sql = "SELECT * FROM oldbook WHERE category = '$category' AND isSold = 0";
+
+if( $category == "全部書籍" ){
+  $sql = "SELECT * FROM oldbook WHERE isSold = 0";  
+}
+else{
+  $sql = "SELECT * FROM oldbook WHERE category = '$category' AND isSold = 0";
+}
+    
 $result = $conn->query($sql);
 if($result->num_rows > 0){
     $oldBookList = $result -> fetch_all(MYSQLI_ASSOC);
