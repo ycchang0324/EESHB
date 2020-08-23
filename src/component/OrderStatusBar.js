@@ -41,7 +41,7 @@ const OrderStatusBar = (props) => {
         axios.post("https://book.ntuee.org/backend/manage/changeState.php",
         {
             id:props.data.id,
-            state: state,
+            state: newState,
             buyerId: buyerId
 
         }).then(

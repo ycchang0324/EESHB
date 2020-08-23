@@ -13,7 +13,7 @@ import Axios from 'axios';
     category: 
     subject: 
     price: 
-    status:
+    state:
     fee: 
 
 }
@@ -220,7 +220,7 @@ class Orders extends Component {
         return (
             <div id="Orders_container">
                 <p id="Orders_title">訂單查詢</p>
-                <form className="container col-10" id="Orders_search_box">
+                <form className="container" id="Orders_search_box">
                     
                     <div className="form-group row d-flex justify-content-center">
                         <label for="stdId" className="col-3">Student ID</label>
@@ -234,10 +234,10 @@ class Orders extends Component {
                         <button className="btn btn-primary ml-3" onClick={this.handleSearchid}>Search</button>
                     </div>
                 </form>
-                <Scrollbars renderThumbVertical={renderThumb}  style={{height:"50vh"}} className="mt-3 col-11 mx-auto">
+                <Scrollbars renderThumbVertical={renderThumb}  style={{height:"50vh"}} className="mt-3 col-12 mx-auto">
                     <table id="Orders_table" className="table container table-responsive-sm col-xl-10 col-md-11 table-hover">
                         <thead className="thead-light">
-                            <tr>
+                            <tr className="table-primary">
                                 <td>ID</td>
                                 <td>姓名</td>
                                 <td>學號</td>

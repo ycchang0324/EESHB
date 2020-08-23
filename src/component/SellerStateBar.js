@@ -30,8 +30,10 @@ const SellerStateBar = (props) => {
     }, [state])
 
     const handleBgColorChange = (blank, newState) => {
-        props.func(blank,newState)
+        
         setState(newState)
+        props.func(blank,newState)
+        
     }
     return (
 
