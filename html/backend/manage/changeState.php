@@ -50,13 +50,13 @@ else {
 }
 */
 
-
+json_encode(["success"=>1,"msg"=>"$buyerId"];
 
 //創建$manager物件
 $manage = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manage -> changeState( $id, $state, $buyerId );
+//$manage -> changeState( $id, $state, $buyerId );
 
 
 ?>
