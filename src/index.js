@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,16 +8,23 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { BrowserRouter, Switch } from 'react-router-dom'
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (
-    localStorage.getItem('auth')
-      ? <Component {...props} />
-      : <Redirect to={{
-        pathname: '/Login',
-        state: { from: props.location }
-      }} />
-  )} />
-)
+const PrivateRoute = ({ component: Component, ...rest }) => {
+
+
+
+  return(
+    <Route {...rest} render={(props) => {
+
+      let auth = localStorage.getItem('auth')
+      if(auth === "true"){
+        return <Component {...props} />
+      }else{
+        return <Redirect to="/Login" />
+      }
+    }} />
+    
+  )
+  }
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
