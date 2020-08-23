@@ -4,17 +4,33 @@ import OrderStatusBar from '../component/OrderStatusBar'
 import Scrollbars from "react-custom-scrollbars";
 import Axios from 'axios';
 
-const test_data = {
+// const test_data = {
 
-    id: 3,
-    name: 'Tim',
-    stdId: 'B08901072',
-    category: '大一必修',
-    subject: '微積分甲上下',
-    price: 200,
-    status: 1
+//     id: 3,
+//     name: 'Tim',
+//     stdId: 'B08901072',
+//     category: '大一必修',
+//     subject: '微積分甲上下',
+//     price: 200,
+//     status: 1
+
+// }
+
+/* format:
+{
+
+    id: 
+    name: 
+    stdId:
+    buyerId: 
+    category: 
+    subject: 
+    price: 
+    status:
+    fee: 
 
 }
+ */
 const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
 
@@ -30,7 +46,7 @@ class Orders extends Component {
         this.state = {
             stdId: '',
             id: '',
-            result_list: null
+            result_list: []
 
         }
     }
@@ -58,8 +74,9 @@ class Orders extends Component {
 
                 if(data.data.success === 1){
                     console.log(data)
+                    
                     this.setState({
-                        result_list: data.data.orderList
+                        result_list: this.renderStatusBar(data.data.orderList)
                     })
                 }
                 else{
@@ -80,7 +97,7 @@ class Orders extends Component {
                 if(data.data.success === 1){
                     console.log(data)
                     this.setState({
-                        result_list: data.data.orderList
+                        result_list: this.renderStatusBar(data.data.orderList)
                     })
                 }
                 else{
@@ -91,38 +108,96 @@ class Orders extends Component {
             }).catch(err => console.log(err))
     }
 
-    renderStatusBar = () => {
-        
+    renderStatusBar = (orderList) => {
+        let statusbar = []
+        let count = 1
+        for(let order of orderList){
+            statusbar.push(<OrderStatusBar data={order} index = {count}/>)
+            count = count + 1
+        }
+
+        return statusbar
     }
 
     sendMail_received = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+        })
     }
 
     sendMail_sellingResult = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+        })
     }
 
     sendMail_givenBackResult = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+        })
     }
 
     changeStatusToNotReceive = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/manage/notReceive.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/manage/notReceive.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+            else{
+                alert(data.data.msg)
+            }
+        })
     }
 
     changeStatusToNotSold = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/manage/notSold.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/manage/notSold.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+            else{
+                alert(data.data.msg)
+            }
+        })
     }
 
     changeStatusToNotGivenBack = (e) => {
         //TODO
-        Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php")
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php",{})
+        .then((data)=>{
+            if(data.data.success === 1){
+                alert(data.data.msg)
+                window.location = "/manage/Orders"
+            }
+            else{
+                alert(data.data.msg)
+            }
+        })
     }
 
     componentDidUpdate(){
@@ -130,10 +205,10 @@ class Orders extends Component {
     }
 
     render() {
-        let test_list = []
-        for (let i = 0; i < 100; i++) {
-            test_list.push(<OrderStatusBar data={test_data} index={i} />)
-        }
+        // let test_list = []
+        // for (let i = 0; i < 100; i++) {
+        //     test_list.push(<OrderStatusBar data={test_data} index={i} />)
+        // }
         return (
             <div id="Orders_container">
                 <p id="Orders_title">訂單查詢</p>
@@ -158,30 +233,32 @@ class Orders extends Component {
                                 <td>ID</td>
                                 <td>姓名</td>
                                 <td>學號</td>
+                                <td>買家學號</td>
                                 <td>年級必選修</td>
                                 <td>科目</td>
                                 <td>價錢</td>
+                                <td>手續費</td>
                                 <td>狀態</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            {test_list}
+                            {this.state.result_list}
                         </tbody>
 
                     </table>
                 </Scrollbars>
                 <div id="Orders_btns">
                     <div className=" mt-3 mx-auto justify-content-center row">
-                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1">收書寄信</button>
-                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1" >賣書結果寄信</button>
-                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1">領錢退書寄信</button>
+                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_received}>收書寄信</button>
+                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_sellingResult}>賣書結果寄信</button>
+                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_givenBackResult}>領錢退書寄信</button>
                     </div>
                     <div className="w-100"></div>
                     <div className="mt-3 pb-3 mx-auto justify-content-center row">
-                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未收到書</button>
-                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未賣出</button>
-                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未領錢退書</button>
+                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.changeStatusToNotReceive}>未收到書</button>
+                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1"onClick={this.changeStatusToNotSold}>未賣出</button>
+                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.changeStatusToNotGivenBack}>未領錢退書</button>
                     </div>
 
                 </div>

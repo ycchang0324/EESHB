@@ -45,17 +45,21 @@ const Login = (props) => {
                     if (data.data.success === 1) {
 
                         alert("Login Success!")
-                        setLoginstate(true)
+                        
                         handleLogin(true)
+                        setLoginstate(true)
+
                     } else {
                         //console.log(data);
                         alert("Login Denied!")
-                        setLoginstate(false)
+                        
                         handleLogin(false)
+                        setLoginstate(false)
                     }
                 }
             ).catch(function (err) {
                 console.log(err);
+
                 handleLogin(false)
                 setLoginstate(false)
             })

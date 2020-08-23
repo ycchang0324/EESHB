@@ -16,19 +16,22 @@ import axios from 'axios'
     index: //for selector
 }
  */
-const statusmap_reverse = {
-    "not-received":0,
-    "received":1,
-    "selled":2,
-    "take_back":3
-}
+// const statusmap_reverse = {
+//     "未收到書":0,
+//     "已收到書":1,
+//     "已賣出":2,
+//     "沒賣出":3,
+//     "已領錢或退書":4,
+//     "未領錢或退書":5,
+//     "沒有拿書過來":6
+// }
 
 const OrderStatusBar = (props) => {
 
-    const [status, setStatus] = useState(props.data.status)
+    const [state, setState] = useState(props.data.state)
 
-    const handleStateChange = (blank, newStatus) => {
-        setStatus(statusmap_reverse[newStatus])
+    const handleStateChange = (blank, newState) => {
+        setState(newState)
         // update remote database
         // axios.post("",
         // {
@@ -59,6 +62,9 @@ const OrderStatusBar = (props) => {
             {props.data.stdId}
         </td>
         <td>
+            <input className="form-control" type="text" value={props.data.buyerId}/>
+        </td>
+        <td>
             {props.data.category}
         </td>
         <td>
@@ -67,8 +73,11 @@ const OrderStatusBar = (props) => {
         <td>
             {props.data.price}
         </td>
+        <td>
+            {props.data.fee}
+        </td>
         <td id={"SellerStateBar_"+props.index+"_background"} style={{boxSizing:"padding-box"}}>
-            <SellerStateBar id={"SellerStateBar_"+props.index} state={status} func={handleStateChange} ></SellerStateBar>
+            <SellerStateBar id={"SellerStateBar_"+props.index} state={state} func={handleStateChange} ></SellerStateBar>
         </td>
     </tr>
     )

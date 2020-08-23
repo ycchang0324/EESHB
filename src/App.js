@@ -41,7 +41,7 @@ const App = (props) => {
             <div id="App_container">
                 <Route path="/SellBook" component={SellBook} />
                 <Route path="/BuyBook" component={BuyBook} />
-                <Route path="/Login" render={(props) => <Login {...props}></Login>} />
+                <Route path="/Login" component={Login} />
                 <Route path="/FeedBack" component={FeedBack} />
                 <Route path="/FillSuccess" component={FillSuccess} />
                 <Route path="/OldBooks" component={Old_book}/>
