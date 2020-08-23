@@ -3,19 +3,6 @@ import './Orders.css';
 import OrderStatusBar from '../component/OrderStatusBar'
 import Scrollbars from "react-custom-scrollbars";
 import Axios from 'axios';
-
-// const test_data = {
-
-//     id: 3,
-//     name: 'Tim',
-//     stdId: 'B08901072',
-//     category: '大一必修',
-//     subject: '微積分甲上下',
-//     price: 200,
-//     status: 1
-
-// }
-
 /* format:
 {
 
@@ -206,15 +193,31 @@ class Orders extends Component {
         })
     }
 
-    componentDidUpdate(){
-        Axios.post("https://book.ntuee.org/backend/manage/changeState.php")
+    getAllOrder = () => {
+        Axios.post("https://book.ntuee.org/backend/manage/getAllBookOrder.php",{})
+        .then(
+            (data) => {
+                if(data.data.success === 1){
+                    console.log(data)
+                    alert(1)
+                    this.setState({
+                        result_list: this.renderStatusBar(data.data.orderList)
+                    })
+                }
+                else{
+                    alert("Something's Wrong\nCan not fetch all order")
+                }
+            }
+        )
+
+    }
+
+    componentDidMount(){
+        this.getAllOrder()
     }
 
     render() {
-        // let test_list = []
-        // for (let i = 0; i < 100; i++) {
-        //     test_list.push(<OrderStatusBar data={test_data} index={i} />)
-        // }
+        
         return (
             <div id="Orders_container">
                 <p id="Orders_title">訂單查詢</p>
