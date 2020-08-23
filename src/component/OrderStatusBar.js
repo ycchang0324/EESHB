@@ -60,7 +60,8 @@ const OrderStatusBar = (props) => {
         if(e.keyCode === 13){
             alert(buyerId)
             axios.post("https://book.ntuee.org/backend/manage/changeBuyerId.php",
-            {
+            {   
+                id: props.data.id,
                 buyerId: buyerId
             }).then(
                 (data) => {
