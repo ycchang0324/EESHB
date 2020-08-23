@@ -20,6 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 $id = $data -> id;
 $state = $data -> state;
 $buyerId = $data -> buyerId;
+/*
 $stateStr = "";
 
 if( $state == 0 ){
@@ -47,12 +48,14 @@ else {
     json_encode(["success" => 0,"msg"=>"incorrect state!"]);
     exit;
 }
+*/
 
 
 //創建$manager物件
 $manage = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manage -> changeState( $id, $stateStr, $buyerId );
+$manage -> changeState( $id, $state, $buyerId );
+
 
 ?>
