@@ -18,7 +18,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
 $id = $data -> id;
-$state = $data -> state;
+$state = $data -> status;
 $buyerId = $data -> buyerId;
 
 //創建$manager物件
