@@ -250,15 +250,15 @@ class Orders extends Component {
                 </Scrollbars>
                 <div id="Orders_btns">
                     <div className=" mt-3 mx-auto justify-content-center row">
-                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1">收書寄信</button>
-                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1" >賣書結果寄信</button>
-                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1">領錢退書寄信</button>
+                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_received}>收書寄信</button>
+                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_sellingResult}>賣書結果寄信</button>
+                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.sendMail_givenBackResult}>領錢退書寄信</button>
                     </div>
                     <div className="w-100"></div>
                     <div className="mt-3 pb-3 mx-auto justify-content-center row">
-                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未收到書</button>
-                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未賣出</button>
-                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1">未領錢退書</button>
+                        <button className="btn btn-success col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.changeStatusToNotReceive}>未收到書</button>
+                        <button className="btn btn-info col-md-3 mx-3 col-sm-2 my-sm-0 my-1"onClick={this.changeStatusToNotSold}>未賣出</button>
+                        <button className="btn btn-warning col-md-3 mx-3 col-sm-2 my-sm-0 my-1" onClick={this.changeStatusToNotGivenBack}>未領錢退書</button>
                     </div>
 
                 </div>
