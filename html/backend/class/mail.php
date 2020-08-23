@@ -191,7 +191,7 @@ class Mailer
                     $body = $body . "已收到您的以下書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
                 $connInside -> close();
@@ -209,7 +209,7 @@ class Mailer
                     $body = $body . "<br>很抱歉沒有收到以下書籍：<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside2["subject"] . '，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
                     $body = $body .  "<br>" . "若有錯誤，請立刻聯繫二手書專員"; 
@@ -258,7 +258,7 @@ class Mailer
                     $body = $body . "已賣出的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
                 $connInside -> close();
@@ -274,7 +274,7 @@ class Mailer
                     $body = $body . "沒賣出的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . "的書<br>";
+                        $body = $body . $rowInside2["subject"] . "<br>";
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員";
@@ -372,7 +372,7 @@ class Mailer
                     $body = $body . "已領錢及退書的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
                 $connInside->close();
@@ -388,7 +388,7 @@ class Mailer
                     $body = $body . "未領錢及退書的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside2["subject"] . '，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
