@@ -49,7 +49,7 @@ else {
     exit;
 }
 */
-echo $state;
+
 
 
 //創建$manager物件
