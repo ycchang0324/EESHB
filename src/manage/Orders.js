@@ -107,7 +107,7 @@ class Orders extends Component {
     }
 
     sendMail_received = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php",{})
         .then((data)=>{
@@ -120,7 +120,7 @@ class Orders extends Component {
     }
 
     sendMail_sellingResult = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php",{})
         .then((data)=>{
@@ -133,7 +133,7 @@ class Orders extends Component {
     }
 
     sendMail_givenBackResult = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php",{})
         .then((data)=>{
@@ -146,7 +146,7 @@ class Orders extends Component {
     }
 
     changeStatusToNotReceive = (e) => {
-        //TODO
+       
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notReceive.php",{})
         .then((data)=>{
@@ -162,7 +162,7 @@ class Orders extends Component {
     }
 
     changeStatusToNotSold = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notSold.php",{})
         .then((data)=>{
@@ -178,7 +178,7 @@ class Orders extends Component {
     }
 
     changeStatusToNotGivenBack = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php",{})
         .then((data)=>{
@@ -199,7 +199,6 @@ class Orders extends Component {
             (data) => {
                 if(data.data.success === 1){
                     console.log(data)
-                    alert(1)
                     this.setState({
                         result_list: this.renderStatusBar(data.data.orderList)
                     })
