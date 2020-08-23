@@ -95,7 +95,7 @@ class Manage {
     function changeState( $id, $state, $buyerId ){
         $conn = connection();
         $sql = "UPDATE bookorder SET state = '$state' AND buyerId = '$buyerId' WHERE id = '$id'";
-        $conn->query($sql);
+      
         
         if ($conn->query($sql) === TRUE) {
             echo json_encode(["success"=>1,"msg"=>"成功更改狀態及買家"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
