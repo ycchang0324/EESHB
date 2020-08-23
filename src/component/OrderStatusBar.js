@@ -42,7 +42,7 @@ const OrderStatusBar = (props) => {
         {
             id:props.data.id,
             state: newState,
-            buyerId: buyerId
+            
 
         }).then(
             (data) => {
@@ -56,6 +56,26 @@ const OrderStatusBar = (props) => {
         )
     }
 
+    const handleBuyerIdChange = (e) => {
+        if(e.keyCode === 13){
+            alert(buyerId)
+            axios.post("https://book.ntuee.org/backend/manage/changeBuyerId.php",
+            {   
+                id: props.data.id,
+                buyerId: buyerId
+            }).then(
+                (data) => {
+                    if(data.data.success === 1){
+                        alert(data.data.msg)
+                    }
+                    else{
+                        alert("Something's Wrong!\n"+data.data.msg)
+                    }
+                }
+            )
+        }
+    }
+
     return (
     <tr id={"OrderStatusBar_container_"+props.index}>
         <td>
@@ -67,10 +87,10 @@ const OrderStatusBar = (props) => {
         <td>
             {props.data.stdId}
         </td>
-        <td>
+        <td className="">
             {props.data.buyerId
             ?props.data.buyerId
-            :<input className="form-control" type="text" onChange={handleInputChange}/>}
+            :<input className="form-control col-11 mx-auto" type="text" onChange={handleInputChange} onKeyUp={handleBuyerIdChange}/>}
             
         </td>
         <td>
