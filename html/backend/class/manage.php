@@ -71,7 +71,7 @@ class Manage {
             }
         }
         if( $success ){
-            echo json_encode(["success"=>1,"msg"=>"成功更改至沒有拿書過來狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT); 
+            echo json_encode(["success"=>1,"msg"=>"成功更改至沒賣出狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT); 
         }
         else{
 
@@ -98,7 +98,7 @@ class Manage {
         }
         
         if( $success ){
-            echo json_encode(["success"=>1,"msg"=>"成功更改至沒有拿書過來狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT); 
+            echo json_encode(["success"=>1,"msg"=>"成功更改至沒有領錢或退書狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT); 
         }
         else{
 
@@ -131,7 +131,7 @@ class Manage {
       
         
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(["success"=>1,"msg"=>"成功更改買家學號"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+            echo json_encode(["success"=>1,"msg"=>"$buyerId"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
                 
             }else {
                 $msg = "更改狀態失敗 " . $conn->error;
