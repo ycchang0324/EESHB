@@ -29,25 +29,31 @@ import axios from 'axios'
 const OrderStatusBar = (props) => {
 
     const [state, setState] = useState(props.data.state)
+    const [buyerId, setBuyerId] = useState(props.data.buyerId)
 
+    const handleInputChange = (e) => {
+        let value = e.target.value
+        setBuyerId(value)
+    }
     const handleStateChange = (blank, newState) => {
         setState(newState)
         // update remote database
-        // axios.post("",
-        // {
-        //     id:props.data.id,
-        //     status: status
+        axios.post("https://book.ntuee.org/backend/manage/changeState.php",
+        {
+            id:props.data.id,
+            state: state,
+            buyerId: buyerId
 
-        // }).then(
-        //     (data) => {
-        //         if(data.data.success === 1){
-        //             // update local state
-        //             setStatus(statusmap_reverse[newStatus])
-        //         }else{
-        //             alert("Something wrong!\n"+data.data.msg)
-        //         }
-        //     }
-        // )
+        }).then(
+            (data) => {
+                if(data.data.success === 1){
+                    // update local state
+                    alert(data.data.msg)
+                }else{
+                    alert("Something wrong!\n"+data.data.msg)
+                }
+            }
+        )
     }
 
     return (
@@ -62,7 +68,10 @@ const OrderStatusBar = (props) => {
             {props.data.stdId}
         </td>
         <td>
-            <input className="form-control" type="text" value={props.data.buyerId}/>
+            {props.data.buyerId
+            ?props.data.buyerId
+            :<input className="form-control" type="text" onChange={handleInputChange}/>}
+            
         </td>
         <td>
             {props.data.category}

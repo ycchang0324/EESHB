@@ -3,19 +3,6 @@ import './Orders.css';
 import OrderStatusBar from '../component/OrderStatusBar'
 import Scrollbars from "react-custom-scrollbars";
 import Axios from 'axios';
-
-// const test_data = {
-
-//     id: 3,
-//     name: 'Tim',
-//     stdId: 'B08901072',
-//     category: '大一必修',
-//     subject: '微積分甲上下',
-//     price: 200,
-//     status: 1
-
-// }
-
 /* format:
 {
 
@@ -120,22 +107,24 @@ class Orders extends Component {
     }
 
     sendMail_received = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
-            }
+            }else{}
         })
     }
 
     sendMail_sellingResult = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -144,10 +133,11 @@ class Orders extends Component {
     }
 
     sendMail_givenBackResult = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -156,10 +146,11 @@ class Orders extends Component {
     }
 
     changeStatusToNotReceive = (e) => {
-        //TODO
+       
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notReceive.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -171,10 +162,11 @@ class Orders extends Component {
     }
 
     changeStatusToNotSold = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notSold.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -186,10 +178,11 @@ class Orders extends Component {
     }
 
     changeStatusToNotGivenBack = (e) => {
-        //TODO
+        
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -200,15 +193,30 @@ class Orders extends Component {
         })
     }
 
-    componentDidUpdate(){
-        Axios.post("https://book.ntuee.org/backend/manage/changeState.php")
+    getAllOrder = () => {
+        Axios.post("https://book.ntuee.org/backend/manage/getAllBookOrder.php",{})
+        .then(
+            (data) => {
+                if(data.data.success === 1){
+                    console.log(data)
+                    this.setState({
+                        result_list: this.renderStatusBar(data.data.orderList)
+                    })
+                }
+                else{
+                    alert("Something's Wrong\nCan not fetch all order")
+                }
+            }
+        )
+
+    }
+
+    componentDidMount(){
+        this.getAllOrder()
     }
 
     render() {
-        // let test_list = []
-        // for (let i = 0; i < 100; i++) {
-        //     test_list.push(<OrderStatusBar data={test_data} index={i} />)
-        // }
+        
         return (
             <div id="Orders_container">
                 <p id="Orders_title">訂單查詢</p>
