@@ -5,7 +5,7 @@ label{
 }
 #Orders_container{
     width:calc(100vw - var(--navbar-width));
-    /* height: 100vh; */
+    height: 100vh;
     
     font-family:var(--primary-font);
 
@@ -26,11 +26,47 @@ label{
     
     border-radius: 10px;
 
+    font-size: var(--ordertable-fontsize);
     text-align: center;
-    font-size: 20px;
 }
 #Orders_btns div{
     width:70vw;
     
 }
+
+@media screen and (min-width: 300px){
+    :root{
+
+
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+
+        
+        
+    }
+    
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    :root{
+
+        
+    }
+}
+@media screen and (min-width: 1500px){
+    
+}
+
+
+
 
