@@ -91,7 +91,7 @@ class Manage {
         $success = 1;
         while($row = $result->fetch_assoc()){
             $sql = "UPDATE bookorder SET state='未領錢或退書' WHERE id=$row[id]";
-            $sql = "UPDATE bookorder SET state='沒賣出' WHERE id=$row[id]";
+            
              if (!($conn->query($sql) === TRUE)) {
                 $success = 0;        
             }
