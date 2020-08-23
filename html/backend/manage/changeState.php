@@ -50,7 +50,7 @@ else {
 }
 */
 
-echo json_encode(["success"=>1,"msg"=>"$buyerId"];
+echo json_encode(["success"=>1,"msg"=>"$buyerId"]);
 
 //創建$manager物件
 $manage = new Manage();
