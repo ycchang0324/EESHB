@@ -179,7 +179,7 @@ class Mailer
             
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
-                $body = $name . "先生/小姐您好，以下是交書結果：" . "<br>";
+                $body = $name . "先生/小姐您好，以下是交書結果：" . "<br>" . "<br>";
                 
                 $connInside = connection();
                 
@@ -206,13 +206,13 @@ class Mailer
                 
                 if ($resultInside2->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "很抱歉沒有收到以下書籍：" . "<br>";
+                    $body = $body . "<br>" , "很抱歉沒有收到以下書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
                         $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
-                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body .  "<br>" , "若有錯誤，請立刻聯繫二手書專員"; 
                    
                    
                 }
