@@ -17,10 +17,15 @@ $data = json_decode(file_get_contents("php://input"));
 
 //將POST過來的變數assign進php中的$stdId變數
 $id = $data -> id;
+$price = $data -> price;
+$buyerId = $data -> buyerId;
+$buyerId = strtolower($buyerId);
 //$id = 3;
+$id = 1;
+$buyerId = b08901049;
 
 $conn = connection();
-$sql = "UPDATE oldbook SET isSold = 1 WHERE id = '$id'";
+$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id'";
 
 if($conn->query($sql)){
     echo json_encode(["success"=>1,"msg"=>"selling successfully! "],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
