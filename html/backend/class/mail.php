@@ -274,10 +274,11 @@ class Mailer
                     $body = $body . "沒賣出的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside2["subject"] . "的書<br>";
                     
                     
-                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body . "若有錯誤，請立刻聯繫二手書專員";
+                    $body .= "<br>" . "請您於9/17(四)、9/18(五)中午12:30-13:10至系K領取書錢及退書";
                    
                    
                 }
@@ -391,14 +392,14 @@ class Mailer
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
-                    $body = $body . "補領時間請關注電機二手書臉書粉絲專頁"; 
+                    $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
                 
                    
                 }
                 
                 $connInside2->close();
                 
-                $body = $body . "感謝您的熱情參與";
+                $body = $body . "<br>感謝您的熱情參與";
                  
                  $this -> addBody( $body );
                  $this -> sendMail();
