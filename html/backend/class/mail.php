@@ -212,7 +212,7 @@ class Mailer
                         $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
-                    $body = $body .  "<br>" , "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body .  "<br>" . "若有錯誤，請立刻聯繫二手書專員"; 
                    
                    
                 }
