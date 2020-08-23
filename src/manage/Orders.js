@@ -124,10 +124,11 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailReceiveResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
-            }
+            }else{}
         })
     }
 
@@ -136,6 +137,7 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailSellingResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -148,6 +150,7 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/mail/sendMailGivenBackResult.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -160,6 +163,7 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notReceive.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -175,6 +179,7 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notSold.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
@@ -190,6 +195,7 @@ class Orders extends Component {
         e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/notGivenBack.php",{})
         .then((data)=>{
+            console.log(data)
             if(data.data.success === 1){
                 alert(data.data.msg)
                 window.location = "/manage/Orders"
