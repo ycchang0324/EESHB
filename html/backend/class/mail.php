@@ -181,30 +181,35 @@ class Mailer
                 
                 $body = $name . "先生/小姐您好，以下是交書結果：" . "<br>";
                 
+                $connInside = connection();
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
-                $result = $conn->query($sql);
+                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已收到書'";
+                $resultInside = $connInside->query($sqlInside);
              
                 
-                if ($result->num_rows > 0) {
+                if ($resultInside->num_rows > 0) {
                     $body = $body . "已收到您的以下書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside = $resultInside->fetch_assoc()) 
+                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
+                $connInside -> close();
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒有拿書過來'";
-                $result = $conn->query($sql);
+               
+                $connInside2 = connection();
+                
+                $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒有拿書過來'";
+                $resultInside2 = $connInside2->query($sqlInside2);
                 
                 
-                if ($result->num_rows > 0) {
+                if ($resultInside2->num_rows > 0) {
                   // output data of each row
                     $body = $body . "很抱歉沒有收到以下書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside2 = $resultInside2->fetch_assoc()) 
+                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
@@ -212,12 +217,12 @@ class Mailer
                    
                 }
                 
-                
+                $connInside2 -> close();
                  
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 sleep(1);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -243,30 +248,33 @@ class Mailer
                 
                 $body = $name . "先生/小姐您好，以下是您的賣書結果：" . "<br>";
                 
+                $connInside = connection();
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已賣出'";
-                $result = $conn->query($sql);
+                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已賣出'";
+                $resultInside = $connInside->query($sqlInside);
              
                 
-                if ($result->num_rows > 0) {
-                    $body = $body . "已賣書的書籍：" . "<br>";
+                if ($resultInside->num_rows > 0) {
+                    $body = $body . "已賣出的書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside = $resultInside->fetch_assoc()) 
+                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
+                $connInside -> close();
+                
+                $connInside2 = connection();
+                
+                $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒賣出'";
+                $resultInside2 = $connInside2->query($sqlInside2);
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '沒賣出'";
-                $result = $conn->query($sql);
-                
-                
-                if ($result->num_rows > 0) {
+                if ($resultInside2->num_rows > 0) {
                   // output data of each row
                     $body = $body . "沒賣出的書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside2 = $resultInside2->fetch_assoc()) 
+                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
@@ -274,12 +282,12 @@ class Mailer
                    
                 }
                 
-                
+                $connInside2 -> close();
                  
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 sleep(1);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -348,35 +356,38 @@ class Mailer
                 $name = $row["name"];
                 
                 
-            
+                
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
                 $body = $name . "先生/小姐您好，以下是您的領錢及退書結果：" . "<br>";
                 
+                $connInside = connection();
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢及退書'";
-                $result = $conn->query($sql);
+                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢或退書'";
+                $resultInside = $connInside -> query($sqlInside );
              
                 
-                if ($result->num_rows > 0) {
+                if ($resultInside ->num_rows > 0) {
                     $body = $body . "已領錢及退書的書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside = $resultInside->fetch_assoc()) 
+                        $body = $body . $rowInside["subject"] . '的書，為' . $rowInside["price"] . "元" . "<br>" ;
                 }
                 
+                $connInside->close();
+                
+                 $connInside2 = connection();
+                
+                $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢或退書'";
+                $resultInside2 = $connInside2->query($sqlInside2);
                 
                 
-                $sql = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢或退書'";
-                $result = $conn->query($sql);
-                
-                
-                if ($result->num_rows > 0) {
+                if ($resultInside2->num_rows > 0) {
                   // output data of each row
                     $body = $body . "未領錢及退書的書籍：" . "<br>";
                     
-                    while($row = $result->fetch_assoc()) 
-                        $body = $body . $row["subject"] . '的書，為' . $row["price"] . "元" . "<br>" ;
+                    while($rowInside2 = $resultInside2->fetch_assoc()) 
+                        $body = $body . $rowInside2["subject"] . '的書，為' . $rowInside2["price"] . "元" . "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
@@ -385,13 +396,15 @@ class Mailer
                    
                 }
                 
+                $connInside2->close();
                 
                 $body = $body . "感謝您的熱情參與";
                  
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(10);
+                 sleep(1);
+                //echo $name . "\n";
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);

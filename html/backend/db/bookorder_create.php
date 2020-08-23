@@ -3,6 +3,7 @@
 require 'db_connection.php';
 $conn = connection();
 
+
 $sql = "CREATE TABLE bookorder (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
@@ -12,9 +13,10 @@ subject VARCHAR(15) NOT NULL,
 price INT(5) NOT NULL,
 fee INT(5) NOT NULL,
 state VARCHAR(20) NOT NULL,
+buyerId VARCHAR(9), 
 others VARCHAR(200),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 if ($conn->query($sql) === TRUE) {
   echo json_encode([

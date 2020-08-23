@@ -40,6 +40,8 @@ $others   = trimmedData( $data -> others );
 $stdId = strtolower($stdId);
 //創造一個$seller的物件
 
+//到時候要刪掉
+$fee = 200;
 
 //$name = "張原嘉";
 //$stdId = "b08901049";
@@ -48,7 +50,7 @@ $stdId = strtolower($stdId);
 //$price = 200;
 //$fee = 100;
 //$others = "嗨";
-$seller = new Seller($name, $stdId, $category, $subject,$price, 200 ,$others);
+$seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
 
 //呼叫$seller的成員函式store()，將資料傳入資料庫中
 $seller->store();

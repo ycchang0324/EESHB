@@ -51,7 +51,8 @@ class Seller {
        
         //判斷賣家是否已出現在Seller資料表中，若從來沒出現在資料表中，先插入一筆定單至bookorder資料表中，再插入一筆賣家資料至seller資料表中
         if( $this->isNew() == 1 ){
-            $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, others)
+            $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
+            buyerId, others)
             VALUES ('$this->name',
                     '$this->stdId', 
                     '$this->category', 
@@ -59,6 +60,7 @@ class Seller {
                     '$this->price', 
                     '$this->fee', 
                     '$this->state',
+                    '',
                     '$this->others'
                     )";
             //如果成功插入bookorder訂單，則回傳success為1,msg為success insert order
@@ -113,7 +115,7 @@ class Seller {
                 $conn->query($sql); 
                 
                 
-                 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, others)
+                 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, buyerId, others)
             VALUES ('$this->name',
                     '$this->stdId', 
                     '$this->category', 
@@ -121,6 +123,7 @@ class Seller {
                     '$this->price', 
                     '$this->fee', 
                     '$this->state',
+                    '',
                     '$this->others'
                     )";
                 
