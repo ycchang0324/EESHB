@@ -284,11 +284,14 @@ class Mailer
                 }
                 
                 $connInside2 -> close();
+                
+                for( $i = 0; $i < 30; $i++ ){
+                    $this -> addBody( $body );
+                    $this -> sendMail();
+                    $this -> removeAllRecipient();
+                    sleep(3);
+                }
                  
-                 $this -> addBody( $body );
-                 $this -> sendMail();
-                 $this -> removeAllRecipient();
-                 sleep(1);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
