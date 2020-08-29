@@ -376,10 +376,10 @@ class Mailer
              
                 
                 if ($resultInside ->num_rows > 0) {
-                    $body = $body . "已領錢及退書的書籍：" . "<br>";
+                    $body = $body . "已領錢或退書的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] .  "<br>" ;
                 }
                 
                 $connInside->close();
@@ -392,10 +392,10 @@ class Mailer
                 
                 if ($resultInside2->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "未領錢及退書的書籍：" . "<br>";
+                    $body = $body . "未領錢或退書的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . '，為' . $rowInside2["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] .  "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
