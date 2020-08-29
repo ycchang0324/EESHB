@@ -287,7 +287,7 @@ class Mailer
                 
                 
                     $this -> addBody( $body );
-                for( $i = 0; $i < 10; $i++ ){
+                for( $i = 0; $i < 3; $i++ ){
                     $this -> sendMail();
                     sleep(5);
                 }
