@@ -15,6 +15,7 @@ require_once './db/db_connection.php';
 
 //connection()為./db/db_connection.php中的一個函式，此時$conn已經連線至資料庫second_hand_book中
 $conn = connection();
+
 $sql = "INSERT INTO seller(stdId, name, bookNum)
                 VALUES ('b08901049',
                     '張原嘉',
