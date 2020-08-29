@@ -152,8 +152,8 @@ class Mailer
         $this->addRecipient($this->stdId . '@ntu.edu.tw', $this->name);
         
         
-        $body = $this->name .'先生/小姐您好，感謝您賣出' . $this->subject . '的書，為' . $this->price . '元';
-        $body .= "<br>" . "請您於9/10(四)、9/11(五)中午12:30-13:10將書籍和 " . $this->fee . "元手續費至博理館B1系K";
+        $body = $this->name .'先生/小姐您好，感謝您提交' . $this->subject . '的書籍表單，為' . $this->price . '元';
+        $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍和 " . $this->fee . "元手續費至博理藝廊";
         $this -> addBody( $body );
         
         
@@ -278,7 +278,7 @@ class Mailer
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員";
-                    $body .= "<br>" . "請您於9/17(四)、9/18(五)中午12:30-13:10至系K領取書錢及退書";
+                    $body .= "<br>" . "請您於9/19(六)16:00-17:00至博理藝廊領取書錢及退書";
                    
                    
                 }
@@ -287,12 +287,12 @@ class Mailer
                 
                 
                     $this -> addBody( $body );
-                for( $i = 0; $i < 3; $i++ ){
+                
                     $this -> sendMail();
-                    sleep(5);
-                }
+                
                     $this -> removeAllRecipient();
                     
+                    sleep(5);
                 
                  
 
