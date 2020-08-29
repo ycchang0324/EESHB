@@ -15,7 +15,7 @@ require_once './db/db_connection.php';
 
 //connection()為./db/db_connection.php中的一個函式，此時$conn已經連線至資料庫second_hand_book中
 $conn = connection();
-
+/*
 
 
 $sql = "INSERT INTO seller(stdId, name, bookNum)
@@ -89,6 +89,8 @@ $sql = "INSERT INTO seller(stdId, name, bookNum)
                     )";
 
 $conn->query($sql);
+*/
+
 
 //檢查管理者輸入的帳密是否與login資料表中儲存的帳密相符，若相符，$isMember變數為1，否則為0
 $sql = "INSERT INTO bookorder(name, stdId, category, subject, price, fee, state, 
