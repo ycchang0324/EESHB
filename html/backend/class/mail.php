@@ -232,7 +232,7 @@ class Mailer
     public function sendMailSellingResult(){
         $this->setUser();
         
-        
+      
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
         $result = $conn->query($sql);
@@ -288,7 +288,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(1);
+                 sleep(3);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
