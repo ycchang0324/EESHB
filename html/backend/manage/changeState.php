@@ -21,8 +21,10 @@ $id = $data -> id;
 $state = $data -> state;
 //$fee = $data -> fee;
 //$stdId = $data -> stdId; 
+//$price = $data -> price;
 $fee = 5;
 $stdId = "b08901049";
+$price = 500;
 /*
 $stateStr = "";
 
@@ -59,7 +61,7 @@ else {
 $manage = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manage -> changeState( $id, $state, $fee , $stdId);
+$manage -> changeState( $id, $state, $fee , $stdId, $price);
 
 
 ?>

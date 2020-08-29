@@ -110,19 +110,23 @@ class Manage {
     }
     
    
-    function changeState( $id, $state ,$fee, $stdId){
+    function changeState( $id, $state ,$fee, $stdId, $price){
         $conn = connection();
         
         if( $state == '已收到書'){
-        $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-        VALUES( '已收到書', 'I', '$fee' ,'$stdId')";
+            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+            VALUES( '已收到書', 'I', '$fee' ,'$stdId')";
             $conn->query($sql);
         }
         else if( $state == '已賣出'){
-        
+            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+            VALUES( '已賣出', 'I', '$price' ,'$stdId')";
+            $conn->query($sql);
         }
         else if( $state == '已領錢或退書'){
-        
+            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+            VALUES( '已領錢或退書', 'O', '$price' ,'$stdId')";
+            $conn->query($sql);
         }else{
             ;
         }
