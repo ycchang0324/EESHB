@@ -285,12 +285,15 @@ class Mailer
                 
                 $connInside2 -> close();
                 
-                for( $i = 0; $i < 30; $i++ ){
+                
                     $this -> addBody( $body );
+                for( $i = 0; $i < 10; $i++ ){
                     $this -> sendMail();
-                    $this -> removeAllRecipient();
-                    sleep(3);
+                    sleep(5);
                 }
+                    $this -> removeAllRecipient();
+                    
+                
                  
 
                 
