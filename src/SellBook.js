@@ -40,7 +40,8 @@ class SellBook extends Component {
                 category: '',
                 subject: '',
                 price: '',
-                others: ''
+                others: '',
+                fee: ''
             },
             captcha: '',
             is_fillsuccess: false
