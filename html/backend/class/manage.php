@@ -110,8 +110,23 @@ class Manage {
     }
     
    
-    function changeState( $id, $state ){
+    function changeState( $id, $state ,$fee, $stdId){
         $conn = connection();
+        
+        if( $state == '已收到書'){
+        $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+        VALUES( '已收到書', 'I', '$fee' ,'$stdId')";
+            $conn->query($sql);
+        }
+        else if( $state == '已賣出'){
+        
+        }
+        else if( $state == '已領錢或退書'){
+        
+        }else{
+            ;
+        }
+            
         $sql = "UPDATE bookorder SET state = '$state' WHERE id = '$id'";
       
         
