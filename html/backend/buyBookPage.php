@@ -40,23 +40,23 @@ $data = [
 //下面做的迴圈將所有課程的不同價格訂單數量計算出來，並且assign到$data陣列裡面
 foreach($data as $x => $x_value) {
     
-    $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 200";
+    $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 200 AND state = '已收到書'";
      $result = $conn->query($sql);
     $data[$x][0] = $result->num_rows;
 
 
 
-     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 300";
+     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 300 AND state = '已收到書'";
      $result = $conn->query($sql);
     $data[$x][1] = $result->num_rows;
 
 
-     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 500";
+     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 500 AND state = '已收到書'";
      $result = $conn->query($sql);
    $data[$x][2] = $result->num_rows;
 
 
-     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 700";
+     $sql = "SELECT id FROM bookorder WHERE subject = '$x' AND price = 700 AND state = '已收到書'";
      $result = $conn->query($sql);
    $data[$x][3] = $result->num_rows;
 
