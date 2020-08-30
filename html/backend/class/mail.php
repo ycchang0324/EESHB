@@ -188,7 +188,7 @@ class Mailer
              
                 
                 if ($resultInside->num_rows > 0) {
-                    $body = $body . "已收到您的以下書籍：" . "<br>";
+                    $body = $body . "<br>已收到您的以下書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
                         $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
@@ -255,7 +255,7 @@ class Mailer
              
                 
                 if ($resultInside->num_rows > 0) {
-                    $body = $body . "已賣出的書籍：" . "<br>";
+                    $body = $body . "<br>已賣出的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
                         $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
@@ -271,7 +271,7 @@ class Mailer
                 
                 if ($resultInside2->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "沒賣出的書籍：" . "<br>";
+                    $body = $body . "<br>沒賣出的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
                         $body = $body . $rowInside2["subject"] . "<br>";
@@ -376,7 +376,7 @@ class Mailer
              
                 
                 if ($resultInside ->num_rows > 0) {
-                    $body = $body . "已領錢的書籍：" . "<br>";
+                    $body = $body . "<br>已領錢的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
                         $body = $body . $rowInside["subject"] .  "<br>" ;
@@ -391,7 +391,7 @@ class Mailer
              
                 
                 if ($resultInside3 ->num_rows > 0) {
-                    $body = $body . "已退書的書籍：" . "<br>";
+                    $body = $body . "<br>已退書的書籍：" . "<br>";
                     
                     while($rowInside3 = $resultInside3->fetch_assoc()) 
                         $body = $body . $rowInside3["subject"] .  "<br>" ;
@@ -407,14 +407,12 @@ class Mailer
                 
                 if ($resultInside2->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "未領錢的書籍：" . "<br>";
+                    $body = $body . "<br>未領錢的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
                         $body = $body . $rowInside2["subject"] .  "<br>" ;
-                    
-                    
-                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
-                    $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
+
+    
                 
                    
                 }
@@ -429,13 +427,13 @@ class Mailer
                 
                 if ($resultInside4->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "未退書的書籍：" . "<br>";
+                    $body = $body . "<br>未退書的書籍：" . "<br>";
                     
                     while($rowInside4 = $resultInside4->fetch_assoc()) 
                         $body = $body . $rowInside4["subject"] .  "<br>" ;
                     
                     
-                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body . "<br>若有錯誤，請立刻聯繫二手書專員"; 
                     $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
                 
                    
