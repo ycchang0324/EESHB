@@ -16,8 +16,7 @@ const FillSuccess = (props) => {
                     請至您的ntu mail信箱<br />
                     確認有收到<em>驗證信</em><br />
                     並在<em>{time}</em>將書拿至<em>{place}</em><br />
-                    同時準備{props.location.state.fee}元手續費<br />
-                    {/* 同時準備<em>?元手續費</em><br /> */}
+                   
                 </p>
                 <div className="m-1 " >
                     <Link to="/SellBook">

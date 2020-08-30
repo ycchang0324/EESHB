@@ -371,12 +371,12 @@ class Mailer
                 
                 $connInside = connection();
                 
-                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢或退書'";
+                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已領錢'";
                 $resultInside = $connInside -> query($sqlInside );
              
                 
                 if ($resultInside ->num_rows > 0) {
-                    $body = $body . "已領錢或退書的書籍：" . "<br>";
+                    $body = $body . "已領錢的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
                         $body = $body . $rowInside["subject"] .  "<br>" ;
@@ -384,18 +384,33 @@ class Mailer
                 
                 $connInside->close();
                 
+                $connInside3 = connection();
+                
+                $sqlInside3 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '已退書'";
+                $resultInside3 = $connInside3 -> query($sqlInside3 );
+             
+                
+                if ($resultInside3 ->num_rows > 0) {
+                    $body = $body . "已退書的書籍：" . "<br>";
+                    
+                    while($rowInside3 = $resultInside3->fetch_assoc()) 
+                        $body = $body . $rowInside3["subject"] .  "<br>" ;
+                }
+                
+                $connInside3->close();
+                
                  $connInside2 = connection();
                 
-                $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢或退書'";
+                $sqlInside2 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未領錢'";
                 $resultInside2 = $connInside2->query($sqlInside2);
                 
                 
                 if ($resultInside2->num_rows > 0) {
                   // output data of each row
-                    $body = $body . "未領錢或退書的書籍：" . "<br>";
+                    $body = $body . "未領錢的書籍：" . "<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] .  "<br>" ;
+                        $body = $body . $rowInside2["subject"] .  "<br>" ;
                     
                     
                     $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
@@ -405,6 +420,28 @@ class Mailer
                 }
                 
                 $connInside2->close();
+                
+                $connInside4 = connection();
+                
+                $sqlInside4 = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '未退書'";
+                $resultInside4 = $connInside4->query($sqlInside4);
+                
+                
+                if ($resultInside4->num_rows > 0) {
+                  // output data of each row
+                    $body = $body . "未退書的書籍：" . "<br>";
+                    
+                    while($rowInside4 = $resultInside4->fetch_assoc()) 
+                        $body = $body . $rowInside4["subject"] .  "<br>" ;
+                    
+                    
+                    $body = $body . "若有錯誤，請立刻聯繫二手書專員"; 
+                    $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
+                
+                   
+                }
+                
+                $connInside4->close();
                 
                 $body = $body . "<br>感謝您的熱情參與";
                  

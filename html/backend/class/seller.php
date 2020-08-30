@@ -22,7 +22,7 @@ class Seller {
         $this->category = $_category;
         $this->subject = $_subject;
         $this->price = $_price;
-        $this->state = '未收到書';
+        $this->state = '尚未收到書';
         $this->fee = $_fee;
         $this->others = $_others;
 

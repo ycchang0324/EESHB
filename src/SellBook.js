@@ -24,10 +24,10 @@ const subjects_img_name = {
 }
 
 const price_to_fee = {
-    "200": "5",
-    "300": "10",
-    "500": "15",
-    "700": "20"
+    "200": "20",
+    "300": "30",
+    "500": "50",
+    "700": "70"
 }
 
 class SellBook extends Component {

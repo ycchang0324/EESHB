@@ -37,7 +37,7 @@ class Manage {
     //呼叫這個函式後，會把所有尚未收到書的訂單全部改成未收到書
     function notReceive(){
         $conn = connection();
-        $sql = "SELECT * FROM bookorder WHERE state = '未收到書'";
+        $sql = "SELECT * FROM bookorder WHERE state = '尚未收到書'";
         $result = $conn->query($sql);
         $success = 1;
         while($row = $result->fetch_assoc()){
@@ -86,11 +86,22 @@ class Manage {
     //呼叫這個函式後，會把所有已賣出或沒賣出的訂單改成未領錢或退出的狀態
     function notGivenBack(){
         $conn = connection();
-        $sql = "SELECT * FROM bookorder WHERE state = '已賣出' OR state = '沒賣出'";
+        $sql = "SELECT * FROM bookorder WHERE state = '已賣出'";
         $result = $conn->query($sql);
         $success = 1;
         while($row = $result->fetch_assoc()){
-            $sql = "UPDATE bookorder SET state='未領錢或退書' WHERE id=$row[id]";
+            $sql = "UPDATE bookorder SET state='未領錢' WHERE id=$row[id]";
+            
+             if (!($conn->query($sql) === TRUE)) {
+                $success = 0;        
+            }
+        }
+        
+        $sql = "SELECT * FROM bookorder WHERE state = '未賣出'";
+        $result = $conn->query($sql);
+        $success = 1;
+        while($row = $result->fetch_assoc()){
+            $sql = "UPDATE bookorder SET state='未退書' WHERE id=$row[id]";
             
              if (!($conn->query($sql) === TRUE)) {
                 $success = 0;        
@@ -113,19 +124,17 @@ class Manage {
     function changeState( $id, $state ,$fee, $stdId, $price){
         $conn = connection();
         
-        if( $state == '已收到書'){
-            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-            VALUES( '已收到書', 'I', '$fee' ,'$stdId')";
-            $conn->query($sql);
-        }
-        else if( $state == '已賣出'){
+        
+        if( $state == '已賣出'){
             $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
             VALUES( '已賣出', 'I', '$price' ,'$stdId')";
             $conn->query($sql);
         }
-        else if( $state == '已領錢或退書'){
-            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-            VALUES( '已領錢或退書', 'O', '$price' ,'$stdId')";
+        else if( $state == '已領錢'){
+            $giveBack = $price - $fee;
+            $sql = "INSERT INTO trancation( affair, IO, ammount, client )
+            
+            VALUES( '已領錢', 'O', '$giveBack' ,'$stdId')";
             $conn->query($sql);
         }else{
             ;
