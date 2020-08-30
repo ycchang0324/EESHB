@@ -3,8 +3,8 @@ import './FillSuccess.css';
 import { Link } from 'react-router-dom';
 
 const FillSuccess = (props) => {
-    const [time, setTime] = useState('1');
-    const [place, setPlace] = useState('NTUEE');
+    const [time, setTime] = useState('9/19(六) 10:00-12:00');
+    const [place, setPlace] = useState('博理藝廊');
     // const [money, setMoney] = useState('1');
     // let time1 = new Date();
     // setTime(time1)
