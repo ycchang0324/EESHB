@@ -19,49 +19,13 @@ $data = json_decode(file_get_contents("php://input"));
 //將POST過來的變數assign進php中的$stdId變數
 $id = $data -> id;
 $state = $data -> state;
-//$fee = $data -> fee;
-//$stdId = $data -> stdId; 
-//$price = $data -> price;
-$fee = 5;
-$stdId = "b08901049";
-$price = 500;
-/*
-$stateStr = "";
 
-if( $state == 0 ){
-    $stateStr = "未收到書";
-}
-else if( $state == 1 ){
-    $stateStr = "已收到書";
-}
-else if( $state == 2 ){
-    $stateStr = "已賣出";
-}
-else if( $state == 3 ){
-    $stateStr = "沒賣出";
-}
-else if( $state == 4 ){
-    $stateStr = "已領錢或退書";
-}
-else if( $state == 5 ){
-    $stateStr = "未領錢或退書";
-}
-else if( $state == 6 ){
-    $stateStr = "沒有拿書過來";
-}
-else {
-    json_encode(["success" => 0,"msg"=>"incorrect state!"]);
-    exit;
-}
-*/
-
-//echo json_encode(["success"=>1,"msg"=>"$buyerId"]);
 
 //創建$manager物件
 $manage = new Manage();
 
 //呼叫函式，以獲取編號相對的訂單
-$manage -> changeState( $id, $state, $fee , $stdId, $price);
+$manage -> changeState( $id, $state);
 
 
 ?>

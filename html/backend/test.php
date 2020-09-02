@@ -1,4 +1,6 @@
+
 <?php
+/*
 require_once './db/db_connection.php';
 
 
@@ -15,5 +17,5 @@ if($result = $conn -> query( $sql )){
 $conn -> close();
 
 
-
+*/
 ?>
