@@ -49,7 +49,7 @@ $stdId = strtolower($stdId);
 //$price = 200;
 //$fee = 100;
 //$others = "嗨";
-$fee = 5;
+//$fee = 5;
 $seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
 
 //呼叫$seller的成員函式store()，將資料傳入資料庫中
