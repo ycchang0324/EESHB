@@ -65,7 +65,7 @@ const BuyBook = () => {
             });
     }, [])
     return (
-        <div id="BuyBook_container" className="container-fluid">
+        <div id="BuyBook_container" className="container-fluid p-0">
             <h1>剩餘書籍</h1>
 
             <form id="form1" className="container">

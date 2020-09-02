@@ -139,10 +139,34 @@ li,ul{
 
 }
 
+#SellBook_terms_btn{
+    border: 0;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+
+#SellBook_terms_btn:hover{
+    color: blue;
+}
+
+#SellBook_terms_btn:focus{
+    outline: 0;
+}
+
+#SellBook_terms{
+    background-color: #e6e6e6;
+    border-radius: 0 0 5px 5px;
+}
+
+#SellBook_terms li{
+    font-size: var(--sellbookbox-terms-fontsize) !important;
+}
+
 @media screen and (min-width: 300px){
     :root{
         --sellbookbox-height: calc(100vh - 2rem - var(--feedbacktitle-fontsize));
         --sellbookbox-fontsize:0.8rem;
+        --sellbookbox-terms-fontsize: 0.8rem;
     }
 }
 @media screen and (min-width: 350px){
@@ -166,7 +190,9 @@ li,ul{
     }
 }
 @media screen and (min-width: 1023px){
-    
+    :root{
+        --sellbookbox-terms-fontsize: 0.9rem;
+    }
 }
 @media screen and (min-width: 1500px){
     
