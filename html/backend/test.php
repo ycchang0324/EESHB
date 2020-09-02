@@ -7,7 +7,7 @@ $conn = connection();
 $sql = "SELECT * FROM bookorder WHERE id = 1";
 if($result = $conn -> query( $sql )){
  $row = $result->fetch_array();
-    echo $row;
+    echo $row['stdId'];
 }
 
 
