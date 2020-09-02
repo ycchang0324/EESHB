@@ -1,0 +1,44 @@
+@import url(./component/style/global_var.css);
+
+
+#Rules_container{
+
+    font-family:var(--primary-font);
+    width: calc(100vw - var(--navbar-width));
+    min-height: 100vh;
+    background-image: var(--bg-image);
+
+}
+
+@media screen and (min-width: 300px){
+    :root{
+        
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+        
+    }
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    :root{
+        
+    }
+}
+
+@media screen and (min-width: 767px){
+    :root{
+    
+    }
+}
+@media screen and (min-width: 1023px){
+    :root{
+        
+    }
+}
+@media screen and (min-width: 1500px){
+    
+}

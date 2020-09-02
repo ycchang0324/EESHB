@@ -3,6 +3,8 @@ import Select from './component/Select';
 import Axios from 'axios';
 import './SellBook.css';
 import { Redirect } from 'react-router';
+import { SlideDown } from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
 
 const categories_subjects = {
     "大一必修": ["交換電路與邏輯設計", "生物科學通論", "普通物理學甲"],
@@ -24,6 +26,7 @@ const subjects_img_name = {
 }
 
 const price_to_fee = {
+    "": "0",
     "200": "20",
     "300": "30",
     "500": "50",
@@ -40,11 +43,13 @@ class SellBook extends Component {
                 category: '',
                 subject: '',
                 price: '',
-                others: ''
-                
+                others: '',
+                fee: '',
+
             },
             captcha: '',
-            is_fillsuccess: false
+            is_fillsuccess: false,
+            open_term: false
         }
     }
 
@@ -63,6 +68,7 @@ class SellBook extends Component {
         let newdata = this.state.data;
         // console.log(newdata);
         newdata[name] = value;
+        newdata.fee = price_to_fee[newdata.price]
         this.setState({
             data: newdata
         })
@@ -72,9 +78,9 @@ class SellBook extends Component {
     insertUser = (event) => {
         event.preventDefault();
         // console.log(this.state.captcha);
-        if (this.state.data.category === "" || this.state.data.subject === ""){
+        if (this.state.data.category === "" || this.state.data.subject === "") {
             alert("Please fill the category/subject!")
-            return 
+            return
         }
         Axios.post('https://book.ntuee.org/backend/captcha/checkcode.php',
             { "captcha": this.state.captcha }).then(
@@ -94,7 +100,7 @@ class SellBook extends Component {
 
                                     console.log(data)
                                     this.setState({
-                                        is_fillsuccess : true
+                                        is_fillsuccess: true
                                     })
                                     // alert(data.msg)
 
@@ -102,19 +108,19 @@ class SellBook extends Component {
                                 else {
                                     console.log(data)
                                     this.setState({
-                                        is_fillsuccess : false
+                                        is_fillsuccess: false
                                     })
                                     // alert(data.msg);
                                 }
                             })
                             .catch(function (error) {
                                 console.log(error);
-                                alert("Something's wrong\n"+error)
+                                alert("Something's wrong\n" + error)
                             });
 
                     }
                     else {
-                        alert("Something's wrong\nCaptcha isn't correct\n"+data.data.msg)
+                        alert("Something's wrong\nCaptcha isn't correct\n" + data.data.msg)
                         console.log(data);
 
                     }
@@ -133,143 +139,195 @@ class SellBook extends Component {
         }, console.log(this.state))
     }
     render() {
-        if(this.state.is_fillsuccess){
-            return (<Redirect 
-                    to={{
-                        pathname: "/FillSuccess",
-                        state:{
-                            fee: price_to_fee[this.state.data.price]
-                        }
-                    }}/>)
+        if (this.state.is_fillsuccess) {
+            return (<Redirect
+                to={{
+                    pathname: "/FillSuccess",
+                    state: {
+                        fee: price_to_fee[this.state.data.price]
+                    }
+                }} />)
         }
-        else{
-        return (
-            <div id="SellBook_container">
-                <p id="FeedBack_title">填寫賣書表單</p>
+        else {
+            return (
+                <div id="SellBook_container">
+                    <p id="FeedBack_title">填寫賣書表單</p>
 
-                <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 ">
-                    <form onSubmit={this.insertUser}>
-                        <ul id="SellBook_main_ul">
-                            <li className="SellBook_li form-group" >
-                                <div>
-                                    <label for="fname">name:</label>
-                                    <span className="separator"></span>
-                                </div>
-                                <div className="col-3 col-sm-2 p-0">
-                                    <input className="SellBook_box_input form-control p-0" type="text" id="name" name="name" maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:王XX" />
-                                    <span className="separator"></span>
-                                </div>
-                            </li>
+                    <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 ">
+                        <form onSubmit={this.insertUser}>
+                            <ul id="SellBook_main_ul">
+                                <li className="SellBook_li form-group" >
+                                    <div>
+                                        <label for="fname">name:</label>
+                                        <span className="separator"></span>
+                                    </div>
+                                    <div className="col-3 col-sm-2 p-0">
+                                        <input className="SellBook_box_input form-control p-0" type="text" id="name" name="name" maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:王XX" />
+                                        <span className="separator"></span>
+                                    </div>
+                                </li>
 
-                            <li className="SellBook_li form-group">
-                                <div >
-                                    <label for="stdId" >Student ID:</label>
-                                    <span className="separator"></span>
-                                </div>
-                                <div className="col-5 col-sm-3 col-lg-2 p-0">
-                                    <input className="SellBook_box_input form-control p-0" type="text" id="stdId" name="stdId" maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:b08900000" />
-                                    <span className="separator"></span>
-                                </div>
-                            </li>
-                            <li>
-                                <label for="category">類別:</label>
-                                <Select id="Sellbook_category" className="SellBook_box_select" dataname="category" conn={this.handleChildCurrentOptionChange} defaultOption="Please Choose a category" options={Object.keys(categories_subjects)} />
-                            </li>
-                            <li>
-                                <label for="category">科目:</label>
-                                <Select id="Sellbook_subject" className="SellBook_box_select" dataname="subject" conn={this.handleChildCurrentOptionChange} defaultOption="Please Choose a category_first" options={categories_subjects[this.state.data.category] ? categories_subjects[this.state.data.category] : []} />
-                            </li>
-                            <li>
-                                <label>預覽圖</label>
-                                <div className="d-flex justify-content-center my-3">
-                                    <img src={this.state.data.subject ? (img_source + subjects_img_name[this.state.data.subject]) : null}
-                                        alt={this.state.data.subject ? (subjects_img_name[this.state.data.subject]) : ""}
-                                        className="img-fluid" />
-                                </div>
-                            </li>
+                                <li className="SellBook_li form-group">
+                                    <div >
+                                        <label for="stdId" >Student ID:</label>
+                                        <span className="separator"></span>
+                                    </div>
+                                    <div className="col-5 col-sm-3 col-lg-2 p-0">
+                                        <input className="SellBook_box_input form-control p-0" type="text" id="stdId" name="stdId" maxlength="9" required="required" onChange={this.handleInputChange} placeholder="ex:b08900000" />
+                                        <span className="separator"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="category">類別:</label>
+                                    <Select id="Sellbook_category" className="SellBook_box_select" dataname="category" conn={this.handleChildCurrentOptionChange} defaultOption="Please Choose a category" options={Object.keys(categories_subjects)} />
+                                </li>
+                                <li>
+                                    <label for="category">科目:</label>
+                                    <Select id="Sellbook_subject" className="SellBook_box_select" dataname="subject" conn={this.handleChildCurrentOptionChange} defaultOption="Please Choose a category_first" options={categories_subjects[this.state.data.category] ? categories_subjects[this.state.data.category] : []} />
+                                </li>
+                                <li>
+                                    <label>預覽圖</label>
+                                    <div className="d-flex justify-content-center my-3">
+                                        <img src={this.state.data.subject ? (img_source + subjects_img_name[this.state.data.subject]) : null}
+                                            alt={this.state.data.subject ? (subjects_img_name[this.state.data.subject]) : ""}
+                                            className="img-fluid" />
+                                    </div>
+                                </li>
 
-                            <li>書價：
+                                <li>書價：
                                 <div className="d-flex justify-content-center">
-                                    <div>
-                                        <div className="form-check form-check-inline">
-                                            <input className="form-check-input" type="radio" name="price" value="200" onChange={this.handleInputChange} />
-                                            <label className="form-check-label">200元</label>
+                                        <div>
+                                            <div className="form-check form-check-inline">
+                                                <input className="form-check-input" type="radio" name="price" value="200" onChange={this.handleInputChange} />
+                                                <label className="form-check-label">200元</label>
+                                            </div>
+                                            <div className="form-check form-check-inline">
+                                                <input className="form-check-input" type="radio" name="price" value="300" onChange={this.handleInputChange} />
+                                                <label className="form-check-label">300元</label>
+                                            </div>
                                         </div>
-                                        <div className="form-check form-check-inline">
-                                            <input className="form-check-input" type="radio" name="price" value="300" onChange={this.handleInputChange} />
-                                            <label className="form-check-label">300元</label>
+                                        <div>
+                                            <div className="form-check form-check-inline">
+                                                <input className="form-check-input" type="radio" name="price" value="500" onChange={this.handleInputChange} />
+                                                <label className="form-check-label">500元</label>
+                                            </div>
+                                            <div className="form-check form-check-inline">
+                                                <input className="form-check-input" type="radio" name="price" value="700" onChange={this.handleInputChange} />
+                                                <label className="form-check-label">700元</label>
+                                            </div>
                                         </div>
                                     </div>
+                                </li>
+                                <li className="SellBook_li form-group">
+                                    <div className="col-4 p-0">
+                                        <label>手續費:</label>
+                                    </div>
+                                    <div className="col-5 col-sm-3 col-md-2 p-0">
+                                        <input className="SellBook_box_input form-control p-0" id="SellBook_box_fee" type="text" name="fee" readOnly
+                                            value={this.state.data.price ? price_to_fee[this.state.data.price] + "元" : "請選擇書價"} />
+                                    </div>
+                                </li>
+                                <li className="SellBook_li form-group">
                                     <div>
-                                        <div className="form-check form-check-inline">
-                                            <input className="form-check-input" type="radio" name="price" value="500" onChange={this.handleInputChange} />
-                                            <label className="form-check-label">500元</label>
-                                        </div>
-                                        <div className="form-check form-check-inline">
-                                            <input className="form-check-input" type="radio" name="price" value="700" onChange={this.handleInputChange} />
-                                            <label className="form-check-label">700元</label>
-                                        </div>
+                                        <label>其他事項：</label>
+                                        <span class="separator"></span>
+                                    </div>
+                                    <div className="col-12">
+                                        <input className="SellBook_box_input form-control" id="SellBook_box_others" type="text" name="others" maxlength="70" onChange={this.handleInputChange} placeholder="請大略說明書況等相關信息" />
+                                        <span class="separator"></span>
+                                    </div>
+                                </li>
+                                <li className="form-group">
+                                    <div>
+                                        <label>驗證碼</label>
+
+                                    </div>
+                                    <div className="col-8">
+                                        <input id="SellBook_captcha" className="SellBook_box_input form-control" required="required" name="captcha" onChange={this.handleCaptchaChange} placeholder="請輸入驗證碼" />
+                                        <span class="separator"></span>
+                                    </div>
+                                    <div>
+                                        <img src="https://book.ntuee.org/backend/captcha/captcha.php" alt="captcha" onClick={this.refresh_code} />
+                                        <span class="separator"></span>
+                                        <p>看不清楚? 點擊圖片換下一張</p>
+                                    </div>
+
+                                </li>
+                                <div className="d-flex justify-content-auto">
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="condition" required="required" />
+                                        <label className="form-check-label" for="inlineCheckbox1">
+                                            我已同意二手書網站
+                                            <button
+                                                id="SellBook_terms_btn"
+                                                onClick={(e) => {
+                                                    e.preventDefault()
+                                                    this.setState({ open_term: !this.state.open_term })
+                                                }}>
+                                                條款
+                                                </button>
+                                        </label>
                                     </div>
                                 </div>
-                            </li>
-                            <li className="SellBook_li form-group">
-                                <div className="col-4 p-0">
-                                    <label>手續費:</label>
-                                </div>
-                                <div className="col-5 col-sm-3 col-md-2 p-0">
-                                    <input className="SellBook_box_input form-control p-0" id="SellBook_box_fee" type="text" name="fee" readOnly
-                                        value={this.state.data.price ? price_to_fee[this.state.data.price] + "元" : "請選擇書價"} />
-                                </div>
-                            </li>
-                            <li className="SellBook_li form-group">
                                 <div>
-                                    <label>其他事項：</label>
-                                    <span class="separator"></span>
+                                    <SlideDown className={'my-dropdown-slidedown'}>
+                                        {this.state.open_term ? <Terms /> : null}
+                                    </SlideDown>
                                 </div>
-                                <div className="col-12">
-                                    <input className="SellBook_box_input form-control" id="SellBook_box_others" type="text" name="others" maxlength="70" onChange={this.handleInputChange} placeholder="請大略說明書況等相關信息" />
-                                    <span class="separator"></span>
-                                </div>
-                            </li>
-                            <li className="form-group">
-                                <div>
-                                    <label>驗證碼</label>
+                            </ul>
 
-                                </div>
-                                <div className="col-8">
-                                    <input id="SellBook_captcha" className="SellBook_box_input form-control" required="required" name="captcha" onChange={this.handleCaptchaChange} placeholder="請輸入驗證碼" />
-                                    <span class="separator"></span>
-                                </div>
-                                <div>
-                                    <img src="https://book.ntuee.org/backend/captcha/captcha.php" alt="captcha" onClick={this.refresh_code} />
-                                    <span class="separator"></span>
-                                    <p>看不清楚? 點擊圖片換下一張</p>
-                                </div>
 
-                            </li>
-                            <div className="d-flex justify-content-auto">
-                                <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="condition" required="required" />
-                                    <label className="form-check-label" for="inlineCheckbox1">我已同意二手書網站條款</label>
-                                </div>
+                            <div className="d-flex justify-content-center my-1">
+                                <button id="SellBook_submit_btn" className="btn" type="submit" onSubmit={this.insertUser}>Submit</button>
                             </div>
-                        </ul>
+                        </form>
+                    </div>
 
-
-                        <div className="d-flex justify-content-center my-1">
-                            <button id="SellBook_submit_btn" className="btn" type="submit" onSubmit={this.insertUser}>Submit</button>
-                        </div>
-                    </form>
                 </div>
-
-            </div>
-        )
+            )
         }
     }
 }
 
 export default SellBook;
 
+const Terms = (props) => {
+    return (
+        <ol id="SellBook_terms" className="pt-2 pb-3 pl-1" style={{listStyleType:"decimal" }}>
+            <li>1.賣家必須先填賣書表單，其中書價<span className="text-danger">只有四種選擇</span>，分別為
+            <ul className="pl-3">
+                    <li>700元：書況良好</li>
+                    <li>500元：有些許筆記痕跡</li>
+                    <li>300元：書本筆記稍多</li>
+                    <li>200元：書況較差</li>
+                </ul>
+            </li>
+            <li>2.若書本風片破損嚴重或是缺頁過多，二手書團隊有權利<span className="text-danger">拒收</span></li>
+            <li>
+                3.填寫完賣書表單後按下送出鍵，系統會寄確認信至ntu信箱中，上面會提醒賣家在指定時間帶著學生證到指定地點交書籍繳交手續費
+        </li>
+            <li>
+                4.賣家需在指定時間帶著學生證到指定地點交書及繳交手續費，
+        並在交書時繳交指定手續費(需要帶<span className="text-danger">整數零錢</span>，<span className="text-danger">不接受紙鈔找零</span>)
+        </li>
+            <li>
+                5.若過了指定時間沒有到指定地點交書及繳交手續費，視同未成功賣書。
+        </li>
+            <li>
+                6.書本賣出後，會寄信通知賣家在指定時間帶著學生證到指定地點領取賣書錢。
+        </li>
+            <li>
+                7.若書本沒有賣出，請在指定時間帶著學生證到指定地點領取退書。
+        </li>
+            <li>
+                8.若書本錢或退書在指定時間內未領取，請靜候二手書臉書專頁公告，擇日領取書錢或退書
+        </li>
+            <li>
+                9.<b>電機二手書團隊擁有活動最終解釋權</b>
+        </li>
+        </ol>
+    )
+}
 // const SellBook = () =>{
 //     const [data,setData] = useState({
 //         firstname:'',

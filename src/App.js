@@ -8,6 +8,7 @@ import BuyBook from './BuyBook';
 import FeedBack from './FeedBack';
 import FillSuccess from './FillSuccess';
 import Old_book from './Old_book';
+import Rules from './Rules'
 
 // import Manage from './Manage';
 
@@ -45,6 +46,7 @@ const App = (props) => {
                 <Route path="/FeedBack" component={FeedBack} />
                 <Route path="/FillSuccess" component={FillSuccess} />
                 <Route path="/OldBooks" component={Old_book}/>
+                <Route path="/Rules" component={Rules}/>
             </div>
         </div>
     )
