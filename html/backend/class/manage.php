@@ -128,7 +128,9 @@ class Manage {
             $row = $result->fetch_array();
             $stdId = $row['stdId'];
             $price = $row['price'];
-            $fee =$row['fee'];
+            $fee = $row['fee'];
+            $sellAffair = '已賣出' . $id . '書籍';
+            $returnAffair= '已領錢' . $id . '書籍';
             $sellerMoney = $price - $fee;
         }
 
@@ -136,7 +138,7 @@ class Manage {
         
         if( $state == '已賣出'){
             $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-            VALUES( '已賣出', 'I', '$price' ,'$stdId')";
+            VALUES( '$sellAffair', 'I', '$price' ,'$stdId')";
             $conn->query($sql);
         }
         else if( $state == '已領錢'){
@@ -144,7 +146,7 @@ class Manage {
             
             $sql = "INSERT INTO trancation( affair, IO, ammount, client )
             
-            VALUES( '已領錢', 'O', '$sellerMoney' ,'$stdId')";
+            VALUES( '$returnAffair', 'O', '$sellerMoney' ,'$stdId')";
             $conn->query($sql);
         }else{
             ;

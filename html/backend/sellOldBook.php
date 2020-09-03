@@ -20,22 +20,23 @@ $id = $data -> id;
 $price = $data -> price;
 $buyerId = $data -> buyerId;
 $buyerId = strtolower($buyerId);
+$affair = '賣出舊書第 '  . $id . '本';
 
+if(!($this->buyerId == null)){
+    $conn = connection();
+    $sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id'";
 
-$conn = connection();
-$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id'";
+    if($conn->query($sql)){
+        echo json_encode(["success"=>1,"msg"=>"selling successfully! "],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+    }
+    else{
+        echo json_encode(["success"=>0]);
+    }
 
-if($conn->query($sql)){
-    echo json_encode(["success"=>1,"msg"=>"selling successfully! "],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+     $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+                VALUES( '$affair', 'I', '$price' ,'$stdId')";
+                $conn->query($sql);
+    $conn->close();
 }
-else{
-    echo json_encode(["success"=>0]);
-}
-
- $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-            VALUES( '賣出舊書', 'I', '$price' ,'$stdId')";
-            $conn->query($sql);
-$conn->close();
-
 ?>
 
