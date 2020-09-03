@@ -97,13 +97,13 @@ class Manage {
             }
         }
         
-        $sql = "SELECT * FROM bookorder WHERE state = '沒賣出'";
-        $result = $conn->query($sql);
-        $success = 1;
-        while($row = $result->fetch_assoc()){
-            $sql = "UPDATE bookorder SET state='未退書' WHERE id=$row[id]";
+        $sql2 = "SELECT * FROM bookorder WHERE state = '沒賣出'";
+        $result2 = $conn->query($sql2);
+        
+        while($row2 = $result2->fetch_assoc()){
+            $sql2 = "UPDATE bookorder SET state='未退書' WHERE id=$row2[id]";
             
-             if (!($conn->query($sql) === TRUE)) {
+             if (!($conn->query($sql2) === TRUE)) {
                 $success = 0;        
             }
         }
@@ -139,11 +139,11 @@ class Manage {
             $conn->query($sql);
         }
         else if( $state == '已領錢'){
-            $giveBack = $price - $fee;
+            $sellerMoney = $price - $fee;
             
             $sql = "INSERT INTO trancation( affair, IO, ammount, client )
             
-            VALUES( '已領錢', 'O', '$fee' ,'$stdId')";
+            VALUES( '已領錢', 'O', '$sellerMoney' ,'$stdId')";
             $conn->query($sql);
         }else{
             ;
