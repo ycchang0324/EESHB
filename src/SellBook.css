@@ -70,6 +70,22 @@ li,ul{
     
 }
 
+.SellBook_terms_btn{
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+
+.SellBook_terms_btn:hover{
+    color: blue;
+}
+
+.SellBook_terms_btn:focus{
+    outline: 0;
+}
+
 #SellBook_container{
     font-family:var(--primary-font);
     width: calc(100vw - var(--navbar-width));
@@ -139,19 +155,7 @@ li,ul{
 
 }
 
-#SellBook_terms_btn{
-    border: 0;
-    background-color: transparent;
-    transition: all 0.25s;
-}
 
-#SellBook_terms_btn:hover{
-    color: blue;
-}
-
-#SellBook_terms_btn:focus{
-    outline: 0;
-}
 
 #SellBook_terms{
     background-color: #e6e6e6;
