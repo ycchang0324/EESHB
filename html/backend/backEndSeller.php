@@ -46,7 +46,7 @@ $today = date('Y-m-d');
 
 $isOpenTime = 1;
 
-if( ( strtotime( $today ) < strtotime( $startTime ) ) OR ( strtotime( $today ) > strtotime( $endTime ) ))
+if( ( strtotime( $today ) < strtotime( $startTime ) ) or ( strtotime( $today ) > strtotime( $endTime ) ))
     $isOpenTime = 0;
 
 //$name = "張原嘉";
@@ -58,7 +58,7 @@ if( ( strtotime( $today ) < strtotime( $startTime ) ) OR ( strtotime( $today ) >
 //$others = "嗨";
 //$fee = 5;
 
-if($isOpenTime){
+if( $isOpenTime ){
    $seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
 
     //呼叫$seller的成員函式store()，將資料傳入資料庫中
