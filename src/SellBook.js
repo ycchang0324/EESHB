@@ -97,7 +97,7 @@ class SellBook extends Component {
                                
                                 console.log(data)
                                 if (data.data.success === 1) {
-                                     alert("success")
+                                    alert(data.data.msg)
                                     console.log(data)
                                     this.setState({
                                         is_fillsuccess: true
@@ -116,12 +116,12 @@ class SellBook extends Component {
                             })
                             .catch(function (error) {
                                 console.log(error);
-                                alert("Something's wrong\n" + error)
+                                alert("發生錯誤\n" + error)
                             });
 
                     }
                     else {
-                        alert("Something's wrong\nCaptcha isn't correct\n" + data.data.msg)
+                        alert("驗證碼錯誤\n" )
                         console.log(data);
 
                     }
