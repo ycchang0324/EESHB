@@ -11,11 +11,9 @@ $result = $conn->query($sql);
 $money = 0;
 while( $row = $result->fetch_assoc() ){
     if( $row["IO"] == "I" )
-        echo "I" . "<br>";
         $money = $money + $row["price"];
     
     if( $row["IO"] == "O" )
-        echo "O" . "<br>";
         $money = $money - $row["price"];
 }
 
