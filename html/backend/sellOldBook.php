@@ -21,6 +21,9 @@ $price = $data -> price;
 $buyerId = $data -> buyerId;
 $buyerId = strtolower($buyerId);
 
+$id = 3;
+$price = 300;
+$buyerId = 'b08901049';
 
 
 $conn = connection();
@@ -32,6 +35,10 @@ if($conn->query($sql)){
 else{
     echo json_encode(["success"=>0]);
 }
+
+ $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
+            VALUES( '賣出舊書', 'I', '$price' ,'$stdId')";
+            $conn->query($sql);
 $conn->close();
 
 ?>

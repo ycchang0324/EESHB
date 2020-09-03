@@ -128,7 +128,7 @@ class Manage {
             $row = $result->fetch_array();
             $stdId = $row['stdId'];
             $price = $row['price'];
-            $fee =$row['$fee'];
+            $fee =$row['fee'];
         }
 
         
