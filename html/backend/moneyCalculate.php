@@ -6,16 +6,20 @@ require_once './db/db_connection.php';
 
 
 $conn = connection();
-$sql = "SELECT * FROM trancation ";
-$result = $conn->query($sql);
+
 $money = 0;
-while( $row = $result->fetch_assoc() ){
-    if( $row["IO"] == "I" )
-        echo $row["price"] . "<br>";
-    
-    if( $row["IO"] == "O" )
-        echo $row["price"] . "<br>";
-}
+
+$sql = "SELECT * FROM trancation WHERE IO = 'I'";
+$result = $conn->query($sql);
+
+while( $row = $result->fetch_assoc() )
+    $money += $row["price"];
+
+$sql = "SELECT * FROM trancation WHERE IO = 'O'";
+$result = $conn->query($sql);
+
+while( $row = $result->fetch_assoc() )
+    $money -= $row["price"];
 
 echo "總金額是 " . $money . " 元."; 
 $conn->close();
