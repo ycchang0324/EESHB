@@ -158,7 +158,7 @@ class SellBook extends Component {
                     <p id="FeedBack_title">填寫賣書表單</p>
 
                     <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 ">
-                        <form>
+                        <form onSubmit={this.insertUser}>
                             <ul id="SellBook_main_ul">
                                 <li className="SellBook_li form-group" >
                                     <div>
@@ -282,7 +282,7 @@ class SellBook extends Component {
 
 
                             <div className="d-flex justify-content-center my-1">
-                                <button id="SellBook_submit_btn" className="btn" type="submit" onSubmit={this.insertUser}>Submit</button>
+                                <button id="SellBook_submit_btn" className="btn" type="submit" >Submit</button>
                             </div>
                         </form>
                     </div>
