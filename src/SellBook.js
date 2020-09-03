@@ -98,7 +98,9 @@ class SellBook extends Component {
 
                                 console.log(data)
                                 if (data.data.success === 1) {
+
                                     alert(data.data.msg)
+
                                     console.log(data)
                                     this.setState({
                                         is_fillsuccess: true

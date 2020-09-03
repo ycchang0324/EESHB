@@ -65,7 +65,7 @@ class Seller {
                     )";
             //如果成功插入bookorder訂單，則回傳success為1,msg為success insert order
             if ($conn->query($sql) === TRUE) {
-              echo json_encode(["success" => 1,"msg"=>"success insert order"]);
+              echo json_encode(["success" => 1,"msg"=>"成功填寫表單"]);
             } else {
               
                 $msg = "Error: " . $sql . "<br>" . $conn->error;
