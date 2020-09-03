@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Select from './component/Select';
 import Axios from 'axios';
 import './SellBook.css';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import { SlideDown } from 'react-slidedown'
 import 'react-slidedown/lib/slidedown.css'
 
