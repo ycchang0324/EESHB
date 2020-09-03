@@ -62,7 +62,7 @@ const Old_book_sell = (props) => {
 
     return (
         <div id="Old_book_sell_container">
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className="form-group">
                     <label>Student ID</label>
                     <input className="form-control" type="text"
