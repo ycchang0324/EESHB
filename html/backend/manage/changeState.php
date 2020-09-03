@@ -20,8 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 $id = $data -> id;
 $state = $data -> state;
 
-$id = 3;
-$state = "已賣出";
+
 
 //創建$manager物件
 $manage = new Manage();
