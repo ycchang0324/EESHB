@@ -129,6 +129,7 @@ class Manage {
             $stdId = $row['stdId'];
             $price = $row['price'];
             $fee =$row['fee'];
+            $sellerMoney = $price - $fee;
         }
 
         
@@ -139,7 +140,7 @@ class Manage {
             $conn->query($sql);
         }
         else if( $state == '已領錢'){
-            $sellerMoney = $price - $fee;
+            
             
             $sql = "INSERT INTO trancation( affair, IO, ammount, client )
             
