@@ -155,9 +155,9 @@ class Mailer
         $body = $this->name .'先生/小姐您好，感謝您提交' . $this->subject . '的書籍表單，為' . $this->price . '元';
         $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍拿至博理藝廊";
         $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
-        $body = $body . '<a href="https://www.facebook.com/EESHB/"> 電機二手書粉絲專頁 </a>'; 
+        $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
         $this -> addBody( $body );
-        
+        $this -> addSubject( "賣書表單填寫成功信" );
         
         $this -> sendMail();
     }
@@ -215,7 +215,7 @@ class Mailer
                     
                     
                     $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
-                    $body = $body . '<a href="https://www.facebook.com/EESHB/"> 電機二手書粉絲專頁 </a>'; 
+                    $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                    
                    
                 }
@@ -223,6 +223,7 @@ class Mailer
                 $connInside2 -> close();
                  
                  $this -> addBody( $body );
+                 $this -> addSubject( "收書結果確認信" );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
                  sleep(1);
@@ -284,11 +285,12 @@ class Mailer
                 $connInside2 -> close();
                 
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
-                $body = $body . '<a href="https://www.facebook.com/EESHB/"> 電機二手書粉絲專頁 </a>'; 
-                $body .= "<br><br>" . "請您於9/19(六)15:30-16:30至博理藝廊領取書錢及退書";
+                $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
+                $body .= "<br><br>" . "請您於9/19(六)15:30-16:30至博理藝廊領取扣除手續費的賣書錢及退書";
                 
                 
                     $this -> addBody( $body );
+                    $this -> addSubject( "二手書賣書結果" );
                 
                     $this -> sendMail();
                 
@@ -444,13 +446,14 @@ class Mailer
                 
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
                 
-                $body = $body . '<a href="https://www.facebook.com/EESHB/"> 電機二手書粉絲專頁 </a>'; 
+                $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                 $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
                 
                 
                 $body = $body . "<br>感謝您的熱情參與";
                  
                  $this -> addBody( $body );
+                 $this -> addSubject( "領錢及退書結果確認信" );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
                  sleep(1);
