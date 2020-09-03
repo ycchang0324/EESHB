@@ -40,7 +40,14 @@ $others   = trimmedData( $data -> others );
 $stdId = strtolower($stdId);
 //創造一個$seller的物件
 
+$startTime = "2020-09-07";
+$endTime = "2020-09-17";
+$today = date('Y-m-d');
 
+$isOpenTime = 1;
+
+if( ( strtotime( $today ) < strtotime( $startTime ) ) OR ( strtotime( $today ) > strtotime( $endTime ) ))
+    $isOpenTime = 0;
 
 //$name = "張原嘉";
 //$stdId = "b08901049";
@@ -50,9 +57,16 @@ $stdId = strtolower($stdId);
 //$fee = 100;
 //$others = "嗨";
 //$fee = 5;
-$seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
 
-//呼叫$seller的成員函式store()，將資料傳入資料庫中
-$seller->store();
+if($isOpenTime){
+   $seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
+
+    //呼叫$seller的成員函式store()，將資料傳入資料庫中
+    $seller->store(); 
+}
+else{
+    echo json_encode(["success" => 0,"msg"=>"不在表單的填寫時段"]);
+}
+
 
 ?>

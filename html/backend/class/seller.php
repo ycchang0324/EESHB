@@ -136,7 +136,7 @@ class Seller {
                     $mailer -> sellerSetMail( $this->stdId, $this->name, $this->subject, $this->price,$this->fee );
                     $mailer -> sendMailForm();
                     
-                    echo json_encode(["success" => 1,"msg"=>"success insert order"]);
+                    echo json_encode(["success" => 1,"msg"=>"成功填寫表單"]);
                 } else {
                     $msg = "Error: " . $sql . "<br>" . $conn->error;
                     echo json_encode(["success" => 0,"msg"=>$msg]);
