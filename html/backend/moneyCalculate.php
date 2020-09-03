@@ -11,10 +11,10 @@ $result = $conn->query($sql);
 $money = 0;
 while( $row = $result->fetch_assoc() ){
     if( $row["IO"] == "I" )
-        $money = $money + $row["price"];
+        echo $row["price"] . "<br>";
     
     if( $row["IO"] == "O" )
-        $money = $money - $row["price"];
+        echo $row["price"] . "<br>";
 }
 
 echo "總金額是 " . $money . " 元."; 
