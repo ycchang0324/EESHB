@@ -21,10 +21,6 @@ $price = $data -> price;
 $buyerId = $data -> buyerId;
 $buyerId = strtolower($buyerId);
 
-$id = 3;
-$price = 300;
-$buyerId = 'b08901049';
-
 
 $conn = connection();
 $sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id'";

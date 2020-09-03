@@ -204,7 +204,7 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-
+/*
 $conn = connection();
 
 $sql = "CREATE TABLE log (
@@ -231,6 +231,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+*/
 
 $conn = connection();
 
