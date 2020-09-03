@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Select from './component/Select';
 import Axios from 'axios';
 import './SellBook.css';
@@ -49,7 +49,8 @@ class SellBook extends Component {
             },
             captcha: '',
             is_fillsuccess: false,
-            open_term: false
+            open_term: false,
+            
         }
     }
 
@@ -94,10 +95,14 @@ class SellBook extends Component {
                         )
 
                             .then((data) => {
-                               
+
                                 console.log(data)
                                 if (data.data.success === 1) {
+<<<<<<< HEAD
+                                    alert("success")
+=======
                                     alert(data.data.msg)
+>>>>>>> 93bf27a17110aa132cea7e3c3e7d6d57307f38d0
                                     console.log(data)
                                     this.setState({
                                         is_fillsuccess: true
@@ -260,7 +265,7 @@ class SellBook extends Component {
                                         <label className="form-check-label" for="inlineCheckbox1">
                                             我已同意二手書網站
                                             <button
-                                                id="SellBook_terms_btn"
+                                                className="SellBook_terms_btn"
                                                 onClick={(e) => {
                                                     e.preventDefault()
                                                     this.setState({ open_term: !this.state.open_term })
@@ -293,8 +298,11 @@ class SellBook extends Component {
 export default SellBook;
 
 const Terms = (props) => {
+
+    const [open, setOpen] = useState(false)
+
     return (
-        <ol id="SellBook_terms" className="pt-2 pb-3 pl-1" style={{listStyleType:"decimal" }}>
+        <ol id="SellBook_terms" className="pt-2 pb-3 pl-1" style={{ listStyleType: "decimal" }}>
             <li>1.賣家必須先填賣書表單，其中書價<span className="text-danger">只有四種選擇</span>，分別為
             <ul className="pl-3">
                     <li>700元：書況良好</li>
@@ -303,10 +311,21 @@ const Terms = (props) => {
                     <li>200元：書況較差</li>
                 </ul>
             </li>
-            <li>若賣家對賣書價格不確定，可以點選以下連結  <a href="https://book.ntuee.org/recommended_price.html"
-                    target="_blank"
-                    title="二手書賣書建議售價" >
-                     賣書建議售價</a> 來決定書籍售價</li>
+            <li>若賣家對賣書價格不確定，可以查看
+                     
+                <button
+                    className="SellBook_terms_btn"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setOpen(!open)
+                    }}>
+                        賣書建議售價
+                    
+                </button>
+                來決定書籍售價</li>
+            <SlideDown className={'my-dropdown-slidedown pl-3'}>
+                    {open ? <Recommend_price /> : null}
+            </SlideDown>
             <li>2.若書本封面破損嚴重或是缺頁過多，二手書團隊有權利<span className="text-danger">拒收</span></li>
             <li>
                 3.填寫完賣書表單後按下送出鍵，系統會寄確認信至ntu信箱中，上面會提醒賣家在指定時間帶著學生證到指定地點繳交書籍
@@ -328,8 +347,23 @@ const Terms = (props) => {
         </li>
             <li>
                 9.<b>電機二手書團隊擁有活動最終解釋權</b>
-        </li>
+            </li>
         </ol>
+    )
+}
+
+const Recommend_price = (props) => {
+    
+    return(
+        <ul>
+            <li>封面破損超過<span className="text-warning">1/3</span>、內頁缺頁以致內文遺失的課本 -{'>'} 不收</li>
+            <li>書本泡水 -{'>'} 200元</li>
+            <li>筆記雜亂 -{'>'} 300元</li>
+            <li>在習題旁邊寫答案 -{'>'} 500元</li>
+            <li>內頁有撕到 -{'>'} 500元</li>
+            <li>封面及內頁有汙損、折到 -{'>'} 500元</li>
+            <li>以上六項缺點皆沒有 -{'>'} 700元</li>
+        </ul>
     )
 }
 // const SellBook = () =>{
