@@ -140,9 +140,10 @@ class Manage {
         }
         else if( $state == '已領錢'){
             $giveBack = $price - $fee;
+            
             $sql = "INSERT INTO trancation( affair, IO, ammount, client )
             
-            VALUES( '已領錢', 'O', '$giveBack' ,'$stdId')";
+            VALUES( '已領錢', 'O', '$fee' ,'$stdId')";
             $conn->query($sql);
         }else{
             ;
