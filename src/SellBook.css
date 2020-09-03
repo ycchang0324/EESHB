@@ -26,11 +26,6 @@ li,ul{
     font-size: var(--sellbookbox-fontsize);
 }
 
-.SellBook_box_select{
-    /* float: right; */
-    /* height:3vh; */
-}
-
 .separator {
     height:2px;
     width: 100%;
@@ -134,15 +129,6 @@ li,ul{
     border: none;
 }
 
-#SellBook_checkbox_li{
-    
-
-}
-
-#SellBook_checkbox_li input{
-    
-}
-
 #Sellbook_category_select{
     font-size: var(--sellbookbox-fontsize);
 }
@@ -150,12 +136,6 @@ li,ul{
 #Sellbook_subject_select{
     font-size: var(--sellbookbox-fontsize);
 }
-
-#SellBook_box_fee{
-
-}
-
-
 
 #SellBook_terms{
     background-color: #e6e6e6;
@@ -189,9 +169,7 @@ li,ul{
 }
 
 @media screen and (min-width: 767px){
-    :root{
     
-    }
 }
 @media screen and (min-width: 1023px){
     :root{

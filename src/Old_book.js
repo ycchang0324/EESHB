@@ -3,11 +3,7 @@ import "./Old_book.css"
 import Scrollbars from "react-custom-scrollbars";
 import axios from "axios";
 
-const test_bookdata = {
-    img_path: "https://book.ntuee.org/textbook_image/logic_design.jpg",
-    bookname: "Foundmental of Login Design",
-    price: 500
-}
+
 const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
         borderRadius: 6,
