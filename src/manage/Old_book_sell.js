@@ -16,31 +16,66 @@ const Old_book_sell = (props) => {
 
     const [stuId, setStdId] = useState("")
     const [bookId, setBookId] = useState("")
-    const [identity, setIdentity] = useState("")
+    const [identity, setIdentity] = useState("訪客")
     const [price, setPrice] = useState("")
 
     const handleIdentityChange = (blank, newIdentity) => {
         setIdentity(newIdentity)
     }
 
-    const handleSearchBookId = () => {
+    const handleSearchBookId = (e) => {
+        e.preventDefault()
         Axios.post("https://book.ntuee.org/backend/manage/getOldBookPrice.php", {
-            id:bookId
+            bookId: bookId
         })
-            .then()
-            .catch()
+            .then(
+                (data) => {
+                    if (data.data.success === 1) {
+                        setPrice(data.data.price)
+                    }
+                    else {
+                        alert("Something's wrong\nCan get book price")
+                    }
+                }
+            )
+            .catch(err => (alert(err)))
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        Axios.post("https://book.ntuee.org/backend/sellOldBook.php",
+            {
+                id: bookId,
+                price: price * identity_option[identity],
+                buyerId: stuId
+            }).then((data) => {
+                if (data.data.success === 1) {
+                    alert(data.data.msg)
+                }
+                else {
+                    alert("Something's wrong\nUpdate Fail!")
+                }
+            })
+            .catch(err => (alert(err)))
+    }
+
 
     return (
         <div id="Old_book_sell_container">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Student ID</label>
-                    <input className="form-control" type="text" onChange={}></input>
+                    <input className="form-control" type="text"
+                        onChange={(e) => {
+                            setStdId(e.target.value)
+                        }}></input>
                 </div>
                 <div className="form-group row">
                     <label>Book ID</label>
-                    <input className="form-control" type="text" onChange={}></input>
+                    <input className="form-control" type="text"
+                        onChange={(e) => {
+                            setBookId(e.target.value)
+                        }}></input>
                     <button className="btn btn-primary" onClick={handleSearchBookId}>Search</button>
                 </div>
 
@@ -49,13 +84,16 @@ const Old_book_sell = (props) => {
                 </div>
 
                 <div>
-                    <Select conn={handleIdentityChange} defaultOption="Please choose an identity type" options={Object.keys(identity_option)}></Select>
+                    <Select conn={handleIdentityChange} defaultOption="訪客" options={Object.keys(identity_option)}></Select>
                 </div>
                 <div>
                     <p>原價:{price}元</p>
-                    <p>售價:{price?price*identity_option[identity]:""}元</p>
+                    <p>售價:{price ? price * identity_option[identity] : ""}元</p>
                 </div>
 
+                <div className="d-flex justify-content-center">
+                    <button className="btn" type="submit" onSubmit={handleSubmit}>Submit</button>
+                </div>
             </form>
         </div>
     )
