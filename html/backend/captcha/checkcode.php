@@ -19,6 +19,10 @@ if( (!empty($captcha))){  //判斷此兩個變數是否為空
     
     //echo "captcha: " . $captcha . <br>;
     //echo "answer: " . $answer;
+    //全部更換為小寫
+    $answer = strtolower( $answer );
+    $captcha = strtolower( $captcha );
+    
      if($answer == $captcha){
          
           $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
