@@ -65,7 +65,7 @@ if( $isOpenTime ){
     $seller->store(); 
 }
 else{
-    echo json_encode(["success" => 0,"msg"=>"不在表單的填寫時段"]);
+    echo json_encode(["success" => 0,"msg"=>"不在表單的填寫時段<br>表單的填寫時段為9/7(一) - 9/17(三)"]);
 }
 
 
