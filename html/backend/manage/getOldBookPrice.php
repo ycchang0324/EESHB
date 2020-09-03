@@ -21,18 +21,18 @@ $bookId = 4;
 
 
 $conn = connection();
-        $sql = "SELECT * FROM oldBook WHERE id = '$bookId'";
-        
-        if($result = $conn -> query( $sql )){
-            $row = $result->fetch_array();
-            
-            $price = $row['price'];
-            
-        
-            echo json_encode(["success"=>1,"price"=>$price],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-        
-        }else{
-            echo json_encode(["success"=>0]);
-        }
-        $conn->close();
+$sql = "SELECT * FROM oldbook WHERE id = '$bookId'";
+
+if($result = $conn -> query( $sql )){
+    $row = $result->fetch_array();
+
+    $price = $row['price'];
+
+
+    echo json_encode(["success"=>1,"price"=>$price],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+
+}else{
+    echo json_encode(["success"=>0]);
+}
+$conn->close();
 ?>
