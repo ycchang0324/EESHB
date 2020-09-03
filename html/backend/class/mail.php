@@ -153,7 +153,7 @@ class Mailer
         
         
         $body = $this->name .'先生/小姐您好，感謝您提交' . $this->subject . '的書籍表單，為' . $this->price . '元';
-        $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍和 " . $this->fee . "元手續費至博理藝廊";
+        $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍拿至博理藝廊";
         $this -> addBody( $body );
         
         
@@ -275,15 +275,13 @@ class Mailer
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
                         $body = $body . $rowInside2["subject"] . "<br>";
-                    
-                    
-                    $body = $body . "若有錯誤，請立刻聯繫二手書專員";
-                    $body .= "<br>" . "請您於9/19(六)15:30-16:30至博理藝廊領取書錢及退書";
-                   
-                   
+                       
                 }
                 
                 $connInside2 -> close();
+                
+                $body = $body . "<br>若有錯誤，請立刻聯繫二手書專員";
+                $body .= "<br>" . "請您於9/19(六)15:30-16:30至博理藝廊領取書錢及退書";
                 
                 
                     $this -> addBody( $body );
@@ -433,13 +431,16 @@ class Mailer
                         $body = $body . $rowInside4["subject"] .  "<br>" ;
                     
                     
-                    $body = $body . "<br>若有錯誤，請立刻聯繫二手書專員"; 
-                    $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
-                
+                    
                    
                 }
                 
+                
                 $connInside4->close();
+                
+                $body = $body . "<br>若有錯誤，請立刻聯繫二手書專員"; 
+                $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
+                
                 
                 $body = $body . "<br>感謝您的熱情參與";
                  

@@ -97,7 +97,7 @@ class Manage {
             }
         }
         
-        $sql = "SELECT * FROM bookorder WHERE state = '未賣出'";
+        $sql = "SELECT * FROM bookorder WHERE state = '沒賣出'";
         $result = $conn->query($sql);
         $success = 1;
         while($row = $result->fetch_assoc()){
