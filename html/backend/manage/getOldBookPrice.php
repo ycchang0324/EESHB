@@ -28,10 +28,10 @@ $conn = connection();
             
             $price = $row['price'];
             
-        }
+        
             echo json_encode(["success"=>1,"price"=>$price],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-        }
-        else{
+        
+        }else{
             echo json_encode(["success"=>0]);
         }
         $conn->close();
