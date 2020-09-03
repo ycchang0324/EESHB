@@ -94,10 +94,10 @@ class SellBook extends Component {
                         )
 
                             .then((data) => {
-                                alert("success")
+                               
                                 console.log(data)
                                 if (data.data.success === 1) {
-
+                                     alert("success")
                                     console.log(data)
                                     this.setState({
                                         is_fillsuccess: true
@@ -106,6 +106,7 @@ class SellBook extends Component {
 
                                 }
                                 else {
+                                    alert(data.data.msg)
                                     console.log(data)
                                     this.setState({
                                         is_fillsuccess: false

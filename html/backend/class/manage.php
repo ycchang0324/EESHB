@@ -121,8 +121,16 @@ class Manage {
     }
     
    
-    function changeState( $id, $state ,$fee, $stdId, $price){
+    function changeState( $id, $state){
         $conn = connection();
+        $sql = "SELECT * FROM bookorder WHERE id = '$id'";
+        if($result = $conn -> query( $sql )){
+            $row = $result->fetch_array();
+            $stdId = $row['stdId'];
+            $price = $row['price'];
+            $fee =$row['$fee'];
+        }
+
         
         
         if( $state == '已賣出'){
