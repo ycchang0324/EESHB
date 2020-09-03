@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
