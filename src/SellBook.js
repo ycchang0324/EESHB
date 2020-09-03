@@ -158,7 +158,7 @@ class SellBook extends Component {
                     <p id="FeedBack_title">填寫賣書表單</p>
 
                     <div id="SellBook_box" className="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0 ">
-                        <form onSubmit={this.insertUser}>
+                        <form>
                             <ul id="SellBook_main_ul">
                                 <li className="SellBook_li form-group" >
                                     <div>
