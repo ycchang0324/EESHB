@@ -143,7 +143,7 @@ class Seller {
                 }     
             }
             else {
-                echo json_encode(["success" => 0,"msg"=>"too much orders"]);
+                echo json_encode(["success" => 0,"msg"=>"每人最多只能有五筆訂單"]);
             }
         }
         //斷開連線
