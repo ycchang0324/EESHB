@@ -18,5 +18,9 @@ $sql = "SELECT id, name, price, category FROM oldbook";
 $rows = $conn->query($sql);
 
 // loop over the rows, outputting them
-while ($row = $rows->fetch_assoc()) fputcsv($output, $row);
+while ($row = $rows->fetch_assoc()) 
+{
+    echo "<br>";
+    fputcsv($output, $row);
+}
 ?>
