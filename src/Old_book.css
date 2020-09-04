@@ -15,6 +15,7 @@
 
 .Old_book_card_price{
     font-size: var(--oldbookcardprice-fontsize);
+    margin: 0;
 }
 
 #Old_book_container{
@@ -49,7 +50,7 @@
     :root{
         --oldbookcard-width:225px;
         --oldbookcardtext-fontsize: 1rem;
-        --oldbookcardprice-fontsize: 1.2rem;
+        --oldbookcardprice-fontsize: 1.1rem;
     }
     
 }
@@ -59,14 +60,14 @@
 @media screen and (min-width: 500px){
     :root{
         --oldbookcardtext-fontsize: 1.1rem;
-        --oldbookcardprice-fontsize: 1.3rem;
+        --oldbookcardprice-fontsize: 1.2rem;
     }
 }
 @media screen and (min-width: 600px){
     :root{
         --oldbookcard-width:225px;
         --oldbookcardtext-fontsize: 1rem;
-        --oldbookcardprice-fontsize: 1.3rem;
+        --oldbookcardprice-fontsize: 1.2rem;
     }
 }
 @media screen and (min-width: 767px){
