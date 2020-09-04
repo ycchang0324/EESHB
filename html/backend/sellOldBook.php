@@ -24,7 +24,7 @@ $affair = '賣出舊書';
 
 
 $conn = connection();
-$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE (id = '$id' AND isSold = 0 )";
+$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id' AND isSold = 0 ";
 
 if($conn->query($sql)){
     echo json_encode(["success"=>1,"msg"=>"selling successfully! "],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
