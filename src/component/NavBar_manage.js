@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import orders from '../image/manage/orders.png'
 import messege from '../image/manage/messege.png'
 import logout from '../image/manage/logout.png'
+import sale from '../image/manage/sale.png'
 
 const NavBar_manage = () => {
 
@@ -26,6 +27,12 @@ const NavBar_manage = () => {
                     <Link to="/manage/Orders">
                         <img src={orders} alt="orders" style={{height:"55px",width:"55px",marginLeft:"5px"}}/>
                         <p style={{color:"#FFB8BA"}}>Orders</p>
+                    </Link>
+                </li>
+                <li className="NavBar_manage_li">
+                    <Link to="/manage/SellOldBook">
+                        <img src={sale} alt="sale" style={{height:"55px",width:"55px",marginLeft:"5px"}}/>
+                        <p style={{color:"#E8B77B"}}>SellOldBook</p>
                     </Link>
                 </li>
                 <li className="NavBar_manage_li">

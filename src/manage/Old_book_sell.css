@@ -1,0 +1,54 @@
+@import url(../component/style/global_var.css);
+
+.Old_book_sell_img{
+    max-height: var(--oldbooksellimg-maxheight);
+}
+
+#Old_book_sell_title{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+#Old_book_sell_container{
+    
+    width:calc(100vw - var(--navbar-width));
+    height: 100vh;
+    
+    font-family:var(--primary-font);
+
+    background-image: var(--bg-image);
+
+}
+
+@media screen and (min-width: 300px){
+    :root{
+
+
+    }
+}
+@media screen and (min-width: 350px){
+    :root{
+
+        
+        
+    }
+    
+}
+@media screen and (min-width: 400px){
+    
+}
+@media screen and (min-width: 600px){
+    
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 1023px){
+    :root{
+
+        --oldbooksellimg-maxheight: 17.5rem;
+    }
+}
+@media screen and (min-width: 1500px){
+    
+}

@@ -282,7 +282,7 @@ class SellBook extends Component {
 
 
                             <div className="d-flex justify-content-center my-1">
-                                <button id="SellBook_submit_btn" className="btn" type="submit" >Submit</button>
+                                <button id="SellBook_submit_btn" className="btn" type="submit" onSubmit={this.insertUser}>Submit</button>
                             </div>
                         </form>
                     </div>
