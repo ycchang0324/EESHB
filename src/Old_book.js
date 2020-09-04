@@ -43,7 +43,11 @@ const Old_book = (props) => {
 
     const handleCategoryChange = (newCategory) => {
         setCurrentCategory(newCategory)
-        getOldBookListfromBackend(newCategory)
+        if(newCategory === "全部書籍"){
+            getAllOldBook()
+        }else{
+            getOldBookListfromBackend(newCategory)
+        }
     }
 
     const getOldBookListfromBackend = (newCategory) => {
@@ -108,9 +112,23 @@ const Old_book = (props) => {
 
     }
 
-    // useEffect(() => {
-    //     getOldBookListfromBackend()
-    // }, [])
+    const getAllOldBook = () => {
+        axios.post("https://book.ntuee.org/backend/allOldBook.php",{})
+        .then(
+            (data) => {
+                if(data.data.success === 1){
+                    let old_book_cards = renderChosenCategory(data.data.orderList)
+                    setCategoryCardList(old_book_cards)
+                }else{
+                    alert("Something's wrong\n Can get All Old Book!!")
+                }
+            }
+        )
+    }
+
+    useEffect(() => {
+        getAllOldBook()
+    }, [])
 
     return (
         <div id="Old_book_container" className="card text-center">
@@ -228,7 +246,9 @@ const Old_book_card = (props) => {
             </div>
             <div className="card-body px-2 py-1 d-flex flex-column">
                 <p className="card-text Old_book_card_text">{props.data.name}</p>
-                <p className="card-title Old_book_card_price mt-auto"><span style={{ color: "red", fontWeight: "bold" }}>{props.data.price}</span>元</p>
+                <p className="card-title mt-auto"><span style={{textDecoration:"line-through",margin:"0",color:"gray"}}>定價{props.data.price}元</span></p>
+                <p className="card-title Old_book_card_price mt-auto">校內同學<span style={{ color: "red", fontWeight: "bold" }}>{0.8*props.data.price}</span>元</p>
+                <p className="card-title Old_book_card_price mt-auto">系上同學<span style={{ color: "red", fontWeight: "bold" }}>{0.5*props.data.price}</span>元</p>
             </div>
         </div>
     )
