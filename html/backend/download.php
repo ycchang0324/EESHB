@@ -1,30 +1,22 @@
+
 <?php
+// output headers so that the file is downloaded rather than displayed
+header('Content-Type: application/csv; charset=utf-8');
+header('Content-Disposition: attachment; filename=data.csv');
+<?php
+// create a file pointer connected to the output stream
+$output = fopen('php://output', 'w');
 
-//這些header檔用來POST
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: POST");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+// output the column headings
+fputcsv($output, array('id', 'name', 'price','category'));
 
-//連線資料庫
+// fetch the data
 require_once './db/db_connection.php';
-
-
-
-//$data接收POST過來的函式
-$data = json_decode(file_get_contents("php://input"));
-
 $conn = connection();
-$sql = "SELECT * FROM oldbook ";
-$result = $conn->query($sql);
-if($result->num_rows > 0){
-    $orderList = $result -> fetch_all(MYSQLI_ASSOC);
-    echo json_encode(["success"=>1,"orderList"=>$orderList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT) . "<br>";
-}
-else{
-    echo json_encode(["success"=>0]);
-}
-$conn->close();
 
+$sql = "SELECT id, name, price, category FROM oldbook"; 
+$rows = $conn->query($sql);
+
+// loop over the rows, outputting them
+while ($row = $rows->fetch_assoc()) fputcsv($output, $row);
 ?>
