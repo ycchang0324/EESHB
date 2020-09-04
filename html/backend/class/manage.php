@@ -138,7 +138,7 @@ class Manage {
         
         if( $state == '已賣出'){
             $sql = "INSERT INTO trancation( affair, IO, ammount, bookId, client ) 
-            VALUES( '$sellAffair', 'I', '$price' ,'$id',$stdId')";
+            VALUES( '$sellAffair', 'I', '$price' ,'$id','$stdId')";
             $conn->query($sql);
         }
         else if( $state == '已領錢'){
