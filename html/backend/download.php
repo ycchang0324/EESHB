@@ -14,7 +14,8 @@ fputcsv($output, array('id', 'name', 'price','category'));
 require_once './db/db_connection.php';
 $conn = connection();
 
-$rows = mysql_query('SELECT id, name, price, category FROM oldbook');
+$sql = "SELECT id, name, price, category FROM oldbook"; 
+$rows = $conn->query($sql);
 
 // loop over the rows, outputting them
 while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
