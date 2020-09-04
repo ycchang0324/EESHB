@@ -44,9 +44,9 @@ const Old_book = (props) => {
     const handleCategoryChange = (newCategory) => {
         setCurrentCategory(newCategory)
         if(newCategory === "全部書籍"){
-            getOldBookListfromBackend(newCategory)
-        }else{
             getAllOldBook()
+        }else{
+            getOldBookListfromBackend(newCategory)
         }
     }
 
