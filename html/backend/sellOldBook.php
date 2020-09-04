@@ -24,7 +24,7 @@ $affair = '賣出舊書';
 
 
 $conn = connection();
-$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE id = '$id'";
+$sql = "UPDATE oldbook SET isSold = 1, buyerId = '$buyerId' WHERE (id = '$id' AND isSold = 0 )";
 
 if($conn->query($sql)){
     echo json_encode(["success"=>1,"msg"=>"selling successfully! "],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -34,7 +34,7 @@ else{
 }
 
  $sql = "INSERT INTO trancation( affair, IO, ammount, bookId, client ) 
-            VALUES( '$affair', 'I', '$price' ,'$id','$stdId')";
+            VALUES( '$affair', 'I', '$price' ,'$id','$buyerId')";
             $conn->query($sql);
 $conn->close();
 
