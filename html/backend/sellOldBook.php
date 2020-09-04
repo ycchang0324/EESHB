@@ -27,7 +27,7 @@ $conn = connection();
 
 $isSold = 0;
 
-$sql = "SELECT * FROM oldbook WHERE id = '$bookId'";
+$sql = "SELECT * FROM oldbook WHERE id = '$id'";
 
 if($result = $conn -> query( $sql )){
     $row = $result->fetch_array();
