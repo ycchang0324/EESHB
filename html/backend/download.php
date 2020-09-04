@@ -1,5 +1,5 @@
 
-<?
+<?php
 // output headers so that the file is downloaded rather than displayed
 header('Content-type:application/force-download');
 header('Content-Type: text/csv; charset=utf-8');
