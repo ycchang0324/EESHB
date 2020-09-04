@@ -20,7 +20,7 @@ $id = $data -> id;
 $price = $data -> price;
 $buyerId = $data -> buyerId;
 $buyerId = strtolower($buyerId);
-$affair = '賣出舊書編號為 '  . $id ;
+$affair = '賣出舊書';
 
 if(!($this->buyerId == null)){
     $conn = connection();
@@ -33,8 +33,8 @@ if(!($this->buyerId == null)){
         echo json_encode(["success"=>0]);
     }
 
-     $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-                VALUES( '$affair', 'I', '$price' ,'$stdId')";
+     $sql = "INSERT INTO trancation( affair, IO, ammount, bookId, client ) 
+                VALUES( '$affair', 'I', '$price' ,'$id','$stdId')";
                 $conn->query($sql);
     $conn->close();
 }

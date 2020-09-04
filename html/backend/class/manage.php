@@ -129,24 +129,24 @@ class Manage {
             $stdId = $row['stdId'];
             $price = $row['price'];
             $fee = $row['fee'];
-            $sellAffair = '已賣出訂單編號為 ' . $id ;
-            $returnAffair= '已領錢訂單編號為 ' . $id ;
+            $sellAffair = '已賣出'  ;
+            $returnAffair= '已領錢';
             $sellerMoney = $price - $fee;
         }
 
         
         
         if( $state == '已賣出'){
-            $sql = "INSERT INTO trancation( affair, IO, ammount, client ) 
-            VALUES( '$sellAffair', 'I', '$price' ,'$stdId')";
+            $sql = "INSERT INTO trancation( affair, IO, ammount, bookId, client ) 
+            VALUES( '$sellAffair', 'I', '$price' ,'$id',$stdId')";
             $conn->query($sql);
         }
         else if( $state == '已領錢'){
             
             
-            $sql = "INSERT INTO trancation( affair, IO, ammount, client )
+            $sql = "INSERT INTO trancation( affair, IO, ammount, bookId, client )
             
-            VALUES( '$returnAffair', 'O', '$sellerMoney' ,'$stdId')";
+            VALUES( '$returnAffair', 'O', '$sellerMoney' ,'$id','$stdId')";
             $conn->query($sql);
         }else{
             ;
