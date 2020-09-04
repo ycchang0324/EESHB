@@ -16,7 +16,7 @@ require_once './db/db_connection.php';
 $data = json_decode(file_get_contents("php://input"));
 
 $conn = connection();
-$sql = "SELECT * FROM bookorder ";
+$sql = "SELECT * FROM oldbook ";
 $result = $conn->query($sql);
 if($result->num_rows > 0){
     $orderList = $result -> fetch_all(MYSQLI_ASSOC);
