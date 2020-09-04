@@ -5,6 +5,7 @@ $conn = connection();
 $sql = "CREATE TABLE trancation (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 affair VARCHAR(30) NOT NULL,
+bookId INT(6) NOT NULL,
 IO VARCHAR(2) NOT NULL,
 ammount VARCHAR(6) NOT NULL,
 client VARCHAR(9) NOT NULL,

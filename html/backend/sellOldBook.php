@@ -20,7 +20,7 @@ $id = $data -> id;
 $price = $data -> price;
 $buyerId = $data -> buyerId;
 $buyerId = strtolower($buyerId);
-$affair = '賣出舊書第 '  . $id . '本';
+$affair = '賣出舊書編號為 '  . $id ;
 
 if(!($this->buyerId == null)){
     $conn = connection();

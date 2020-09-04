@@ -129,8 +129,8 @@ class Manage {
             $stdId = $row['stdId'];
             $price = $row['price'];
             $fee = $row['fee'];
-            $sellAffair = '已賣出' . $id . '書籍';
-            $returnAffair= '已領錢' . $id . '書籍';
+            $sellAffair = '已賣出訂單編號為 ' . $id ;
+            $returnAffair= '已領錢訂單編號為 ' . $id ;
             $sellerMoney = $price - $fee;
         }
 
