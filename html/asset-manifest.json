@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.d09ee72d.chunk.css",
+    "main.css": "/static/css/main.cae6b539.chunk.css",
     "main.js": "/static/js/main.83760930.chunk.js",
     "main.js.map": "/static/js/main.83760930.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8c818c92.js",
@@ -9,10 +9,10 @@
     "static/js/2.3eea0cc8.chunk.js": "/static/js/2.3eea0cc8.chunk.js",
     "static/js/2.3eea0cc8.chunk.js.map": "/static/js/2.3eea0cc8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.30225c4cf39a32fe9a44a3e0b5285598.js": "/precache-manifest.30225c4cf39a32fe9a44a3e0b5285598.js",
+    "precache-manifest.2d40f9c9ce3e6f47c243f281894e593d.js": "/precache-manifest.2d40f9c9ce3e6f47c243f281894e593d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.8223a7aa.chunk.css.map": "/static/css/2.8223a7aa.chunk.css.map",
-    "static/css/main.d09ee72d.chunk.css.map": "/static/css/main.d09ee72d.chunk.css.map",
+    "static/css/main.cae6b539.chunk.css.map": "/static/css/main.cae6b539.chunk.css.map",
     "static/js/2.3eea0cc8.chunk.js.LICENSE.txt": "/static/js/2.3eea0cc8.chunk.js.LICENSE.txt",
     "static/media/Old_book_sell.css": "/static/media/NotoSansTC-Regular.8b347901.otf",
     "static/media/logo.png": "/static/media/logo.dddf9afe.png"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.8c818c92.js",
     "static/css/2.8223a7aa.chunk.css",
     "static/js/2.3eea0cc8.chunk.js",
-    "static/css/main.d09ee72d.chunk.css",
+    "static/css/main.cae6b539.chunk.css",
     "static/js/main.83760930.chunk.js"
   ]
 }
