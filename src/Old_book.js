@@ -244,6 +244,7 @@ const Old_book_card = (props) => {
                 <img src={image_path + props.data.picture + ".jpg"} className="card-img-top img-fluid Old_book_card_img" alt={props.data.img_path} />
             </div>
             <div className="card-body px-2 py-1 d-flex flex-column">
+                <p className="card-text Old_book_card_text">編號：<span style={{ color: "black", fontWeight: "bold" }}>{props.data.id}</span></p>
                 <p className="card-text Old_book_card_text">{props.data.name}</p>
                 <p className="card-title mt-auto"><span style={{textDecoration:"line-through",margin:"0",color:"gray"}}>定價{props.data.price}元</span></p>
                 <p className="card-title Old_book_card_price mt-auto">校內同學<span style={{ color: "red", fontWeight: "bold" }}>{0.8*props.data.price}</span>元</p>
