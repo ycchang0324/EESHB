@@ -41,13 +41,13 @@ $sprice = array('5','1','2','2','2','4','2','5','5','5',
 
 
 for( $i = 0; $i < 115; $i++ ){
-    if( $sprice[i] == 5 )
+    if( $sprice[$i] == 5 )
         $price = 50;
-    else if( $sprice[i] == 1 )
+    else if( $sprice[$i] == 1 )
         $price = 100;
-    else if( $sprice[i] == 2 )
+    else if( $sprice[$i] == 2 )
         $price = 200;
-    else if( $sprice[i] == 4 )
+    else if( $sprice[$i] == 4 )
         $price = 400;
     else{
         echo "something wrong";
@@ -55,7 +55,7 @@ for( $i = 0; $i < 115; $i++ ){
     }
         
     
-    $sql = "UPDATE oldbook SET price = '$price' WHERE id = '$id[i]'";
+    $sql = "UPDATE oldbook SET price = '$price' WHERE id = '$id[$i]'";
     $conn->query($sql);  
 }
 
