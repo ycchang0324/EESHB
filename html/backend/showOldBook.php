@@ -28,13 +28,12 @@ else{
 }
     
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    $oldBookList = $result -> fetch_all(MYSQLI_ASSOC);
-    echo json_encode(["success"=>1,"oldBookList"=>$oldBookList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-}
-else{
-    echo json_encode(["success"=>0]);
-}
+
+$oldBookList = $result -> fetch_all(MYSQLI_ASSOC);
+echo json_encode(["success"=>1,"oldBookList"=>$oldBookList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+
+
+   
 $conn->close();
 
 ?>
