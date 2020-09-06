@@ -152,8 +152,9 @@ class Mailer
         $this->addRecipient($this->stdId . '@ntu.edu.tw', $this->name);
         
         
-        $body = $this->name .'先生/小姐您好，感謝您提交' . $this->subject . '的書籍表單，為' . $this->price . '元';
+        $body = $this->name .' 先生/小姐您好，感謝您提交 ' . $this->subject . ' 的書籍表單，為 ' . $this->price . ' 元';
         $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍拿至博理藝廊";
+        $body .= "<br>" . "並自行先準備 " . $this -> fee . " 元手續費，若書本賣出後領書錢時須繳交一成手續費";
         $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
         $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
         $this -> addBody( $body );
@@ -176,12 +177,13 @@ class Mailer
             while($row = $result->fetch_assoc()) {
                 $stdId = $row["stdId"];
                 $name = $row["name"];
+                $fee = 0;
                 
                 
             
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
                 
-                $body = $name . "先生/小姐您好，以下是交書結果：" . "<br>" . "<br>";
+                $body = $name . " 先生/小姐您好，以下是交書結果：" . "<br>" . "<br>";
                 
                 $connInside = connection();
                 
@@ -192,8 +194,11 @@ class Mailer
                 if ($resultInside->num_rows > 0) {
                     $body = $body . "<br>已收到您的以下書籍：" . "<br>";
                     
-                    while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
+                    while($rowInside = $resultInside->fetch_assoc()){
+                        $body = $body . $rowInside["subject"] . '，為 ' . $rowInside["price"] . " 元" . "<br>" ;
+                        $fee = $fee + $rowInside["price"] * 0.1;
+                    }
+                        
                 }
                 
                 $connInside -> close();
@@ -211,10 +216,12 @@ class Mailer
                     $body = $body . "<br>很抱歉沒有收到以下書籍：<br>";
                     
                     while($rowInside2 = $resultInside2->fetch_assoc()) 
-                        $body = $body . $rowInside2["subject"] . '，為' . $rowInside2["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside2["subject"] . '，為 ' . $rowInside2["price"] . " 元" . "<br>" ;
                     
                     
-                    $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
+                    
+                    $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在9/19(六)15:00會通知您賣書結果。"
+                    $body = $body .  "<br>" . "若有錯誤，請立刻聯繫";
                     $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                    
                    
@@ -245,7 +252,7 @@ class Mailer
             while($row = $result->fetch_assoc()) {
                 $stdId = $row["stdId"];
                 $name = $row["name"];
-                
+                $fee = 0;
                 
             
                 $this->addRecipient($stdId . '@ntu.edu.tw', $name);
@@ -262,7 +269,8 @@ class Mailer
                     $body = $body . "<br>已賣出的書籍：" . "<br>";
                     
                     while($rowInside = $resultInside->fetch_assoc()) 
-                        $body = $body . $rowInside["subject"] . '，為' . $rowInside["price"] . "元" . "<br>" ;
+                        $body = $body . $rowInside["subject"] . '，為 ' . $rowInside["price"] . " 元" . "<br>" ;
+                        $fee = $fee + $rowInside["price"] * 0.1;
                 }
                 
                 $connInside -> close();
@@ -284,9 +292,10 @@ class Mailer
                 
                 $connInside2 -> close();
                 
+                $body .= "<br>" . "請您於9/19(六)15:30-16:30準備 " . $fee . " 元手續費至博理藝廊領取賣書錢及退書";
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
-                $body .= "<br><br>" . "請您於9/19(六)15:30-16:30至博理藝廊領取扣除手續費的賣書錢及退書";
+                
                 
                 
                     $this -> addBody( $body );
