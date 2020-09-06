@@ -153,7 +153,7 @@ class Mailer
         
         
         $body = $this->name .' 先生/小姐您好，感謝您提交 ' . $this->subject . ' 的書籍表單，為 ' . $this->price . ' 元';
-        $body .= "<br>" . "請您於9/19(六)10:00-12:00將書籍拿至博理藝廊";
+        $body .= "<br>" . "請您於 9/19(六) 10:00-12:00 將書籍拿至博理藝廊";
         $body .= "<br>" . "並自行先準備 " . $this -> fee . " 元手續費，若書本賣出後領書錢時須繳交一成手續費";
         $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
         $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
@@ -227,7 +227,7 @@ class Mailer
                 
                 $connInside2 -> close();
                 
-                $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在9/19(六)15:00會通知您賣書結果。";
+                $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在 9/19(六) 15:00 會通知您賣書結果。";
                 $body = $body .  "<br>" . "若有錯誤，請立刻聯繫";
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                  
@@ -294,7 +294,7 @@ class Mailer
                 
                 $connInside2 -> close();
                 
-                $body .= "<br>" . "請您於9/19(六)15:30-16:30準備 " . $fee . " 元手續費至博理藝廊領取賣書錢及退書";
+                $body .= "<br>" . "請您於 9/19(六) 15:30-16:30 準備 " . $fee . " 元手續費至博理藝廊領取賣書錢及退書";
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                 
