@@ -154,7 +154,8 @@ class Mailer
         
         $body = $this->name .' 先生/小姐您好，感謝您提交 ' . $this->subject . ' 的書籍表單，為 ' . $this->price . ' 元';
         $body .= "<br>" . "請您於 9/19(六) 10:00-12:00 將書籍拿至博理藝廊";
-        $body .= "<br>" . "並自行先準備 " . $this -> fee . " 元手續費，若書本賣出後領書錢時須繳交一成手續費";
+        $body .= "<br>" . "並自行先準備 " . $this -> fee . " 元手續費";
+        $boyd .= "<br>" . "若書本賣出後需在 9/19(六) 15:30-16:30 領書錢時繳交一成手續費";
         $body = $body .  "<br><br>" . "若有錯誤，請立刻聯繫";
         $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
         $this -> addBody( $body );
