@@ -131,7 +131,7 @@ const Old_book = (props) => {
 
     return (
         <div id="Old_book_container" className="card text-center">
-            <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#Old_book_nav" aria-controls="Old_book_nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
