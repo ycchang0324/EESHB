@@ -270,9 +270,11 @@ class Mailer
                 if ($resultInside->num_rows > 0) {
                     $body = $body . "<br>已賣出的書籍：" . "<br>";
                     
-                    while($rowInside = $resultInside->fetch_assoc()) 
+                    while($rowInside = $resultInside->fetch_assoc()) {
                         $body = $body . $rowInside["subject"] . '，為 ' . $rowInside["price"] . " 元" . "<br>" ;
                         $fee = $fee + $rowInside["price"] * 0.1;
+                    }
+                        
                 }
                 
                 $connInside -> close();
