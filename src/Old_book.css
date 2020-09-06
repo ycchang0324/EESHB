@@ -1,4 +1,4 @@
-@import url(./component/style/global_var.css);
+ @import url(./component/style/global_var.css);
 
 .Old_book_card{
     width: var(--oldbookcard-width);
@@ -31,7 +31,7 @@
 
 #Old_book_nav{
 
-    height: auto;
+    height: 100%;
 }
 
 #Old_book_cards{
