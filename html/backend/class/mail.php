@@ -199,6 +199,8 @@ class Mailer
                         $body = $body . $rowInside["subject"] . '，為 ' . $rowInside["price"] . " 元" . "<br>" ;
                         $fee = $fee + $rowInside["price"] * 0.1;
                     }
+                    
+                    $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在 9/19(六) 15:00 會通知您賣書結果。";
                         
                 }
                 
@@ -228,7 +230,7 @@ class Mailer
                 
                 $connInside2 -> close();
                 
-                $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在 9/19(六) 15:00 會通知您賣書結果。";
+                
                 $body = $body .  "<br>" . "若有錯誤，請立刻聯繫";
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                  
