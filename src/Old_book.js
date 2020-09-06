@@ -184,7 +184,7 @@ const Old_book_nav = (props) => {
 
                 navtabs_list.push(
                     <li className="nav-item dropdown col-12 col-sm-6 col-md-4 col-lg-3 col-xl p-xl-0">
-                        <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" href = "#">
                             {category}
                         </a>
                         <div className="dropdown-menu">
