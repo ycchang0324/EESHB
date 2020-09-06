@@ -57,7 +57,7 @@ if( ( strtotime( $today ) < strtotime( $startTime ) ) or ( strtotime( $today ) >
 //$fee = 100;
 //$others = "嗨";
 //$fee = 5;
-$isOpenTime = 1;
+
 
 if( $isOpenTime ){
    $seller = new Seller($name, $stdId, $category, $subject,$price, $fee ,$others);
