@@ -1,47 +1,42 @@
 @import url(./component/style/global_var.css);
 
-:root{
-    --feedbacktitle-fontsize: 1rem;
+:root {
+  --feedbacktitle-fontsize: 1rem;
 }
 
-#FeedBack_container{
-    font-family:var(--primary-font);
-    width:calc(100vw - var(--navbar-width));
-    height: 100vh;
-    /* position: relative; */
-    top:0;
-    background-image: var(--bg-image);
+#FeedBack_container {
+  /* font-family:var(--primary-font); */
+  width: calc(100vw - var(--navbar-width));
+  height: 100vh;
+  /* position: relative; */
+  top: 0;
+  /* background-image: var(--bg-image); */
 }
 
-#FeedBack_title{
-    font-size: var(--feedbacktitle-fontsize);
+#FeedBack_title {
+  font-size: var(--feedbacktitle-fontsize);
 }
 
-@media screen and (min-width: 300px){
-    :root{
-        --feedbacktitle-fontsize: 2rem;
-    }
+@media screen and (min-width: 300px) {
+  :root {
+    --feedbacktitle-fontsize: 2rem;
+  }
 }
-@media screen and (min-width: 350px){
-    :root{
-        --feedbacktitle-fontsize: 2.5rem;
-    }
+@media screen and (min-width: 350px) {
+  :root {
+    --feedbacktitle-fontsize: 2.5rem;
+  }
 }
-@media screen and (min-width: 400px){
-    
+@media screen and (min-width: 400px) {
 }
-@media screen and (min-width: 600px){
-    
+@media screen and (min-width: 600px) {
 }
 
-@media screen and (min-width: 767px){
-    :root{
-    
-    }
+@media screen and (min-width: 767px) {
+  :root {
+  }
 }
-@media screen and (min-width: 1023px){
-    
+@media screen and (min-width: 1023px) {
 }
-@media screen and (min-width: 1500px){
-    
+@media screen and (min-width: 1500px) {
 }
