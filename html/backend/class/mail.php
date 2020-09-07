@@ -213,7 +213,7 @@ class Mailer
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "交書提醒信" );
-                if($stdId == 'b08901049'){
+                if($stdId == 'b08901049' or $stdId == 'b08901072'){
                     $this -> sendMail();
                 }
                  
