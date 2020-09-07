@@ -1,321 +1,326 @@
 @import url(./component/style/global_var.css);
-:root{
-    --anime-width: 320px;
-    --anime-height: 320px;
-    --alpha-interval: 1px;
-    --left-interval:85px;
-    
+:root {
+  --anime-width: 320px;
+  --anime-height: 320px;
+  --alpha-interval: 1px;
+  --left-interval: 85px;
 }
 
-#Home_container{
-    
-    /* width:100vw; */
-    height: 100vh;
+#Home_container {
+  /* width:100vw; */
+  height: 100vh;
 
-    background-image: var(--bg-image);
+  background-image: var(--bg-image);
 
-    font-family:var(--primary-font);
+  font-family: var(--primary-font);
 
-    transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-#Home_anime_container{
-    position: relative;
+#Home_anime_container {
+  position: relative;
 
-    width: calc(var(--anime-width) * var(--size-adjust)) ;
-    height: calc(var(--anime-height) * var(--size-adjust));
+  width: calc(var(--anime-width) * var(--size-adjust));
+  height: calc(var(--anime-height) * var(--size-adjust));
 }
 
-#Home_book{
-    position: absolute;
-    top: calc(50% - var(--size-adjust) * 234px /2);
-    left: calc(50% - var(--size-adjust) * 192px / 2);
+#Home_book {
+  position: absolute;
+  top: calc(50% - var(--size-adjust) * 234px / 2);
+  left: calc(50% - var(--size-adjust) * 192px / 2);
 
-    height: calc(var(--size-adjust) * 234px);
-    width: calc(var(--size-adjust) * 192px);
+  height: calc(var(--size-adjust) * 234px);
+  width: calc(var(--size-adjust) * 192px);
 
-    transition: all 0.5s;
-    animation: opening_anime 2s 2s 1 normal forwards;
+  transition: all 0.5s;
+  animation: opening_anime 2s 2s 1 normal forwards;
 
-    opacity: 0;
+  opacity: 0;
 }
 
-#Home_left_hand{
-    position: absolute;
+#Home_left_hand {
+  position: absolute;
 
-    height: calc(var(--size-adjust) * 84px);
-    width:calc(var(--size-adjust) * 107px);
+  height: calc(var(--size-adjust) * 84px);
+  width: calc(var(--size-adjust) * 107px);
 
-    left: calc(10px * var(--size-adjust));
-    top: calc(180px * var(--size-adjust));
-    
-    transition: all 0.5s;
+  left: calc(10px * var(--size-adjust));
+  top: calc(180px * var(--size-adjust));
 
-    animation: opening_anime 2s 4s 1 normal forwards;
+  transition: all 0.5s;
 
-    opacity: 0;
+  animation: opening_anime 2s 4s 1 normal forwards;
+
+  opacity: 0;
 }
 
-#Home_right_hand{
-    position: absolute;
+#Home_right_hand {
+  position: absolute;
 
-    height: calc(var(--size-adjust) * 84px);
-    width:calc(var(--size-adjust) * 107px);
-    
-    right: calc(10px * var(--size-adjust));
-    top: calc(180px * var(--size-adjust));
-    transition: all 0.5s;
-    animation: opening_anime 2s 0s 1 normal forwards;
+  height: calc(var(--size-adjust) * 84px);
+  width: calc(var(--size-adjust) * 107px);
 
-    opacity: 0;
+  right: calc(10px * var(--size-adjust));
+  top: calc(180px * var(--size-adjust));
+  transition: all 0.5s;
+  animation: opening_anime 2s 0s 1 normal forwards;
+
+  opacity: 0;
 }
 
-#Home_E_pink{
-    position: absolute;
+#Home_E_pink {
+  position: absolute;
 
-    height:calc(var(--size-adjust) * 88px);
-    width:calc(var(--size-adjust) * 29px);
-    
-    left: calc(var(--left-interval) * var(--size-adjust));
-    top: calc(100px * var(--size-adjust));
+  height: calc(var(--size-adjust) * 88px);
+  width: calc(var(--size-adjust) * 29px);
 
-    transition: all 0.5s;
+  left: calc(var(--left-interval) * var(--size-adjust));
+  top: calc(100px * var(--size-adjust));
 
-    animation: opening_anime 1s 6s 1 normal forwards;
+  transition: all 0.5s;
 
-    opacity: 0;
+  animation: opening_anime 1s 6s 1 normal forwards;
 
+  opacity: 0;
 }
 
-#Home_E_orange{
-    position: absolute;
+#Home_E_orange {
+  position: absolute;
 
-    height:calc(var(--size-adjust) * 88px);
-    width:calc(var(--size-adjust) * 29px);
+  height: calc(var(--size-adjust) * 88px);
+  width: calc(var(--size-adjust) * 29px);
 
-    left: calc(((var(--left-interval) + 29px + var(--alpha-interval)) * var(--size-adjust)));
-    top: calc(100px * var(--size-adjust));
+  left: calc(
+    ((var(--left-interval) + 29px + var(--alpha-interval)) * var(--size-adjust))
+  );
+  top: calc(100px * var(--size-adjust));
 
-    transition: all 0.5s;
+  transition: all 0.5s;
 
-    animation: opening_anime 1s 7s 1 normal forwards;
+  animation: opening_anime 1s 7s 1 normal forwards;
 
-    opacity: 0;
+  opacity: 0;
 }
-#Home_S{
-    position: absolute;
+#Home_S {
+  position: absolute;
 
-    height:calc(var(--size-adjust) * 88px);
-    width:calc(var(--size-adjust) * 29px);
-    
-    left: calc(((var(--left-interval) + 2 * 29px + 2 * var(--alpha-interval)) * var(--size-adjust)));
-    top: calc(100px * var(--size-adjust));
+  height: calc(var(--size-adjust) * 88px);
+  width: calc(var(--size-adjust) * 29px);
 
-    transition: all 0.5s;
+  left: calc(
+    (
+      (var(--left-interval) + 2 * 29px + 2 * var(--alpha-interval)) *
+        var(--size-adjust)
+    )
+  );
+  top: calc(100px * var(--size-adjust));
 
-    animation: opening_anime 1s 8s 1 normal forwards;
+  transition: all 0.5s;
 
-    opacity: 0;
+  animation: opening_anime 1s 8s 1 normal forwards;
+
+  opacity: 0;
 }
-#Home_H{
-    position: absolute;
+#Home_H {
+  position: absolute;
 
-    height:calc(var(--size-adjust) * 88px);
-    width:calc(var(--size-adjust) * 29px);
-    
-    left: calc(((var(--left-interval) + 3 * 29px + 3 * var(--alpha-interval)) * var(--size-adjust)));
-    top: calc(100px * var(--size-adjust));
-    
-    transition: all 0.5s;
+  height: calc(var(--size-adjust) * 88px);
+  width: calc(var(--size-adjust) * 29px);
 
-    animation: opening_anime 1s 9s 1 normal forwards;
+  left: calc(
+    (
+      (var(--left-interval) + 3 * 29px + 3 * var(--alpha-interval)) *
+        var(--size-adjust)
+    )
+  );
+  top: calc(100px * var(--size-adjust));
 
-    opacity: 0;
+  transition: all 0.5s;
+
+  animation: opening_anime 1s 9s 1 normal forwards;
+
+  opacity: 0;
 }
-#Home_B{
-    position: absolute;
+#Home_B {
+  position: absolute;
 
-    height:calc(var(--size-adjust) * 88px);
-    width:calc(var(--size-adjust) * 29px);
+  height: calc(var(--size-adjust) * 88px);
+  width: calc(var(--size-adjust) * 29px);
 
-    left: calc(((var(--left-interval) + 4 * 29px + 4 * var(--alpha-interval)) * var(--size-adjust)));
-    top: calc(100px * var(--size-adjust));
+  left: calc(
+    (
+      (var(--left-interval) + 4 * 29px + 4 * var(--alpha-interval)) *
+        var(--size-adjust)
+    )
+  );
+  top: calc(100px * var(--size-adjust));
 
-    transition: all 0.5s;
+  transition: all 0.5s;
 
-    animation: opening_anime 1s 10s 1 normal forwards;
+  animation: opening_anime 1s 10s 1 normal forwards;
 
-    opacity: 0;
-}
-
-
-#Home_btns button{
-    height:calc((var(--size-adjust) - 0.8) * 5rem);
-    width: calc((var(--size-adjust) - 0.8) * 5rem);
-
-    border-color: transparent;
-    border-radius: 50%;
-    background: white;
-
-    transition: all 0.5s;
+  opacity: 0;
 }
 
-#Home_btns button>img {
-    height: calc((var(--size-adjust) - 0.8) * 3rem);
-    width: calc((var(--size-adjust) - 0.8) * 3rem);
+#Home_btns button {
+  height: calc((var(--size-adjust) - 0.8) * 5rem);
+  width: calc((var(--size-adjust) - 0.8) * 5rem);
+
+  border-color: transparent;
+  border-radius: 50%;
+  background: white;
+
+  transition: all 0.5s;
+}
+
+#Home_btns button > img {
+  height: calc((var(--size-adjust) - 0.8) * 3rem);
+  width: calc((var(--size-adjust) - 0.8) * 3rem);
 }
 
 #Home_btns p {
-    /* margin-top: 1vh; */
-    text-align: center;
-    font-weight: bold;
-    /* font-size: 20px; */
-    transition: opacity 0.5s;
-    opacity: 0;
-    color: black;
+  /* margin-top: 1vh; */
+  text-align: center;
+  font-weight: bold;
+  /* font-size: 20px; */
+  transition: opacity 0.5s;
+  opacity: 0;
+  color: black;
 }
 
-.Home_btns_div{
-    transition: all 0.5s;
+.Home_btns_div {
+  transition: all 0.5s;
 }
-.Home_btns_div:hover{
-    transform: scale(1.1);
+.Home_btns_div:hover {
+  transform: scale(1.1);
 }
-.Home_btns_div:hover p{
-    opacity: 1 !important;
+.Home_btns_div:hover p {
+  opacity: 1 !important;
 }
 
-
-#Home_social_btn a>button>img{
-    height: 6vh;
-    width: 6vh;
+#Home_social_btn a > button > img {
+  height: 6vh;
+  width: 6vh;
 }
-#Home_social_btn button{
-    height:10vh;
-    width: 10vh;
+#Home_social_btn button {
+  height: 10vh;
+  width: 10vh;
 
-    border-color: transparent;
-    border-radius: 50%;
-    background: white;
-    margin-right: 1vh;
-    transition: all 0.5s;
+  border-color: transparent;
+  border-radius: 50%;
+  background: white;
+  margin-right: 1vh;
+  transition: all 0.5s;
 }
 
 @keyframes opening_anime {
-    100%{
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
-@media screen and (min-height: 320px){
-    :root{
-        --size-adjust: 0.9;
-    }
-    #Home_btns button{
-        height:calc((var(--size-adjust) - 0.4) * 5rem);
-        width: calc((var(--size-adjust) - 0.4) * 5rem);
-    
-    }
-    #Home_btns button>img {
-        height: calc((var(--size-adjust) - 0.4) * 3rem);
-        width: calc((var(--size-adjust) - 0.4) * 3rem);
-    }
+@media screen and (min-height: 320px) {
+  :root {
+    --size-adjust: 0.9;
+  }
+  #Home_btns button {
+    height: calc((var(--size-adjust) - 0.4) * 5rem);
+    width: calc((var(--size-adjust) - 0.4) * 5rem);
+  }
+  #Home_btns button > img {
+    height: calc((var(--size-adjust) - 0.4) * 3rem);
+    width: calc((var(--size-adjust) - 0.4) * 3rem);
+  }
 
-    #Home_btns p{
-        margin-top: 0.2rem;
+  #Home_btns p {
+    margin-top: 0.2rem;
 
-        font-size: 0.7rem;
-    }
+    font-size: 0.7rem;
+  }
 
-    #Home_social_btn a>button>img{
-        height: calc((var(--size-adjust) - 0.5) * 3rem);
-        width: calc((var(--size-adjust) - 0.5) * 3rem);
-    }
+  #Home_social_btn a > button > img {
+    height: calc((var(--size-adjust) - 0.5) * 3rem);
+    width: calc((var(--size-adjust) - 0.5) * 3rem);
+  }
 
-    #Home_social_btn button{
-        height:calc((var(--size-adjust) - 0.5) * 5rem);
-        width: calc((var(--size-adjust) - 0.5) * 5rem);
-    
-    }
+  #Home_social_btn button {
+    height: calc((var(--size-adjust) - 0.5) * 5rem);
+    width: calc((var(--size-adjust) - 0.5) * 5rem);
+  }
 
-    #Home_social_btn{
-        position: absolute;
-        bottom: 1%;
-        right: 1%;
-    }
+  #Home_social_btn {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+  }
 }
 
-@media screen and (min-width: 300px) and (min-height: 500px){
-    :root{
-        --size-adjust: 1;
-    }
-
-    
+@media screen and (min-width: 300px) and (min-height: 500px) {
+  :root {
+    --size-adjust: 1;
+  }
 }
-@media screen and (min-width: 350px) and (min-height: 550px){
-    :root{
-        --size-adjust: 1.09;
-    }
+@media screen and (min-width: 350px) and (min-height: 550px) {
+  :root {
+    --size-adjust: 1.09;
+  }
 }
-    
-@media screen and (min-width: 400px) and (min-height: 600px){
-    :root{
-        --size-adjust: 1.25;
-    }
+
+@media screen and (min-width: 400px) and (min-height: 600px) {
+  :root {
+    --size-adjust: 1.25;
+  }
 }
-@media screen and (min-width: 600px) and (min-height: 650px){
-    :root{
-        --size-adjust: 1.5;
-    }
-    #Home_btns button{
-        height:calc((var(--size-adjust) - 0.7) * 5rem);
-        width: calc((var(--size-adjust) - 0.7) * 5rem);
-    
-    }
+@media screen and (min-width: 600px) and (min-height: 650px) {
+  :root {
+    --size-adjust: 1.5;
+  }
+  #Home_btns button {
+    height: calc((var(--size-adjust) - 0.7) * 5rem);
+    width: calc((var(--size-adjust) - 0.7) * 5rem);
+  }
 
-    #Home_btns button>img {
-        height: calc((var(--size-adjust) - 0.7) * 3rem);
-        width: calc((var(--size-adjust) - 0.7) * 3rem);
-    }
+  #Home_btns button > img {
+    height: calc((var(--size-adjust) - 0.7) * 3rem);
+    width: calc((var(--size-adjust) - 0.7) * 3rem);
+  }
 
-    #Home_social_btn a>button>img{
-        height: calc((var(--size-adjust) - 0.8) * 3rem);
-        width: calc((var(--size-adjust) - 0.8) * 3rem);
-    }
+  #Home_social_btn a > button > img {
+    height: calc((var(--size-adjust) - 0.8) * 3rem);
+    width: calc((var(--size-adjust) - 0.8) * 3rem);
+  }
 
-    #Home_social_btn button{
-        height:calc((var(--size-adjust) - 0.8) * 5rem);
-        width: calc((var(--size-adjust) - 0.8) * 5rem);
-    
-    }
+  #Home_social_btn button {
+    height: calc((var(--size-adjust) - 0.8) * 5rem);
+    width: calc((var(--size-adjust) - 0.8) * 5rem);
+  }
 }
-@media screen and (min-width: 767px) and (min-height: 800px){
-    :root{
-        --size-adjust: 1.75;
-    }
+@media screen and (min-width: 767px) and (min-height: 800px) {
+  :root {
+    --size-adjust: 1.75;
+  }
 
-    #Home_btns p{
-        margin-top: 0.5rem;
+  #Home_btns p {
+    margin-top: 0.5rem;
 
-        font-size: 1rem;
-    }
+    font-size: 1rem;
+  }
 
-    #Home_social_btn{
-        position: absolute;
-        bottom: 1%;
-        right: 5%;
-    }
+  #Home_social_btn {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+  }
 }
-@media screen and (min-width: 1023px) and (min-height: 850px){
-    :root{
-        --size-adjust: 2;
-    }
+@media screen and (min-width: 1023px) and (min-height: 850px) {
+  :root {
+    --size-adjust: 2;
+  }
 
-    #Home_btns p{
-        margin-top: 0.7rem;
+  #Home_btns p {
+    margin-top: 0.7rem;
 
-        font-size: 1.2rem;
-    }
-    
+    font-size: 1.2rem;
+  }
 }
 /* @media screen and (min-width: 1500px){
     :root{

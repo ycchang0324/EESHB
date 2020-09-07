@@ -1,46 +1,255 @@
-:root{
+:root {
+  /* --navbar-width: 5rem; */
+  --bg-image: linear-gradient(150deg, wheat, white);
+  --bg-image-pc: url("../../image/background_pc.png");
+  --bg-image-mobile: url("../../image/background_mobile.png");
+  --primary-font: "Noto Sans TC", Arial, sans-serif;
+  --primary-color-1: #ffb8ba;
+  --primary-color-2: #e8b77b;
+  --primary-color-3: #fffa94;
+  --primary-color-4: #7be88a;
+  --primary-color-5: #9ceaff;
+  --primary-color-6: #c87ff0;
 
-    /* --navbar-width: 5rem; */
-    --bg-image : linear-gradient(150deg,wheat,white);
-    --primary-font: 'Noto Sans TC',Arial,sans-serif;
+  --bg-image-pink-pc: url("../../image/background/EESHB bkgd pink.png");
+  --bg-image-pink-mobile: url("../../image/background/EESHB bkgd small pink.png");
+
+  --bg-image-orange-pc: url("../../image/background/EESHB bkgd orange.png");
+  --bg-image-orange-mobile: url("../../image/background/EESHB bkgd small orange.png");
+
+  --bg-image-yellow-pc: url("../../image/background/EESHB bkgd yellow.png");
+  --bg-image-yellow-mobile: url("../../image/background/EESHB bkgd small yellow.png");
+
+  --bg-image-green-pc: url("../../image/background/EESHB bkgd green.png");
+  --bg-image-green-mobile: url("../../image/background/EESHB bkgd small green.png");
+
+  --bg-image-blue-pc: url("../../image/background/EESHB bkgd blue.png");
+  --bg-image-blue-mobile: url("../../image/background/EESHB bkgd small blue.png");
+
+  --bg-image-purple-pc: url("../../image/background/EESHB bkgd purple.png");
+  --bg-image-purple-mobile: url("../../image/background/EESHB bkgd small purple.png");
 }
-@font-face{
-    font-family: 'Noto Sans TC';
-    src: url('../../fonts/NotoSansTC/NotoSansTC-Regular.otf');
 
+.page_container {
+  background-image: var(--bg-image-pc);
+
+  background-size: calc(1440px * var(--background-size))
+    calc(810px * var(--background-size));
+
+  background-position: calc(
+      (100vw - 100px - 1440px * var(--background-size)) / 2
+    ),
+    calc((100vh - 810px * var(--background-size)) / 2);
+
+  background-repeat: no-repeat;
+
+  font-family: var(--primary-font);
+}
+@font-face {
+  font-family: "Noto Sans TC";
+  src: url("../../fonts/NotoSansTC/NotoSansTC-Regular.otf");
 }
 
-@media screen and (min-width: 300px){
-    :root{
+@media screen and (min-width: 300px) {
+  :root {
+    --navbar-width: 4rem;
+  }
+}
+@media screen and (min-width: 350px) {
+  :root {
+    --navbar-width: 5rem;
+  }
+}
+@media screen and (min-width: 400px) {
+}
+@media screen and (min-width: 600px) {
+}
+@media screen and (min-width: 767px) {
+}
+@media screen and (min-width: 850px) {
+  :root {
+    --background-size: 0.6;
+  }
+}
+@media screen and (min-width: 1023px) {
+  :root {
+    --navbar-width: 6rem;
+    --background-size: 0.7;
+  }
+}
+@media screen and (min-width: 1200px) {
+  :root {
+    --background-size: 0.75;
+  }
+}
+@media screen and (min-width: 1500px) {
+  :root {
+    --background-size: 1;
+  }
+}
 
-        --navbar-width: 4rem;
+/*========== Mobile Straight =========*/
+@media screen and (min-width: 320px) and (min-height: 560px) {
+  :root {
+    --background-size: 0.9;
+  }
 
+  .page_container {
+    background-image: var(--bg-image-mobile);
+    background-size: calc(300px * var(--background-size))
+      calc(533px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 300px * var(--background-size)) / 2
+      ),
+      calc((100vh - 533px * var(--background-size)) / 2);
+  }
+}
+
+@media screen and (min-width: 350px) and (min-height: 600px) {
+  :root {
+    --background-size: 1;
+  }
+}
+
+@media screen and (min-width: 400px) and (min-height: 700px) {
+  :root {
+    --background-size: 1.1;
+  }
+}
+
+/*========== Mobile Straight =========*/
+
+/*========= Mobile Horizontal ========*/
+@media screen and (min-width: 560px) and (min-height: 320px) {
+  :root {
+    --background-size: 0.3;
+  }
+
+  .page_container {
+    background-image: var(--bg-image-pc);
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  }
+}
+
+@media screen and (min-width: 600px) and (min-height: 350px) {
+  :root {
+    --background-size: 0.35;
+  }
+}
+
+@media screen and (min-width: 700px) and (min-height: 400px) {
+  :root {
+    --background-size: 0.4;
+  }
+}
+
+/*========= Mobile Horizontal ========*/
+
+/*============== Tablet ==============*/
+
+@media screen and (min-width: 700px) and (min-height: 1000px) {
+  :root {
+  }
+}
+
+@media screen and (min-width: 1000px) and (min-height: 1300px) {
+  :root {
+  }
+}
+
+/*============== Tablet ==============*/
+
+/* =========NoteBook or PC ===========*/
+
+@media screen and (min-width: 1000px) {
+  .page_container {
+    background-image: var(--bg-image-pc);
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  }
+
+  @media screen and (min-height: 563px) {
+    :root {
+      --background-size: calc(563 / 810);
     }
+  }
 }
-@media screen and (min-width: 350px){
-    :root{
 
-        --navbar-width: 5rem;
-        
-    }
-    
-}
-@media screen and (min-width: 400px){
-    
-}
-@media screen and (min-width: 600px){
-    
-}
-@media screen and (min-width: 767px){
-    
-}
-@media screen and (min-width: 1023px){
-    :root{
+@media screen and (min-width: 1100px) {
+  /* .page_container {
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  } */
 
-        --navbar-width: 6rem;
-        
+  @media screen and (min-height: 619px) {
+    :root {
+      --background-size: calc(619 / 810);
     }
+  }
 }
-@media screen and (min-width: 1500px){
-    
+
+@media screen and (min-width: 1200px) {
+  /* .page_container {
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  } */
+
+  @media screen and (min-height: 675px) {
+    :root {
+      --background-size: calc(675 / 810);
+    }
+  }
 }
+
+@media screen and (min-width: 1300px) {
+  /* .page_container {
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  } */
+
+  @media screen and (min-height: 732px) {
+    :root {
+      --background-size: calc(732 / 810);
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .page_container {
+    background-size: calc(1440px * var(--background-size))
+      calc(810px * var(--background-size));
+    background-position: calc(
+        (100vw - var(--navbar-width) - 1440px * var(--background-size)) / 2
+      ),
+      calc((100vh - 810px * var(--background-size)) / 2);
+  }
+
+  @media screen and (min-height: 810px) {
+    :root {
+      --background-size: 1;
+    }
+  }
+}
+
+/* =========NoteBook or PC ===========*/
