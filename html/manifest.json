@@ -1,6 +1,6 @@
 {
-  "short_name": "EESHB",
-  "name": "Electrical Engineering Second Hand Book",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
