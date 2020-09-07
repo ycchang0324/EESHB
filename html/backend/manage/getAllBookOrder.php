@@ -18,13 +18,13 @@ $data = json_decode(file_get_contents("php://input"));
 $conn = connection();
 $sql = "SELECT * FROM bookorder ";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    $orderList = $result -> fetch_all(MYSQLI_ASSOC);
-    echo json_encode(["success"=>1,"orderList"=>$orderList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-}
-else{
-    echo json_encode(["success"=>0]);
-}
+//if($result->num_rows > 0){
+$orderList = $result -> fetch_all(MYSQLI_ASSOC);
+echo json_encode(["success"=>1,"orderList"=>$orderList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+//}
+//else{
+    //echo json_encode(["success"=>0]);
+//}
 $conn->close();
 
 ?>

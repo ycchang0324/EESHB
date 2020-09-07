@@ -200,7 +200,7 @@ class Mailer
                         $fee = $fee + $rowInside["price"] * 0.1;
                     }
                     
-                    $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在 9/19(六) 15:00 會通知您賣書結果。";
+                    $body = $body . "<br>" . "請先準備 " . $fee . " 元手續費，在 9/19(六) 15:10 會通知您賣書結果。";
                         
                 }
                 

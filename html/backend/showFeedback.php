@@ -28,14 +28,14 @@ $sql = "SELECT * FROM feedback ";
 $result = $conn->query($sql);
 
 //當有回饋，會回傳success為1，allComment是儲存所有feedback資料的二維陣列，第一為為第幾列，第二為為第幾欄
-if($result->num_rows > 0){
-    $allComment = $result -> fetch_all(MYSQLI_ASSOC);
-    echo json_encode(["success"=>1,"allComment"=>$allComment],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-}
+//if($result->num_rows > 0){
+$allComment = $result -> fetch_all(MYSQLI_ASSOC);
+echo json_encode(["success"=>1,"allComment"=>$allComment],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+//}
 //若沒有回饋，success回傳0，allComment回傳空值
-else{
-    echo json_encode(["success"=>0,"allComment"=>""]);
-}
+//else{
+//    echo json_encode(["success"=>0,"allComment"=>""]);
+//}
 
 //結束資料庫連線
 $conn->close();
