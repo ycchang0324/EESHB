@@ -529,15 +529,12 @@ class Mailer
                 
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
                 
-                
-                
                 $body = $body . "<br>感謝您的熱情參與";
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "領錢及退書結果確認信" );
-                 if($stdId == 'b08901049'){
-                     $this -> sendMail();
-                 }
+                 $this -> sendMail();
+                 
                  
                  $this -> removeAllRecipient();
                  sleep(1);
