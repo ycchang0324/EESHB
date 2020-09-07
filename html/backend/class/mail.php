@@ -164,6 +164,66 @@ class Mailer
         $this -> sendMail();
     }
     
+    
+    public function sendMailSellerRemind(){
+        $this->setUser();
+        
+        
+        $conn = connection();
+        $sql = "SELECT stdId, name FROM seller";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()) {
+                $stdId = $row["stdId"];
+                $name = $row["name"];
+                $fee = 0;
+                
+                
+            
+                $this->addRecipient($stdId . '@ntu.edu.tw', $name);
+                
+                $body = $name . " 先生/小姐您好，提醒您於9/19(六) 10:00-12:00 將下列要賣的課本帶至博理藝廊：" . "<br>" . "<br>";
+                
+                $connInside = connection();
+                
+                $sqlInside = "SELECT * FROM bookorder WHERE stdId = '$stdId' AND state = '尚未收到書'";
+                $resultInside = $connInside->query($sqlInside);
+             
+                
+                if ($resultInside->num_rows > 0) {
+                    
+                    while($rowInside = $resultInside->fetch_assoc()){
+                        $body = $body . $rowInside["subject"] . '，為 ' . $rowInside["price"] . " 元" . "<br>" ;
+                        $fee = $fee + $rowInside["price"] * 0.1;
+                    }
+                    
+                    $body = $body . "<br>" . "並先準備 " . $fee . " 元手續費，在 9/19(六) 15:30-16:30 領書錢時繳交一成手續費";
+                        
+                }
+                
+                $connInside -> close();
+                
+                
+               
+                
+                
+                $body = $body .  "<br>" . "若有錯誤，請立刻聯繫";
+                $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
+                 
+                 $this -> addBody( $body );
+                 $this -> addSubject( "交書提醒信" );
+                if($stdId == 'b08901049'){
+                    $this -> sendMail();
+                }
+                 
+                 $this -> removeAllRecipient();
+                 sleep(1);
+                
+            }
+            json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+        }
+    }
 
     
     public function sendMailReceiveResult(){
