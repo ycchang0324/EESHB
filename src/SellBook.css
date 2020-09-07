@@ -1,213 +1,205 @@
 @import url(./component/style/global_var.css);
 
-li,ul{
-    list-style: none;
-    padding: 0;
+li,
+ul {
+  list-style: none;
+  padding: 0;
 }
 :focus {
-    outline-color: transparent;
-    outline-style: none;
-  }
-
-:root{
-    --sellbookbox-height: 0rem;
-    --sellbookbox-fontsize: 1rem;
+  outline-color: transparent;
+  outline-style: none;
 }
 
-.SellBook_box_input{
-    color: black;
-    
-    height: calc( var(--sellbookbox-fontsize) + 0.5rem);
+:root {
+  --sellbookbox-height: 0rem;
+  --sellbookbox-fontsize: 1rem;
+}
 
-    background-color: transparent;
-    border-width:0;
-    /* border-style: dashed; */
-    font-family:var(--primary-font);
-    font-size: var(--sellbookbox-fontsize);
+.SellBook_box_input {
+  color: black;
+
+  height: calc(var(--sellbookbox-fontsize) + 0.5rem);
+
+  background-color: transparent;
+  border-width: 0;
+  /* border-style: dashed; */
+  font-family: var(--primary-font);
+  font-size: var(--sellbookbox-fontsize);
 }
 
 .separator {
-    height:2px;
-    width: 100%;
-    background: #68B3FF;
-    display: block;
-    transform: scaleX(0) translateY(-2px);
-    transform-origin: 50%;
-    opacity: 0;
-    transition: all 0.25s linear;
+  height: 2px;
+  width: 100%;
+  background: #68b3ff;
+  display: block;
+  transform: scaleX(0) translateY(-2px);
+  transform-origin: 50%;
+  opacity: 0;
+  transition: all 0.25s linear;
+}
+
+.SellBook_box_input:focus + .separator {
+  transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+
+.SellBook_li:focus-within .separator {
+  transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+
+.SellBook_box_input:hover + .separator {
+  transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+
+.SellBook_li:hover .separator {
+  transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+
+.SellBook_li > div:first-child {
+  display: inline-block;
+}
+.SellBook_li > div:last-child {
+  float: right;
+}
+
+.SellBook_terms_btn {
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  transition: all 0.25s;
+}
+
+.SellBook_terms_btn:hover {
+  color: blue;
+}
+
+.SellBook_terms_btn:focus {
+  outline: 0;
+}
+
+#SellBook_container {
+  /* font-family:var(--primary-font); */
+  width: calc(100vw - var(--navbar-width));
+  height: 100vh;
+  /* background-color: wheat; */
+  /* background-image: var(--bg-image); */
+
+  overflow: scroll;
+}
+
+#SellBook_box {
+  /* height: var(--sellbookbox-height); */
+  margin-top: calc(
+    50vh - var(--sellbookbox-height) / 2 - var(--feedbacktitle-fontsize)
+  );
+  color: black;
+
+  background-color: rgba(123, 232, 138, 0.6);
+  border: 3px #7be88a solid;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: whitesmoke 3px 2px;
+}
+
+#SellBook_box li {
+  font-size: var(--sellbookbox-fontsize);
+  margin-top: 0.5rem;
+}
+
+#SellBook_submit_btn {
+  border: 2px black solid;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+
+  transition: all 0.3s;
+}
+#SellBook_submit_btn:hover {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+#Sellbook_category_select {
+  font-size: var(--sellbookbox-fontsize);
+}
+
+#Sellbook_subject_select {
+  font-size: var(--sellbookbox-fontsize);
+}
+
+#SellBook_terms {
+  background-color: #e6e6e6;
+  border-radius: 0 0 5px 5px;
+}
+
+#SellBook_terms li {
+  font-size: var(--sellbookbox-terms-fontsize) !important;
+}
+
+@media screen and (min-width: 300px) {
+  :root {
+    --sellbookbox-height: calc(100vh - 2rem - var(--feedbacktitle-fontsize));
+    --sellbookbox-fontsize: 0.8rem;
+    --sellbookbox-terms-fontsize: 0.8rem;
   }
-
-.SellBook_box_input:focus+.separator{
-    transform: scaleX(1) translateY(-2px);   
-    opacity: 1;
+}
+@media screen and (min-width: 350px) {
+  :root {
+    --sellbookbox-fontsize: 0.9rem;
+  }
+}
+@media screen and (min-width: 400px) {
+}
+@media screen and (min-width: 600px) {
+  :root {
+    --sellbookbox-height: 30rem;
+    --sellbookbox-fontsize: 1rem;
+  }
 }
 
-.SellBook_li:focus-within .separator{
-    transform: scaleX(1) translateY(-2px);   
-    opacity: 1;
+@media screen and (min-width: 767px) {
+}
+@media screen and (min-width: 1023px) {
+  :root {
+    --sellbookbox-terms-fontsize: 0.9rem;
+  }
+}
+@media screen and (min-width: 1500px) {
+}
+@media screen and (min-height: 300px) {
+  :root {
+    --sellbookbox-height: calc(300px - var(--feedbacktitle-fontsize));
+  }
+}
+@media screen and (min-height: 400px) {
+  :root {
+    --sellbookbox-height: calc(400px - var(--feedbacktitle-fontsize));
+  }
+}
+@media screen and (min-height: 500px) {
+  :root {
+    --sellbookbox-height: calc(500px - var(--feedbacktitle-fontsize));
+  }
+}
+@media screen and (min-height: 600px) {
+  :root {
+    --sellbookbox-height: calc(550px - var(--feedbacktitle-fontsize));
+  }
 }
 
-.SellBook_box_input:hover+.separator{
-    transform: scaleX(1) translateY(-2px);   
-    opacity: 1;
+@media screen and (min-height: 700px) {
+  :root {
+    --sellbookbox-height: calc(700px - var(--feedbacktitle-fontsize));
+  }
 }
 
-.SellBook_li:hover .separator{
-    transform: scaleX(1) translateY(-2px);   
-    opacity: 1;
-}
-
-.SellBook_li > div:first-child{
-    display: inline-block;
-}
-.SellBook_li > div:last-child{
-    float: right;
-    
-}
-
-.SellBook_terms_btn{
-    border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    background-color: transparent;
-    transition: all 0.25s;
-}
-
-.SellBook_terms_btn:hover{
-    color: blue;
-}
-
-.SellBook_terms_btn:focus{
-    outline: 0;
-}
-
-#SellBook_container{
-    font-family:var(--primary-font);
-    width: calc(100vw - var(--navbar-width));
-    height: 100vh;
-    /* background-color: wheat; */
-    background-image: var(--bg-image);
-
-    overflow: scroll;
-    
-}
-
-#SellBook_box{
-    
-    /* height: var(--sellbookbox-height); */
-    margin-top: calc(50vh - var(--sellbookbox-height) / 2 - var(--feedbacktitle-fontsize));
-    color: black;
-    
-    background-color: #7BE88A;
-    border: 3px #7BE88A solid;
-    box-sizing: border-box;
-    border-radius: 20px;
-    box-shadow: whitesmoke 3px 2px;
-}
-
-
-
-#SellBook_box li{
-    font-size: var(--sellbookbox-fontsize);
-    margin-top: 0.5rem;
-}
-
-
-#SellBook_submit_btn{
-    
-    border:2px black solid;
-    border-radius: 10px;
-    background-color: transparent;
-    color:white;
-    
-    transition: all 0.3s;
-    
-}
-#SellBook_submit_btn:hover{
-    background-color: white;
-    color: black;
-    border: none;
-}
-
-#Sellbook_category_select{
-    font-size: var(--sellbookbox-fontsize);
-}
-
-#Sellbook_subject_select{
-    font-size: var(--sellbookbox-fontsize);
-}
-
-#SellBook_terms{
-    background-color: #e6e6e6;
-    border-radius: 0 0 5px 5px;
-}
-
-#SellBook_terms li{
-    font-size: var(--sellbookbox-terms-fontsize) !important;
-}
-
-@media screen and (min-width: 300px){
-    :root{
-        --sellbookbox-height: calc(100vh - 2rem - var(--feedbacktitle-fontsize));
-        --sellbookbox-fontsize:0.8rem;
-        --sellbookbox-terms-fontsize: 0.8rem;
-    }
-}
-@media screen and (min-width: 350px){
-    :root{
-        --sellbookbox-fontsize:0.9rem;
-    }
-}
-@media screen and (min-width: 400px){
-    
-}
-@media screen and (min-width: 600px){
-    :root{
-        --sellbookbox-height: 30rem;
-        --sellbookbox-fontsize: 1rem;
-    }
-}
-
-@media screen and (min-width: 767px){
-    
-}
-@media screen and (min-width: 1023px){
-    :root{
-        --sellbookbox-terms-fontsize: 0.9rem;
-    }
-}
-@media screen and (min-width: 1500px){
-    
-}
-@media screen and (min-height: 300px){
-    :root{
-        --sellbookbox-height: calc(300px - var(--feedbacktitle-fontsize));
-    }
-}
-@media screen and (min-height: 400px){
-    :root{
-        --sellbookbox-height: calc(400px - var(--feedbacktitle-fontsize));
-    }
-}
-@media screen and (min-height: 500px){
-    :root{
-        --sellbookbox-height: calc(500px - var(--feedbacktitle-fontsize));
-    }
-}
-@media screen and (min-height: 600px){
-    :root{
-        --sellbookbox-height: calc(550px - var(--feedbacktitle-fontsize));
-    }
-}
-
-@media screen and (min-height: 700px){
-    :root{
-        --sellbookbox-height: calc(700px - var(--feedbacktitle-fontsize));
-    }
-}
-
-@media screen and (min-height: 800px){
-    :root{
-        --sellbookbox-height: calc(750px - var(--feedbacktitle-fontsize));
-    }
+@media screen and (min-height: 800px) {
+  :root {
+    --sellbookbox-height: calc(750px - var(--feedbacktitle-fontsize));
+  }
 }

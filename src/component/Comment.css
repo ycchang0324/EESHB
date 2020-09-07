@@ -1,97 +1,93 @@
 @import url(../component/style/global_var.css);
 
+.Comment_comments {
+  float: right;
+  clear: both;
 
+  max-width: 50%;
 
-.Comment_comments{
+  border-radius: 10px;
 
-    float: right;
-    clear: both;
+  background-color: rgba(156, 234, 255, 0.6);
 
-    max-width: 50%;
+  font-size: var(--comment-fontsize);
 
-    border-radius: 10px;
-
-    background-color: #9CEAFF;
-
-    font-size: var(--comment-fontsize);
-
+  transition: all 0.5s;
 }
 
-.Comment_comments p{
-
-    max-width: 100%;
-
-    word-wrap: break-word;
-    word-break: break-all;
-
-}
-.Comment_replies{
-    
-    float: left;
-    clear: both;
-
-    max-width: 50%;
-
-    border-radius: 10px;
-
-    background-color: rgb(143,170,220);
-    
-    font-size: var(--comment-fontsize);
-    text-align: left;
-
+.Comment_comments:hover {
+  background-color: rgba(156, 234, 255, 1);
 }
 
-.Comment_replies p{
-    
-    max-width: 100%;
+.Comment_comments p {
+  max-width: 100%;
 
-    word-wrap: break-word;
-    word-break: break-all;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.Comment_replies {
+  float: left;
+  clear: both;
 
+  max-width: 50%;
+
+  border-radius: 10px;
+
+  background-color: rgba(143, 170, 220, 0.6);
+
+  font-size: var(--comment-fontsize);
+  text-align: left;
+
+  transition: all 0.5s;
+}
+.Comment_replies:hover {
+  background-color: rgba(143, 170, 220, 1);
+}
+.Comment_replies p {
+  max-width: 100%;
+
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.Comment_time{
+.Comment_time {
+  background-color: transparent;
 
-    background-color: transparent;
-
-    font-size: var(--commenttime-fontsize);
-
+  font-size: var(--commenttime-fontsize);
 }
 
-@media screen and (min-width: 300px){
-    :root{
-        --comment-fontsize: 0.8rem;
-        --commenttime-fontsize: 0.5rem;
-    }
+@media screen and (min-width: 300px) {
+  :root {
+    --comment-fontsize: 0.8rem;
+    --commenttime-fontsize: 0.5rem;
+  }
 }
-@media screen and (min-width: 350px){
-    :root{
-        --comment-fontsize: 0.9rem;
-        --commenttime-fontsize: 0.5rem;
-    }
+@media screen and (min-width: 350px) {
+  :root {
+    --comment-fontsize: 0.9rem;
+    --commenttime-fontsize: 0.5rem;
+  }
 }
-@media screen and (min-width: 400px){
-    :root{
-        --comment-fontsize: 1rem;
-        --commenttime-fontsize: 0.5rem;
-    }
+@media screen and (min-width: 400px) {
+  :root {
+    --comment-fontsize: 1rem;
+    --commenttime-fontsize: 0.5rem;
+  }
 }
-@media screen and (min-width: 600px){
-    :root{
-        --comment-fontsize: 1.1rem;
-        --commenttime-fontsize: 0.6rem;
-    }
+@media screen and (min-width: 600px) {
+  :root {
+    --comment-fontsize: 1.1rem;
+    --commenttime-fontsize: 0.6rem;
+  }
 }
 
-@media screen and (min-width: 767px){
-    :root{
-        --comment-fontsize: 1.1rem;
-        --commenttime-fontsize: 0.6rem;
-    }
+@media screen and (min-width: 767px) {
+  :root {
+    --comment-fontsize: 1.1rem;
+    --commenttime-fontsize: 0.6rem;
+  }
 }
-@media screen and (min-width: 1023px){
-
+@media screen and (min-width: 1023px) {
 }
-@media screen and (min-width: 1500px){
-    
+@media screen and (min-width: 1500px) {
 }

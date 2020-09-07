@@ -14,8 +14,11 @@
     "static/css/2.8223a7aa.chunk.css.map": "/static/css/2.8223a7aa.chunk.css.map",
     "static/css/main.7d660c76.chunk.css.map": "/static/css/main.7d660c76.chunk.css.map",
     "static/js/2.3eea0cc8.chunk.js.LICENSE.txt": "/static/js/2.3eea0cc8.chunk.js.LICENSE.txt",
-    "static/media/Old_book_sell.css": "/static/media/NotoSansTC-Regular.8b347901.otf",
-    "static/media/logo.png": "/static/media/logo.dddf9afe.png"
+    "static/media/Old_book_sell.css": "/static/media/background_pc.676b0016.png",
+    "static/media/book.png": "/static/media/book.28a286bb.png",
+    "static/media/left_hand.png": "/static/media/left_hand.ed20cc1e.png",
+    "static/media/logo.png": "/static/media/logo.dddf9afe.png",
+    "static/media/right_hand.png": "/static/media/right_hand.3fb1ba66.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8c818c92.js",
