@@ -522,7 +522,7 @@ class Mailer
                 $body = $body . "<br>若無法來領書錢及退書，請於 9/21(一) 12:30 - 13:00 來領取書錢及退書，並且關注"; 
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>';
                 $body = $body . '的公告';
-                $body = $body . '<br>若兩日都無法前來，請寄信至電機二手書信箱 ntueeshb@gmail.com 說明原因';
+                $body = $body . '<br>若補領日期無法前來，請寄信至電機二手書信箱 ntueeshb@gmail.com 說明原因';
                 $body = $body . '<br>否則未領取的書錢及退書將歸於電機系學會所有';
                 
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
