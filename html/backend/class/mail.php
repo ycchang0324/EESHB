@@ -519,18 +519,26 @@ class Mailer
                 
                 
                 $connInside4->close();
+                $body = $body . "<br>若無法來領書錢及退書，請於 9/21(一) 12:30 - 13:00 來領取書錢及退書，並且關注"; 
+                $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>';
+                $body = $body . '的公告';
+                $body = $body . '<br>若兩日都無法前來，請寄信至電機二手書信箱 ntueeshb@gmail.com 說明原因';
+                $body = $body . '<br>否則未領取的書錢及退書將歸於電機系學會所有';
                 
                 $body = $body . "<br>若有錯誤，請立刻聯繫";
                 
                 $body = $body . '<a href="https://www.facebook.com/EESHB/">電機二手書粉絲專頁</a>'; 
-                $body = $body . "<br>補領時間請關注電機二手書臉書粉絲專頁"; 
+                
                 
                 
                 $body = $body . "<br>感謝您的熱情參與";
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "領錢及退書結果確認信" );
-                 $this -> sendMail();
+                 if($stdId == 'b08901049'){
+                     $this -> sendMail();
+                 }
+                 
                  $this -> removeAllRecipient();
                  sleep(1);
                 //echo $name . "\n";
