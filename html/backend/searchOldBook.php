@@ -20,7 +20,7 @@ if($category == "全部書籍")
         $sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' AND category = '$category'";
 $result = $conn->query($sql);
     
-echo "共有： " . $result -> num_rows . "筆資料<br>";
+echo "共有： " . $result -> num_rows . "筆資料<br><br>";
 
 if ($result->num_rows > 0) {
   // output data of each row
