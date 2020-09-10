@@ -15,13 +15,16 @@ $conn = connection();
 echo "搜尋關鍵字為： " . $bookName . "<br>"; 
 $sql = "SELECT * FROM oldbook WHERE name LIKE '%d%' ";
 $result = $conn->query($sql);
-$total_records = $result -> num_rows;
-echo "共有 " . $total_records . " 筆符合<br>";
 
-$row = $result -> fetch_assoc();
-echo $row['name'];
-$conn->close();
-
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - 書名: " . $row["name"].  "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();    
 ?>
     
 <input type="button" value="回到查詢頁面" onclick="location.href='../searchOldBook.html'">
