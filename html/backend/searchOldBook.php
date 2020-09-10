@@ -21,11 +21,12 @@ echo "共有 " . $total_records . " 筆符合<br>";
 $row = $result -> fetch_assoc();
     
 for($i = 0; $i < $total_records; $i++ ){
-    echo $row[$i]['id'] . "<br>";
+    echo $row['id'] . "<br>";
 }    
 //else{
     //echo json_encode(["success"=>0]);
 //}
+echo "結束<br>";
 $conn->close();
 
 ?>
