@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
     else 
         echo "是否有貨： 已賣出<br>";
       
-    echo '<a href= "../old_book_picture/image_<?=$row["picture"]?>.jpg">書籍圖片</a><br>';
+    echo '<a href= "../old_book_picture/image_<?=$row['picture']?>.jpg">書籍圖片</a><br>';
       echo "<br>";
   }
 } else {
