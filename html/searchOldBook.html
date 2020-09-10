@@ -8,7 +8,39 @@
 
 <form action="backend/searchOldBook.php" method="POST">
 查詢書名關鍵字: <input type="text" name="bookName"><br>
-
+<select name="category">
+<option value="全部書籍">全部書籍</option>
+<optgroup label="大一必修">
+    <option value="微積分">微積分</option>
+　<option value="交換電路與邏輯設計">交換電路與邏輯設計</option>
+　<option value="計算機程式設計">計算機程式設計</option>
+<option value="普通物理">普通物理</option>
+<option value="普通化學">普通化學</option>
+<option value="生物科學通論">生物科學通論</option>
+<option value="電路學">電路學</option>
+  </optgroup>
+  <optgroup label="大二必修">
+    <option value="微分方程">微分方程</option>
+	<option value="線性代數">線性代數</option>
+	<option value="電子學">電子學</option>
+	<option value="電磁學">電磁學</option>
+	<option value="機率與統計">機率與統計</option>
+	<option value="信號與系統">信號與系統</option>
+  </optgroup>
+   <optgroup label="系上選修">
+    <option value="離散數學">離散數學</option>
+	<option value="計算機概論">計算機概論</option>
+	<option value="系上其他選修">系上其他選修</option>
+	
+  </optgroup>
+   <option value="系外選修">系外選修</option>
+    <option value="課外書">課外書</option>
+	 <option value="光碟">光碟</option>
+　
+	
+　
+　
+</select>
 <input type="submit">
 </form>
 

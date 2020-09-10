@@ -9,11 +9,15 @@
 require './db/db_connection.php';
 
 $bookName = $_POST["bookName"]; 
-
+$category = $_POST["category"];
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
-echo "搜尋關鍵字為： " . $bookName . "<br><br>"; 
-$sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' ";
+echo "類別為： " . $bookName . "<br><br>"; 
+echo "搜尋關鍵字為： " . $category . "<br><br>"; 
+if($category == "全部書籍")
+    $sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' ";
+    else
+        $sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' AND category = '$category'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
