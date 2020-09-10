@@ -12,11 +12,17 @@ $bookName = $_POST["bookName"];
 
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
-echo $bookName . "<br>"; 
+echo "搜尋關鍵字為： " . $bookName . "<br>"; 
 $sql = "SELECT * FROM oldbook WHERE name LIKE '%d%' ";
 $result = $conn->query($sql);
 $total_records = $result -> num_rows;
-echo $total_records . "<br>";
+echo "共有 " . $total_records . " 筆符合<br>";
+
+$row = $result -> fetch_assoc();
+    
+for($i = 0; $i < $total_records; $i++ ){
+    echo $row[$i]['id'] . "<br>";
+}    
 //else{
     //echo json_encode(["success"=>0]);
 //}
