@@ -15,10 +15,8 @@ $conn = connection();
 echo $bookName . "<br>"; 
 $sql = "SELECT * FROM oldbook WHERE name LIKE '%d%' ";
 $result = $conn->query($sql);
-
-$oldBookList = $result -> fetch_all(MYSQLI_ASSOC);
-echo json_encode(["success"=>1,"oldBookList"=>$oldBookList],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
-
+$total_records = $result -> num_rows;
+echo $total_records . "<br>";
 //else{
     //echo json_encode(["success"=>0]);
 //}
