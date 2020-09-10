@@ -20,8 +20,8 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     echo "id: " . $row["id"]. "<br>";
-    echo "類別: " . $row["category"].  "<br>";
     echo "書名: " . $row["name"].  "<br>";
+    echo "類別: " . $row["category"].  "<br>";
     if( $row["isSold"] == 0 )
         echo "是否有貨： 尚有貨<br>";
     else 
