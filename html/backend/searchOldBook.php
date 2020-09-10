@@ -13,7 +13,7 @@ $bookName = $_POST["bookName"];
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
 echo $bookName . "<br>"; 
-$sql = "SELECT * FROM oldbook WHERE name LIKE '%d%'";
+$sql = "SELECT * FROM oldbook WHERE name LIKE %d%";
 $result = $conn->query($sql);
 //if($result->num_rows > 0){
 $orderList = $result -> fetch_all(MYSQLI_ASSOC);
