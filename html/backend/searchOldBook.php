@@ -17,7 +17,7 @@ $sql = "SELECT * FROM bookorder WHERE name = '%bookName%'";
 $result = $conn->query($sql);
 //if($result->num_rows > 0){
 $orderList = $result -> fetch_all(MYSQLI_ASSOC);
-echo $orderList['id'];
+echo $orderList[0]['id'];
 //else{
     //echo json_encode(["success"=>0]);
 //}
@@ -25,7 +25,7 @@ $conn->close();
 
 ?>
     
-<input type="button" value="回到查詢頁面" onclick="location.href='book.ntuee.org/searchOldBook.html'">
+<input type="button" value="回到查詢頁面" onclick="location.href='../searchOldBook.html'">
 </body>
 </html>
 
