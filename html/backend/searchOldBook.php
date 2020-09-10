@@ -21,7 +21,7 @@ echo "共有 " . $total_records . " 筆符合<br>";
 $row = $result -> fetch_assoc();
     
 for($i = 0; $i < $total_records; $i++ ){
-    echo $row['id'] . "<br>";
+    echo $row[id] . "<br>";
 }    
 //else{
     //echo json_encode(["success"=>0]);
