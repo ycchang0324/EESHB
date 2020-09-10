@@ -12,14 +12,21 @@ $bookName = $_POST["bookName"];
 
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
-echo "搜尋關鍵字為： " . $bookName . "<br>"; 
-$sql = "SELECT * FROM oldbook WHERE name LIKE '%d%' ";
+echo "搜尋關鍵字為： " . $bookName . "<br><br>"; 
+$sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - 書名: " . $row["name"].  "<br>";
+    echo "id: " . $row["id"]. "<br>";
+    echo "類別: " . $row["category"].  "<br>";
+    echo "書名: " . $row["name"].  "<br>";
+    if( $row["isSold"] == 0 )
+        echo "是否有貨： 尚有貨<br>";
+    else 
+        echo "是否有貨： 已賣出<br>";
+    
   }
 } else {
   echo "0 results";
