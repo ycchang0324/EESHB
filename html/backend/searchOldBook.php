@@ -17,7 +17,7 @@ $sql = "SELECT * FROM bookorder WHERE name = '%$bookName%'";
 $result = $conn->query($sql);
 //if($result->num_rows > 0){
 $orderList = $result -> fetch_all(MYSQLI_ASSOC);
-echo $orderList[0]['id'];
+echo $orderList;
 //else{
     //echo json_encode(["success"=>0]);
 //}
