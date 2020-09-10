@@ -19,7 +19,7 @@ $total_records = $result -> num_rows;
 echo "共有 " . $total_records . " 筆符合<br>";
 
 $row = $result -> fetch_assoc();
-echo $row[2]['id'];
+echo $row['id'][2];
 $conn->close();
 
 ?>
