@@ -26,9 +26,7 @@ if ($result->num_rows > 0) {
         echo "是否有貨： 尚有貨<br>";
     else 
         echo "是否有貨： 已賣出<br>";
-    $file = '../old_book_picture/image_1.jpg';
-      header('Content-Type: image/jpeg');
-      readfile($file);
+    
       echo "<br>";
   }
 } else {
