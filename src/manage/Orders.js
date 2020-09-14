@@ -89,7 +89,6 @@ class Orders extends Component {
     let statusbar = [];
     let count = 1;
     for (let order of orderList) {
-      //   alert(order.name);
       statusbar.push(
         <OrderStatusBar data={order} key={order.id} index={order.id} />
       );
