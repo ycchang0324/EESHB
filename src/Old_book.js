@@ -256,7 +256,14 @@ const Old_book_card = (props) => {
           alt={props.data.img_path}
         />
       </div>
-      <div className="card-body px-2 py-1 d-flex flex-column">
+          <div className="card-body px-2 py-1 d-flex flex-column">
+              <p className="card-title Old_book_card_price mt-auto">
+                  編號：
+          <span style={{
+                      color: "black", fontWeight: "normal" }}>
+                      { props.data.id}
+                  </span>
+        </p>
         <p className="card-text Old_book_card_text">{props.data.name}</p>
         <p className="card-title mt-auto">
           <span

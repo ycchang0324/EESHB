@@ -124,6 +124,8 @@ class Manage {
     function changeState( $id, $state){
         $conn = connection();
         $sql = "SELECT * FROM bookorder WHERE id = '$id'";
+        
+        $msg = "成功更改狀態" . $id;
         if($result = $conn -> query( $sql )){
             $row = $result->fetch_array();
             $stdId = $row['stdId'];
@@ -156,7 +158,7 @@ class Manage {
       
         
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(["success"=>1,"msg"=>"成功更改狀態"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
+            echo json_encode(["success"=>1,"msg"=> $msg],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
                 
             }else {
                 $msg = "更改狀態失敗 " . $conn->error;
