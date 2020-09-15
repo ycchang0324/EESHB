@@ -198,7 +198,9 @@ class Mailer
                         $fee = $fee + $rowInside["price"] * 0.1;
                     }
                     
+                    
                     $body = $body . "<br>" . "並先準備 " . $fee . " 元手續費，在 9/19(六) 15:30-16:30 領書錢時繳交一成手續費";
+                    $body = $body . "<br>" . "註：我們所收書籍須為目前上課用的版本(請和賣書表單內的課本圖片相同)，若不相同，我們將拒絕收取書籍，請您先確認書籍的版本";
                         
                 }
                 
@@ -213,8 +215,8 @@ class Mailer
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "交書提醒信" );
-                
-                $this -> sendMail();
+                if($stdId == 'b08901049')
+                    $this -> sendMail();
                 
                  
                  $this -> removeAllRecipient();
