@@ -41,7 +41,7 @@ $stdId = strtolower($stdId);
 //創造一個$seller的物件
 
 $startTime = "2020-09-07";
-$endTime = "2020-09-17";
+$endTime = "2020-09-16";
 $today = date('Y-m-d');
 
 $isOpenTime = 1;
