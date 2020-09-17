@@ -222,7 +222,7 @@ class Mailer
                 
                  
                  $this -> removeAllRecipient();
-                 sleep(1);
+                 sleep(0.5);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -302,7 +302,7 @@ class Mailer
                  $this -> addSubject( "收書結果確認信" );
                  $this -> sendMail();
                  $this -> removeAllRecipient();
-                 sleep(1);
+                 sleep(0.5);
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -376,7 +376,7 @@ class Mailer
                 
                     $this -> removeAllRecipient();
                     
-                    sleep(1);
+                    sleep(0.5);
                 
                  
 
@@ -541,7 +541,7 @@ class Mailer
                  
                  
                  $this -> removeAllRecipient();
-                 sleep(1);
+                 sleep(0.5);
                 //echo $name . "\n";
                 
             }
