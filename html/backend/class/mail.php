@@ -232,7 +232,7 @@ class Mailer
     
     public function sendMailReceiveResult(){
         $this->setUser();
-        
+        $userCount = 0;
         
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
@@ -300,9 +300,17 @@ class Mailer
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "收書結果確認信" );
-                 $this -> sendMail();
+                if($stdId == 'b08901049')
+                    $this -> sendMail();
+                 
                  $this -> removeAllRecipient();
-                 sleep(0.5);
+                sleep(0.5);
+                if( $userCount == 10 )
+                    sleep(5);
+                if( $userCount == 20 )
+                    sleep(5);
+                $userCount++;
+                echo $stdId . " " . $name . "成功寄信<br><br>";
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
