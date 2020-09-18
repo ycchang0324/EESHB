@@ -300,7 +300,7 @@ class Mailer
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "收書結果確認信" );
-                if($stdId == 'b08901049')
+                
                     $this -> sendMail();
                  
                  $this -> removeAllRecipient();
@@ -380,7 +380,7 @@ class Mailer
                 
                     $this -> addBody( $body );
                     $this -> addSubject( "二手書賣書結果" );
-                if($stdId == 'b08901049')
+                
                     $this -> sendMail();
                 
                     $this -> removeAllRecipient();
@@ -555,7 +555,7 @@ class Mailer
                  $this -> addBody( $body );
                  $this -> addSubject( "領錢及退書結果確認信" );
                  
-                if($stdId == 'b08901049')
+                
                     $this -> sendMail();
                  
                  
