@@ -10,10 +10,21 @@ require './db/db_connection.php';
 
 $bookName = $_POST["bookName"]; 
 $category = $_POST["category"];
+    
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+$bookName = test_input($bookName);
+$bookName = strtolower($bookName);
+    
 //呼叫連線資料庫，$conn現在是操作資料庫的變數
 $conn = connection();
-echo "類別為： " . $bookName . "<br><br>"; 
-echo "搜尋關鍵字為： " . $category . "<br><br>"; 
+echo "類別為： " . $category . "<br><br>"; 
+echo "搜尋關鍵字為： " . $bookName . "<br><br>"; 
 if($category == "全部書籍")
     $sql = "SELECT * FROM oldbook WHERE name LIKE '%$bookName%' ";
     else
