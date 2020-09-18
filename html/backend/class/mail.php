@@ -310,7 +310,7 @@ class Mailer
                 if( $userCount == 20 )
                     sleep(5);
                 $userCount++;
-                echo $stdId . " " . $name . "成功寄信<br><br>";
+                echo $stdId . " " . $name . "成功寄信\n\n" ;
                 
             }
             json_encode(["success"=>1,"msg"=>"send mail successfully"],JSON_UNESCAPED_UNICODE,JSON_FORCE_OBJECT);
@@ -324,6 +324,7 @@ class Mailer
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
         $result = $conn->query($sql);
+        $userCount = 0;
         
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
@@ -379,12 +380,18 @@ class Mailer
                 
                     $this -> addBody( $body );
                     $this -> addSubject( "二手書賣書結果" );
-                
+                if($stdId == 'b08901049')
                     $this -> sendMail();
                 
                     $this -> removeAllRecipient();
                     
                     sleep(0.5);
+                if( $userCount == 10 )
+                    sleep(5);
+                if( $userCount == 20 )
+                    sleep(5);
+                $userCount++;
+                echo $stdId . " " . $name . "成功寄信\n\n" ;
                 
                  
 
@@ -449,6 +456,8 @@ class Mailer
         $conn = connection();
         $sql = "SELECT stdId, name FROM seller";
         $result = $conn->query($sql);
+            
+            $userCount = 0;
         
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
@@ -545,11 +554,19 @@ class Mailer
                  
                  $this -> addBody( $body );
                  $this -> addSubject( "領錢及退書結果確認信" );
-                 $this -> sendMail();
+                 
+                if($stdId == 'b08901049')
+                    $this -> sendMail();
                  
                  
                  $this -> removeAllRecipient();
                  sleep(0.5);
+                if( $userCount == 10 )
+                    sleep(5);
+                if( $userCount == 20 )
+                    sleep(5);
+                $userCount++;
+                echo $stdId . " " . $name . "成功寄信\n\n" ;
                 //echo $name . "\n";
                 
             }
