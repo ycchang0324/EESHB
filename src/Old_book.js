@@ -273,20 +273,20 @@ const Old_book_card = (props) => {
               color: "gray",
             }}
           >
-            定價{props.data.price}元
+            定價{0 * props.data.price}元
           </span>
         </p>
         <p className="card-title Old_book_card_price mt-auto">
           校內同學
           <span style={{ color: "red", fontWeight: "bold" }}>
-            {0.8 * props.data.price}
+            {0 * props.data.price}
           </span>
           元
         </p>
         <p className="card-title Old_book_card_price mt-auto">
           系上同學
           <span style={{ color: "red", fontWeight: "bold" }}>
-            {0.5 * props.data.price}
+            {0 * props.data.price}
           </span>
           元
         </p>
